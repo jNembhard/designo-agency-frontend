@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import reportWebVitals from "./reportWebVitals";
+import ThemeProvider from "@mui/material/styles/ThemeProvider";
+import { theme } from "./styles/theme";
 
 const client = new ApolloClient({
   uri: "https://5g2yemqsivaell5fo3lihplbfe.appsync-api.us-east-1.amazonaws.com/graphql",
@@ -18,9 +20,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
+    <ThemeProvider theme={theme}>
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 

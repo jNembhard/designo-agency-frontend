@@ -1,6 +1,6 @@
-import React from "react";
 import { useQuery } from "@apollo/client";
-import { GET_ABOUT } from "./graphql/Queries";
+import { GET_ABOUT } from "./graphql/aboutQueries";
+import Typography from "@mui/material/Typography";
 
 export const About = (about: { aboutID: string }) => {
   const { loading, error, data } = useQuery(GET_ABOUT, {
@@ -11,12 +11,16 @@ export const About = (about: { aboutID: string }) => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const { description, images, title } = data.getAbout;
+  const { description, images, title } = data.about;
 
   return (
     <div>
-      <h1>{title}</h1>
-      <p>{description}</p>
+      <Typography variant="h1">{title}</Typography>
+      <Typography variant="h2">{title}</Typography>
+      <Typography variant="h3">{title}</Typography>
+      <Typography variant="body1" color="black.dark">
+        {description}
+      </Typography>
       <img src={images.heroPatternDesktop} alt="" />
       <img src={images.heroPatternMobile} alt="" />
       <img src={images.mobile} alt="" />
