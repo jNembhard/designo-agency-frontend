@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import { GET_ABOUT } from "./graphql/aboutQueries";
 import Typography from "@mui/material/Typography";
 
-export const About = (about: { aboutID: string }) => {
+export const Test = (about: { aboutID: string }) => {
   const { loading, error, data } = useQuery(GET_ABOUT, {
     variables: { AboutID: about.aboutID },
   });

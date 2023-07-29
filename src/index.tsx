@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import App from "./App";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { BrowserRouter as Router } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import { theme } from "./styles/theme";
@@ -22,7 +22,9 @@ root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <ApolloProvider client={client}>
-        <App />
+        <Router>
+          <App />
+        </Router>
       </ApolloProvider>
     </ThemeProvider>
   </React.StrictMode>
