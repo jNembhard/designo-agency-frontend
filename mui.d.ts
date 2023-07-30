@@ -1,4 +1,15 @@
 declare module "@mui/material/styles" {
+  interface BreakpointOverrides {
+    xs: false;
+    sm: false;
+    md: false;
+    lg: false;
+    xl: false;
+    mobile: true;
+    tablet: true;
+    laptop: true;
+    desktop: true;
+  }
   interface TypographyOptions {
     fontFamily?: string;
     h1?: {
@@ -42,11 +53,13 @@ declare module "@mui/material/styles" {
 }
 
 interface Theme {
+  breakpoints: BreakpointsOverrides;
   palette: PaletteOptions;
   typography: TypographyOptions;
 }
 
 interface ThemeOptions {
+  breakpoints?: BreakpointOverrides;
   palette?: PaletteOptions;
   typography?: TypographyOptions;
 }

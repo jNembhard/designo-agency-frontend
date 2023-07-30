@@ -1,10 +1,17 @@
-import { Typography } from "@mui/material";
-import React from "react";
+import Box from "@mui/material/Box";
+import HeroCTA from "../components/organisms/HeroCTA";
 
-type Props = {};
-
-const Home = (props: Props) => {
-  return <Typography variant="h2">Home</Typography>;
+const Home = () => {
+  return (
+    <Box
+      sx={{
+        bgcolor: "peach.main",
+        display: { textAlign: "center" },
+      }}
+    >
+      <HeroCTA />
+    </Box>
+  );
 };
 
 export default Home;
