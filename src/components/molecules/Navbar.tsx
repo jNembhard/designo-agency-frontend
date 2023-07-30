@@ -43,9 +43,13 @@ export const Navbar = () => {
                   letterSpacing: "0.125rem",
                   padding: "0 1.313rem",
                   textTransform: "uppercase",
+                  textDecoration: "none",
                   display: {
                     mobile: "none",
                     tablet: "unset",
+                  },
+                  "&:hover": {
+                    textDecoration: "underline",
                   },
                 }}
               >

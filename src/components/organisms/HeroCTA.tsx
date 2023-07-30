@@ -4,10 +4,19 @@ import DesignoButton from "../atoms/DesignoButton";
 
 const HeroCTA = () => {
   return (
-    <Box>
+    <Box
+      overflow="hidden"
+      position="relative"
+      sx={{
+        maxHeight: "52.688rem",
+        textAlign: "center",
+        zIndex: 5,
+        bgcolor: "peach.main",
+      }}
+    >
       <Box
         sx={{
-          padding: { mobile: "80px 0" },
+          paddingTop: { mobile: "5rem" },
         }}
       >
         <Typography
@@ -17,14 +26,15 @@ const HeroCTA = () => {
             color: "white.main",
           }}
         >
-          Award-winning custom digital designs and digital branding solutions
+          Award-winning custom designs and digital branding solutions
         </Typography>
       </Box>
+
       <Box
         component="div"
         sx={{
           margin: {
-            mobile: "14px 0 24px 0",
+            mobile: "0.875rem 0 1.5rem 0",
           },
         }}
       >
@@ -41,6 +51,23 @@ const HeroCTA = () => {
         </Typography>
       </Box>
       <DesignoButton isLight={true} link="/about" />
+      <Box>
+        <Box
+          position="absolute"
+          sx={{ zIndex: "-1" }}
+          top="106px"
+          component="img"
+          src="https://designo-image-bucket.s3.amazonaws.com/assets/home/desktop/bg-pattern-hero-home.svg"
+          alt=""
+        />
+        <Box
+          marginTop="-7.5rem"
+          marginLeft="-8.438rem"
+          component="img"
+          src="https://designo-image-bucket.s3.amazonaws.com/assets/home/desktop/image-hero-phone.png"
+          alt="designo phone"
+        />
+      </Box>
     </Box>
   );
 };

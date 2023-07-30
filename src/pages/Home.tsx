@@ -1,15 +1,12 @@
 import Box from "@mui/material/Box";
 import HeroCTA from "../components/organisms/HeroCTA";
+import DesignGallery from "../components/organisms/DesignGallery";
 
 const Home = () => {
   return (
-    <Box
-      sx={{
-        bgcolor: "peach.main",
-        display: { textAlign: "center" },
-      }}
-    >
+    <Box>
       <HeroCTA />
+      <DesignGallery />
     </Box>
   );
 };

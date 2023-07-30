@@ -4,7 +4,7 @@ import React from "react";
 type Props = {};
 
 const Contact = (props: Props) => {
-  return <Typography variant="h3">Contact</Typography>;
+  return <Typography variant="h2">Contact</Typography>;
 };
 
 export default Contact;
