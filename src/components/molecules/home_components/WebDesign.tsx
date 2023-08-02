@@ -26,32 +26,26 @@ const WebDesign = (design: { designID: string }) => {
             textAlign="center"
             alignItems="center"
             justifyContent="center"
-            borderRadius="15px"
+            borderRadius="0.938rem"
             // border="2px solid blue"
             overflow="hidden"
-            margin="0 24px 2rem"
             bgcolor="black.dark"
             sx={{
-              margin: "0 24px 2rem",
-              width: { mobile: "327px" },
-              height: { mobile: "250px" },
+              margin: "0 1.5rem 2rem",
+              width: { mobile: "20.438rem" },
+              height: { mobile: "15.625rem" },
             }}
           >
-            <Box>
-              <picture>
-                <source
-                  media="(min-width: 62em)"
-                  srcSet={images.desktopLarge}
-                />
-                <source media="(min-width: 30em)" srcSet={images.tablet} />
-                <Box
-                  component="img"
-                  sx={{ objectFit: "cover", opacity: 0.7, height: "250px" }}
-                  src={images.mobile}
-                  alt={name}
-                />
-              </picture>
-            </Box>
+            <picture>
+              <source media="(min-width: 62em)" srcSet={images.desktopLarge} />
+              <source media="(min-width: 30em)" srcSet={images.tablet} />
+              <Box
+                component="img"
+                sx={{ objectFit: "cover", opacity: 0.7, height: "250px" }}
+                src={images.mobile}
+                alt={name}
+              />
+            </picture>
             <Box
               position="absolute"
               sx={{

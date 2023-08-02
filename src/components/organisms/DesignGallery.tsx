@@ -7,7 +7,13 @@ type Props = {};
 
 const DesignGallery = (props: Props) => {
   return (
-    <Stack sx={{ margin: { mobile: "120px 0" } }}>
+    <Stack
+      sx={{
+        margin: { mobile: "120px 0" },
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <WebDesign designID="design-1" />
       <SubDesign designID="design-2" />
       <SubDesign designID="design-3" />

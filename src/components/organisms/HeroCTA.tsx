@@ -12,6 +12,8 @@ const HeroCTA = () => {
         textAlign: "center",
         zIndex: 5,
         bgcolor: "peach.main",
+        marginLeft: { mobile: "-0.5rem", tablet: "unset" },
+        width: { mobile: "100vw", tablet: "100%" },
       }}
     >
       <Box
@@ -29,7 +31,6 @@ const HeroCTA = () => {
           Award-winning custom designs and digital branding solutions
         </Typography>
       </Box>
-
       <Box
         component="div"
         sx={{
@@ -55,14 +56,13 @@ const HeroCTA = () => {
         <Box
           position="absolute"
           sx={{ zIndex: "-1" }}
-          top="106px"
+          top="6.625rem"
           component="img"
           src="https://designo-image-bucket.s3.amazonaws.com/assets/home/desktop/bg-pattern-hero-home.svg"
           alt=""
         />
         <Box
-          marginTop="-7.5rem"
-          marginLeft="-8.438rem"
+          margin="-7.5rem -7.75rem 0"
           component="img"
           src="https://designo-image-bucket.s3.amazonaws.com/assets/home/desktop/image-hero-phone.png"
           alt="designo phone"

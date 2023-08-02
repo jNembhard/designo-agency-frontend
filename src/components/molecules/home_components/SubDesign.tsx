@@ -30,8 +30,8 @@ const SubDesign = (design: { designID: string }) => {
         bgcolor="black.dark"
         sx={{
           margin: "0 24px 2rem",
-          width: { mobile: "327px" },
-          height: { mobile: "250px" },
+          width: { mobile: "20.438rem" },
+          height: { mobile: "15.625rem" },
         }}
       >
         <picture>
