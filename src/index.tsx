@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import { theme } from "./styles/theme";
+import CssBaseline from "@mui/material/CssBaseline";
 
 const client = new ApolloClient({
   uri: "https://5g2yemqsivaell5fo3lihplbfe.appsync-api.us-east-1.amazonaws.com/graphql",
@@ -21,6 +22,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <ApolloProvider client={client}>
         <Router>
           <App />

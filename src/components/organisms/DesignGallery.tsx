@@ -6,7 +6,7 @@ const DesignGallery = () => {
   return (
     <Stack
       sx={{
-        margin: { mobile: "7.5rem 0" },
+        margin: { mobile: "7.5rem 1.5rem" },
         alignItems: "center",
         justifyContent: "center",
       }}

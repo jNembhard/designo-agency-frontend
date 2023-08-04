@@ -50,16 +50,32 @@ declare module "@mui/material/styles" {
       dark: string;
     };
   }
+
+  interface OverrideOptions {
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: {
+          body: {
+            margin: string;
+            padding: string;
+            borderSizing: string;
+          };
+        };
+      };
+    };
+  }
 }
 
 interface Theme {
   breakpoints: BreakpointsOverrides;
   palette: PaletteOptions;
+  components?: OverrideOptions;
   typography: TypographyOptions;
 }
 
 interface ThemeOptions {
   breakpoints?: BreakpointOverrides;
   palette?: PaletteOptions;
+  components?: OverrideOptions;
   typography?: TypographyOptions;
 }

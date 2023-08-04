@@ -10,7 +10,7 @@ const FooterCTA = () => {
       zIndex={0}
       bgcolor="peach.main"
       textAlign="center"
-      sx={{ padding: { mobile: "4rem 0.75rem" }, mx: { mobile: "0.75rem" } }}
+      sx={{ padding: { mobile: "4rem 0.75rem" }, mx: { mobile: "1.5rem" } }}
       borderRadius="0.938rem"
     >
       <Box

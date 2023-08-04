@@ -23,7 +23,7 @@ const Keypoints = () => {
     a.calloutID.localeCompare(b.calloutID)
   );
   return (
-    <Box sx={{ margin: { mobile: "0 0.75rem" } }}>
+    <Box sx={{ mx: { mobile: "1.5rem" } }}>
       {!loading && !error && (
         <Stack>
           {callout.map((callout: ICallout) => (

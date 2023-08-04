@@ -12,8 +12,7 @@ const HeroCTA = () => {
         textAlign: "center",
         zIndex: 5,
         bgcolor: "peach.main",
-        marginLeft: { mobile: "-0.5rem", tablet: "unset" },
-        width: { mobile: "100vw", tablet: "100%" },
+        px: { mobile: "24px" },
       }}
     >
       <Box
@@ -62,7 +61,7 @@ const HeroCTA = () => {
           alt=""
         />
         <Box
-          margin="-7.5rem -7.75rem 0"
+          margin="-7.5rem -10rem 0"
           component="img"
           src="https://designo-image-bucket.s3.amazonaws.com/assets/home/desktop/image-hero-phone.png"
           alt="designo phone"

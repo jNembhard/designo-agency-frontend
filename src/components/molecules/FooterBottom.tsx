@@ -13,29 +13,28 @@ const FooterBottom = () => {
       textAlign="center"
       position="absolute"
       zIndex={-1}
-      top="12.5rem"
+      top="11.5rem"
       sx={{
         width: {
-          mobile: "100vw",
+          mobile: "100%",
           tablet: "100%",
         },
         height: {
-          mobile: "50rem",
+          mobile: "54.938rem",
         },
-        paddingTop: {
-          mobile: "15.813rem",
-        },
+        padding: { mobile: "15.813rem 1.438rem 4rem 1.5rem" },
       }}
     >
       <Link href="/">
-        <img
+        <Box
+          component="img"
           src="https://designo-image-bucket.s3.amazonaws.com/assets/shared/desktop/logo-light.png"
           width="12.625rem"
           height="1.688rem"
           alt=""
         />
       </Link>
-      <Stack marginTop="2rem" paddingTop="1rem">
+      <Stack marginTop="2rem" paddingTop="1rem" borderTop="1px solid gray">
         {navlinks.map((navlink) => (
           <Typography
             key={navlink.id}

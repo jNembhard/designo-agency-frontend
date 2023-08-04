@@ -9,6 +9,17 @@ const themeOptions: ThemeOptions = {
       desktop: 1200,
     },
   },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          margin: "0",
+          padding: "0",
+          borderSizing: "border-box",
+        },
+      },
+    },
+  },
   palette: {
     peach: {
       main: "#e7816b",

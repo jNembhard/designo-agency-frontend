@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import { navlinks } from "../../utils/navLinks";
 import Link from "@mui/material/Link";
+import BurgerNav from "../atoms/BurgerNav";
 
 export const Navbar = () => {
   return (
@@ -56,7 +57,7 @@ export const Navbar = () => {
                 {navlink.name}
               </Typography>
             ))}
-            <IconButton
+            {/* <IconButton
               size="large"
               edge="start"
               color="inherit"
@@ -66,13 +67,9 @@ export const Navbar = () => {
                   tablet: "none",
                 },
               }}
-            >
-              <Box
-                component="img"
-                src="https://designo-image-bucket.s3.amazonaws.com/assets/shared/mobile/icon-hamburger.svg"
-                alt=""
-              />
-            </IconButton>
+            > */}
+            <BurgerNav />
+            {/* </IconButton> */}
           </div>
         </Toolbar>
       </AppBar>

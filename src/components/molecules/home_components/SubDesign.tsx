@@ -29,7 +29,10 @@ const SubDesign = (design: { designID: string }) => {
         sx={{
           margin: "0 1.5rem 2rem",
           width: { mobile: "20.438rem" },
-          height: { mobile: "15.625rem" },
+          height: { mobile: "15.313rem" },
+          "&:hover": {
+            bgcolor: "peach.main",
+          },
         }}
       >
         <picture>
@@ -37,7 +40,10 @@ const SubDesign = (design: { designID: string }) => {
           <source media="(min-width: 30em)" srcSet={images.tablet} />
           <Box
             component="img"
-            sx={{ opacity: 0.7 }}
+            sx={{
+              objectFit: "cover",
+              opacity: 0.5,
+            }}
             src={images.mobile}
             alt={name}
           />
