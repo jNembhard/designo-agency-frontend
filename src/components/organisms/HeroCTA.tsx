@@ -51,7 +51,7 @@ const HeroCTA = () => {
           Find out more about our services.
         </Typography>
       </Box>
-      <DesignoButton isLight={true} link="/about" />
+      <DesignoButton isLight={true} link="/about" text="learn more" />
       <Box>
         <Box
           position="absolute"

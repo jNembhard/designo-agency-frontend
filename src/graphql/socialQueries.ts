@@ -12,7 +12,7 @@ export const GET_SOCIAL = gql`
 `;
 
 export const GET_SOCIALS = gql`
-  query getSocials($count: String!) {
+  query getSocials($count: Int!) {
     socials(count: $count) {
       social {
         SocialID

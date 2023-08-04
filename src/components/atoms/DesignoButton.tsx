@@ -21,13 +21,15 @@ const DesignoButton = styled(Button)(({ isLight }: { isLight: boolean }) => ({
 const DesignButton = ({
   link,
   isLight,
+  text,
 }: {
   link: string;
   isLight: boolean;
+  text: string;
 }) => {
   return (
     <Link href={link}>
-      <DesignoButton isLight={isLight}>learn more</DesignoButton>
+      <DesignoButton isLight={isLight}>{text}</DesignoButton>
     </Link>
   );
 };
