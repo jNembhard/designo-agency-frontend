@@ -9,7 +9,7 @@ import BurgerNav from "../atoms/BurgerNav";
 
 export const Navbar = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} zIndex="modal">
       <AppBar
         position="static"
         sx={{
@@ -57,7 +57,7 @@ export const Navbar = () => {
                 {navlink.name}
               </Typography>
             ))}
-            {/* <IconButton
+            <IconButton
               size="large"
               edge="start"
               color="inherit"
@@ -67,9 +67,9 @@ export const Navbar = () => {
                   tablet: "none",
                 },
               }}
-            > */}
-            <BurgerNav />
-            {/* </IconButton> */}
+            >
+              <BurgerNav />
+            </IconButton>
           </div>
         </Toolbar>
       </AppBar>
