@@ -27,7 +27,6 @@ const WebDesign = (design: { designID: string }) => {
             alignItems="center"
             justifyContent="center"
             borderRadius="0.938rem"
-            // border="2px solid blue"
             overflow="hidden"
             bgcolor="black.dark"
             sx={{
@@ -41,7 +40,7 @@ const WebDesign = (design: { designID: string }) => {
               <source media="(min-width: 30em)" srcSet={images.tablet} />
               <Box
                 component="img"
-                sx={{ objectFit: "cover", opacity: 0.7, height: "250px" }}
+                sx={{ objectFit: "cover", opacity: 0.7, height: "15.625rem" }}
                 src={images.mobile}
                 alt={name}
               />

@@ -1,9 +1,6 @@
 import Typography from "@mui/material/Typography";
-import React from "react";
 
-type Props = {};
-
-const About = (props: Props) => {
+const About = () => {
   return <Typography variant="h1">About</Typography>;
 };
 

@@ -1,11 +1,9 @@
 import { useQuery } from "@apollo/client";
-import { Typography } from "@mui/material";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Link from "@mui/material/Link";
 import { GET_DESIGN } from "../../../graphql/designQueries";
-
-type Props = {};
+import Stack from "@mui/material/Stack";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
 
 const SubDesign = (design: { designID: string }) => {
   const { loading, error, data } = useQuery(GET_DESIGN, {
@@ -29,7 +27,7 @@ const SubDesign = (design: { designID: string }) => {
         overflow="hidden"
         bgcolor="black.dark"
         sx={{
-          margin: "0 24px 2rem",
+          margin: "0 1.5rem 2rem",
           width: { mobile: "20.438rem" },
           height: { mobile: "15.625rem" },
         }}
@@ -49,7 +47,7 @@ const SubDesign = (design: { designID: string }) => {
             variant="h2"
             sx={{
               textTransform: "uppercase",
-              fontSize: { mobile: "28px", tablet: "40px" },
+              fontSize: { mobile: "1.75rem", tablet: "2.5rem" },
             }}
           >
             {name}
@@ -57,9 +55,9 @@ const SubDesign = (design: { designID: string }) => {
           <Typography
             variant="body1"
             sx={{
-              fontSize: "15px",
+              fontSize: "0.938rem",
               fontWeight: 500,
-              letterSpacing: "5px",
+              letterSpacing: "0.313rem",
               textTransform: "uppercase",
             }}
           >

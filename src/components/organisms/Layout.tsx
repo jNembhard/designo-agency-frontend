@@ -8,11 +8,11 @@ type Children = {
 
 const Layout = ({ children }: Children) => {
   return (
-    <div>
+    <>
       <Navbar />
       {children}
       <Footer />
-    </div>
+    </>
   );
 };
 

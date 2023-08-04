@@ -10,7 +10,7 @@ const FooterCTA = () => {
       zIndex={0}
       bgcolor="peach.main"
       textAlign="center"
-      sx={{ padding: { mobile: "4rem 0.75rem" }, mx: { mobile: "12px" } }}
+      sx={{ padding: { mobile: "4rem 0.75rem" }, mx: { mobile: "0.75rem" } }}
       borderRadius="0.938rem"
     >
       <Box
@@ -26,8 +26,8 @@ const FooterCTA = () => {
       <Box marginBottom="0.375rem" zIndex={2}>
         <Typography
           variant="h2"
-          fontSize="32px"
-          lineHeight="36px"
+          fontSize="2rem"
+          lineHeight="2.25rem"
           color="white.main"
         >
           Let's talk about your project
@@ -37,8 +37,8 @@ const FooterCTA = () => {
         <Typography
           variant="body1"
           color="white.main"
-          lineHeight="25px"
-          mx="2px"
+          lineHeight="1.563rem"
+          mx="0.125rem"
         >
           Ready to take it to the next level? Contact us today and find out how
           our expertise can help your business grow.

@@ -4,6 +4,7 @@ import { ISocial } from "../../interface/Social";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
+import SvgIcon from "@mui/material/SvgIcon";
 
 const Socials = () => {
   const { loading, error, data } = useQuery(GET_SOCIALS, {
@@ -26,13 +27,20 @@ const Socials = () => {
       {!loading && !error && (
         <div>
           {social.map((social: ISocial) => (
-            <Link key={social.SocialID} href={social.socialUrl}>
+            <Link
+              key={social.SocialID}
+              href={social.socialUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Box
                 key={social.SocialID}
                 src={social.icon}
                 component="img"
                 alt={social.name}
-                sx={{ mx: 1 }}
+                sx={{
+                  mx: 1,
+                }}
               />
             </Link>
           ))}

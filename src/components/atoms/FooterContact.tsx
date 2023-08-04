@@ -14,7 +14,7 @@ const FooterContact = ({
     <Box
       sx={{
         margin: {
-          mobile: "40px 0",
+          mobile: "2.5rem 0",
         },
       }}
     >
@@ -24,7 +24,7 @@ const FooterContact = ({
         textTransform="capitalize"
         fontWeight="700"
         fontSize="1rem"
-        lineHeight="26px"
+        lineHeight="1.625rem"
       >
         {heading}
       </Typography>
@@ -32,7 +32,7 @@ const FooterContact = ({
         variant="body1"
         sx={{ color: "white.main", opacity: 0.4 }}
         fontSize="1rem"
-        lineHeight="26px"
+        lineHeight="1.625rem"
       >
         {titleOne}
       </Typography>
@@ -40,7 +40,7 @@ const FooterContact = ({
         variant="body1"
         sx={{ color: "white.main", opacity: 0.4 }}
         fontSize="1rem"
-        lineHeight="26px"
+        lineHeight="1.625rem"
       >
         {titleTwo}
       </Typography>

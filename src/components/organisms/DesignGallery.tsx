@@ -1,15 +1,12 @@
-import Box from "@mui/material/Box";
 import SubDesign from "../molecules/home_components/SubDesign";
 import WebDesign from "../molecules/home_components/WebDesign";
 import Stack from "@mui/material/Stack";
 
-type Props = {};
-
-const DesignGallery = (props: Props) => {
+const DesignGallery = () => {
   return (
     <Stack
       sx={{
-        margin: { mobile: "120px 0" },
+        margin: { mobile: "7.5rem 0" },
         alignItems: "center",
         justifyContent: "center",
       }}

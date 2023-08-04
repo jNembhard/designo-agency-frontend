@@ -13,25 +13,25 @@ const FooterBottom = () => {
       textAlign="center"
       position="absolute"
       zIndex={-1}
-      top="200px"
+      top="12.5rem"
       sx={{
         width: {
           mobile: "100vw",
           tablet: "100%",
         },
         height: {
-          mobile: "800px",
+          mobile: "50rem",
         },
         paddingTop: {
-          mobile: "253px",
+          mobile: "15.813rem",
         },
       }}
     >
       <Link href="/">
         <img
           src="https://designo-image-bucket.s3.amazonaws.com/assets/shared/desktop/logo-light.png"
-          width="202px"
-          height="27px"
+          width="12.625rem"
+          height="1.688rem"
           alt=""
         />
       </Link>
@@ -45,10 +45,10 @@ const FooterBottom = () => {
               color: "white.main",
               textTransform: "uppercase",
               textDecoration: "none",
-              lineHeight: "14px",
-              letterSpacing: "2px",
+              lineHeight: "0.875rem",
+              letterSpacing: "0.125rem",
               fontSize: {
-                mobile: "14px",
+                mobile: "0.875rem",
               },
               margin: {
                 mobile: "1rem 0",

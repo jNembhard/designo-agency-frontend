@@ -55,7 +55,7 @@ const HeroCTA = () => {
       <Box>
         <Box
           position="absolute"
-          sx={{ zIndex: "-1" }}
+          zIndex="-1"
           top="6.625rem"
           component="img"
           src="https://designo-image-bucket.s3.amazonaws.com/assets/home/desktop/bg-pattern-hero-home.svg"

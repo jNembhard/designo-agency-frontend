@@ -1,8 +1,6 @@
 import Typography from "@mui/material/Typography";
 
-type Props = {};
-
-const Locations = (props: Props) => {
+const Locations = () => {
   return <Typography variant="h2">Locations</Typography>;
 };
 
