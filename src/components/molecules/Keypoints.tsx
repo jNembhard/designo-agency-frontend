@@ -33,13 +33,34 @@ const Keypoints = () => {
               sx={{ marginBottom: { mobile: "5rem" } }}
             >
               <Box
-                bgcolor="white.dark"
                 borderRadius="100%"
+                position="relative"
                 maxWidth="12.625rem"
                 maxHeight="12.625rem"
-                sx={{ margin: { mobile: "0 auto 3rem" } }}
+                sx={{
+                  margin: { mobile: "0 auto 3rem" },
+                }}
               >
-                <img src={callout.image} alt={callout.title} />
+                <Box
+                  position="absolute"
+                  zIndex="-1"
+                  sx={{
+                    transform:
+                      callout.calloutID === "callout-1"
+                        ? ""
+                        : callout.calloutID === "callout-2"
+                        ? "rotate(270deg)"
+                        : "rotate(90deg)",
+                  }}
+                >
+                  <img
+                    src="https://designo-image-bucket.s3.amazonaws.com/assets/shared/desktop/bg-pattern-small-circle.svg"
+                    alt=""
+                  />
+                </Box>
+                <Box>
+                  <img src={callout.image} alt={callout.title} />
+                </Box>
               </Box>
               <Box>
                 <Typography

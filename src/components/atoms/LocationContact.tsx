@@ -7,6 +7,7 @@ const LocationContact = ({
   titleOne,
   titleTwo,
 }: {
+  anchorID?: string;
   heading?: string;
   subHeading: string;
   titleOne: string;

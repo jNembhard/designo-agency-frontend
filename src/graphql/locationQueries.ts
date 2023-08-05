@@ -38,11 +38,25 @@ export const GET_LOCATIONS = gql`
         }
         images {
           desktop
-          icon
           tablet
         }
         name
         office
+        slug
+      }
+    }
+  }
+`;
+
+export const GET_PLACES = gql`
+  query getLocations($count: Int!) {
+    locations(count: $count) {
+      location {
+        LocationID
+        images {
+          icon
+        }
+        name
         slug
       }
     }

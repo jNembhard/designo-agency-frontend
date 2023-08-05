@@ -1,7 +1,12 @@
-import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Places from "../components/organisms/Places";
 
 const Contact = () => {
-  return <Typography variant="h2">Contact</Typography>;
+  return (
+    <Box>
+      <Places />
+    </Box>
+  );
 };
 
 export default Contact;

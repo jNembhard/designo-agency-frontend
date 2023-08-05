@@ -16,7 +16,6 @@ interface ILocationAddress {
 interface ILocationImages {
   desktop: string;
   tablet: string;
-  icon: string;
 }
 
 interface IContact {

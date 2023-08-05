@@ -1,0 +1,78 @@
+import { GET_PLACES } from "../../graphql/locationQueries";
+import { useQuery } from "@apollo/client";
+import { IPlace } from "../../interface/Place";
+import DesignButton from "../atoms/DesignoButton";
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+
+type Props = {};
+
+const Places = (props: Props) => {
+  const { loading, error, data } = useQuery(GET_PLACES, {
+    variables: { count: 3 },
+  });
+
+  if (loading) {
+    return <div>Loading</div>;
+  }
+
+  if (error) {
+    return <div>Error occured while fetching data</div>;
+  }
+
+  const places = [...data.locations.location];
+  places.sort((a: IPlace, b: IPlace) =>
+    a.LocationID.localeCompare(b.LocationID)
+  );
+
+  return (
+    <>
+      {!loading && !error && (
+        <Stack sx={{ m: { mobile: "120px 12px" } }}>
+          {places.map((place) => (
+            <Stack key={place.LocationID} textAlign="center" my="24px">
+              <Box
+                borderRadius="100%"
+                maxWidth="12.625rem"
+                maxHeight="12.625rem"
+                sx={{ margin: { mobile: "0 auto 3rem" } }}
+              >
+                <Box
+                  position="absolute"
+                  zIndex="-1"
+                  sx={{
+                    transform:
+                      place.LocationID === "location-1"
+                        ? "rotate(90deg)"
+                        : place.LocationID === "location-2"
+                        ? ""
+                        : "rotate(270deg)",
+                  }}
+                >
+                  <img
+                    src="https://designo-image-bucket.s3.amazonaws.com/assets/shared/desktop/bg-pattern-small-circle.svg"
+                    alt=""
+                  />
+                </Box>
+                <Box>
+                  <img src={place.images.icon} alt={place.name} />
+                </Box>
+              </Box>
+              <Typography variant="h3" textTransform="uppercase" mb="32px">
+                {place.name}
+              </Typography>
+              <DesignButton
+                link={`/locations${place.slug}`}
+                text="see location"
+                isLight={false}
+              />
+            </Stack>
+          ))}
+        </Stack>
+      )}
+    </>
+  );
+};
+
+export default Places;
