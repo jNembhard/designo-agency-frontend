@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import DesignoButton from "../atoms/DesignoButton";
+import DesignoButton from "../../atoms/DesignoButton";
 
 const FooterCTA = () => {
   return (

@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
-import FooterCTA from "../molecules/FooterCTA";
-import FooterBottom from "../molecules/FooterBottom";
+import FooterCTA from "../molecules/footer_components/FooterCTA";
+import FooterBottom from "../molecules/footer_components/FooterBottom";
 
 const Footer = () => {
   return (

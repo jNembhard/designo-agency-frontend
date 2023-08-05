@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { navlinks } from "../../utils/navLinks";
 import { Sling as Hamburger } from "hamburger-react";
 import Box from "@mui/material/Box";
@@ -19,6 +19,12 @@ const BurgerNav = () => {
     setModalOpen(!modalOpen);
   };
 
+  useEffect(() => {
+    modalOpen
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "unset");
+  });
+
   return (
     <Box position="relative" sx={{ display: { tablet: "none" } }} ref={ref}>
       <div>
@@ -30,7 +36,7 @@ const BurgerNav = () => {
       </div>
       <Backdrop
         sx={{
-          color: "#fff",
+          color: "black",
           zIndex: "tooltip",
         }}
         onClick={() => toggle()}
@@ -46,7 +52,7 @@ const BurgerNav = () => {
           justifyContent="start"
           position="absolute"
           zIndex="drawer"
-          top="142px"
+          top="8.875rem"
           sx={{
             transition: "opacity 0.3s ease-in-out, transform 0.3s ease-in-out",
             opacity: modalOpen ? 1 : 0,

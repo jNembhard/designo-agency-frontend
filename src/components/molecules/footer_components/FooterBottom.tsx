@@ -1,10 +1,10 @@
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
-import { navlinks } from "../../utils/navLinks";
+import { navlinks } from "../../../utils/navLinks";
 import { Stack } from "@mui/material";
-import FooterContact from "../atoms/FooterContact";
-import Socials from "./Socials";
+import FooterContact from "../../atoms/FooterContact";
+import Socials from "../Socials";
 
 const FooterBottom = () => {
   return (

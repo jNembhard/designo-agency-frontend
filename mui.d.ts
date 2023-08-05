@@ -10,6 +10,7 @@ declare module "@mui/material/styles" {
     laptop: true;
     desktop: true;
   }
+
   interface TypographyOptions {
     fontFamily?: string;
     h1?: {
@@ -37,6 +38,7 @@ declare module "@mui/material/styles" {
   }
 
   interface PaletteOptions {
+    sand?: string;
     peach?: {
       main: string;
       light: string;

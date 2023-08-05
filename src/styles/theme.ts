@@ -20,7 +20,9 @@ const themeOptions: ThemeOptions = {
       },
     },
   },
+
   palette: {
+    sand: "#FDF3F0",
     peach: {
       main: "#e7816b",
       light: "#ffad9b",
@@ -29,6 +31,7 @@ const themeOptions: ThemeOptions = {
       main: "#333136",
       dark: "#1d1c1e",
     },
+
     white: {
       main: "#ffffff",
       dark: "#f1f3f5",
