@@ -1,7 +1,7 @@
 import { GET_PLACES } from "../../graphql/locationQueries";
 import { useQuery } from "@apollo/client";
 import { IPlace } from "../../interface/Place";
-import DesignButton from "../atoms/DesignoButton";
+import { DesignButton } from "../atoms/DesignoButton";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";

@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import DesignoButton from "../atoms/DesignoButton";
+import { DesignButton } from "../atoms/DesignoButton";
 
 const HeroCTA = () => {
   return (
@@ -50,7 +50,7 @@ const HeroCTA = () => {
           Find out more about our services.
         </Typography>
       </Box>
-      <DesignoButton isLight={true} link="/about" text="learn more" />
+      <DesignButton isLight={true} link="/about" text="learn more" />
       <Box>
         <Box
           position="absolute"

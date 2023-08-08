@@ -34,4 +34,14 @@ const DesignButton = ({
   );
 };
 
-export default DesignButton;
+const FormButton = ({ isLight, text }: { isLight: boolean; text: string }) => {
+  return (
+    <>
+      <DesignoButton isLight={isLight} type="submit">
+        {text}
+      </DesignoButton>
+    </>
+  );
+};
+
+export { DesignButton, FormButton };

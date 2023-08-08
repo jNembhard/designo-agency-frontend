@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import DesignoButton from "../../atoms/DesignoButton";
+import { DesignButton } from "../../atoms/DesignoButton";
 
 const FooterCTA = () => {
   return (
@@ -44,7 +44,7 @@ const FooterCTA = () => {
           our expertise can help your business grow.
         </Typography>
       </Box>
-      <DesignoButton link="/contact" isLight={true} text="get in touch" />
+      <DesignButton link="/contact" isLight={true} text="get in touch" />
     </Box>
   );
 };
