@@ -9,7 +9,7 @@ import BurgerNav from "../atoms/BurgerNav";
 
 export const Navbar = () => {
   return (
-    <Box sx={{ flexGrow: 1 }} zIndex="modal">
+    <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="static"
         sx={{
@@ -21,8 +21,15 @@ export const Navbar = () => {
           },
         }}
       >
-        <Toolbar>
-          <Link href="/" sx={{ flexGrow: 1, paddingTop: "10px" }}>
+        <Toolbar sx={{ justifyContent: "space-between" }}>
+          <Link
+            href="/"
+            maxWidth="12.625rem"
+            sx={{
+              flexGrow: 1,
+              paddingTop: "0.625rem",
+            }}
+          >
             <Box
               component="img"
               src="https://designo-image-bucket.s3.amazonaws.com/assets/shared/desktop/logo-dark.png"

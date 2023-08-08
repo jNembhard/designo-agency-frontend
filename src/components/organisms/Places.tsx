@@ -6,9 +6,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-type Props = {};
-
-const Places = (props: Props) => {
+const Places = () => {
   const { loading, error, data } = useQuery(GET_PLACES, {
     variables: { count: 3 },
   });
@@ -29,9 +27,9 @@ const Places = (props: Props) => {
   return (
     <>
       {!loading && !error && (
-        <Stack sx={{ m: { mobile: "120px 12px" } }}>
+        <Stack sx={{ m: { mobile: "7.5rem 0.75rem" } }}>
           {places.map((place) => (
-            <Stack key={place.LocationID} textAlign="center" my="24px">
+            <Stack key={place.LocationID} textAlign="center" my="1.5rem">
               <Box
                 borderRadius="100%"
                 maxWidth="12.625rem"
@@ -59,7 +57,7 @@ const Places = (props: Props) => {
                   <img src={place.images.icon} alt={place.name} />
                 </Box>
               </Box>
-              <Typography variant="h3" textTransform="uppercase" mb="32px">
+              <Typography variant="h3" textTransform="uppercase" mb="2rem">
                 {place.name}
               </Typography>
               <DesignButton
