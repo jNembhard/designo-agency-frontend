@@ -5,7 +5,7 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 
 const Products = ({ productType }: { productType: string }) => {
   const { loading, error, data } = useQuery(GET_PRODUCT_GROUP, {
@@ -26,7 +26,7 @@ const Products = ({ productType }: { productType: string }) => {
     <Box
       sx={{
         my: {
-          mobile: "96px",
+          mobile: "6rem",
         },
       }}
     >
@@ -34,7 +34,7 @@ const Products = ({ productType }: { productType: string }) => {
         <Stack
           sx={{
             mx: {
-              mobile: "24px",
+              mobile: "1.5rem",
             },
           }}
         >
@@ -43,9 +43,9 @@ const Products = ({ productType }: { productType: string }) => {
               key={product.ProductID}
               sx={{
                 my: {
-                  mobile: "20px",
+                  mobile: "1.25rem",
                 },
-                borderRadius: "15px",
+                borderRadius: "0.938rem",
                 boxShadow: "none",
               }}
             >
@@ -58,7 +58,7 @@ const Products = ({ productType }: { productType: string }) => {
                 sx={{
                   bgcolor: "sand",
                   margin: {
-                    padding: "32px 30px",
+                    padding: "2rem 1.875rem",
                   },
                   textAlign: "center",
                 }}
