@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Typography from "@mui/material/Typography";
 import NotFound from "./404";
+import DesignsTemplate from "../components/templates/DesignsTemplate";
 
 const Designs = () => {
   const [isMatch, setIsMatch] = useState(false);
@@ -17,6 +17,7 @@ const Designs = () => {
     let hasMatch = acceptableRoutes.some(
       (route) => route === `/designs/${slug}`
     );
+
     setIsMatch(hasMatch);
   }, [slug]);
 
@@ -28,7 +29,7 @@ const Designs = () => {
     );
   }
 
-  return <Typography variant="h1">Designs page - {slug}</Typography>;
+  return <>{slug && <DesignsTemplate slug={slug} />}</>;
 };
 
 export default Designs;

@@ -16,6 +16,16 @@ export const GET_DESIGN = gql`
   }
 `;
 
+export const GET_DESIGN_HEADER = gql`
+  query getDesign($DesignID: String!) {
+    design(DesignID: $DesignID) {
+      DesignID
+      header
+      name
+    }
+  }
+`;
+
 export const GET_DESIGNS = gql`
   query getDesigns($count: Int!) {
     designs(count: $count) {

@@ -37,3 +37,22 @@ export const GET_PRODUCTS = gql`
     }
   }
 `;
+
+export const GET_PRODUCTS_PAGE = gql`
+  query getProductPage($DesignID: String!, $ProductType: String!) {
+    design(DesignID: $DesignID) {
+      name
+      header
+      slug
+    }
+    productGroup(ProductType: $ProductType) {
+      product {
+        ProductID
+        ProductType
+        description
+        image
+        title
+      }
+    }
+  }
+`;
