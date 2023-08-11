@@ -1,6 +1,7 @@
 import styled from "@mui/material/styles/styled";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
+import Box from "@mui/material/Box";
 
 const DesignoButton = styled(Button)(({ isLight }: { isLight: boolean }) => ({
   boxShadow: "none",
@@ -28,9 +29,11 @@ const DesignButton = ({
   text: string;
 }) => {
   return (
-    <Link href={link}>
-      <DesignoButton isLight={isLight}>{text}</DesignoButton>
-    </Link>
+    <div>
+      <Link href={link}>
+        <DesignoButton isLight={isLight}>{text}</DesignoButton>
+      </Link>
+    </div>
   );
 };
 

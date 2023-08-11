@@ -12,7 +12,7 @@ const HeroCTA = () => {
         textAlign: "center",
         zIndex: 5,
         bgcolor: "peach.main",
-        px: { mobile: "24px" },
+        px: { mobile: "1.5rem" },
       }}
     >
       <Box

@@ -1,5 +1,5 @@
-import Maps from "../components/molecules/Maps";
 import Box from "@mui/material/Box";
+import Maps from "../components/molecules/Maps";
 
 const Locations = () => {
   return (
