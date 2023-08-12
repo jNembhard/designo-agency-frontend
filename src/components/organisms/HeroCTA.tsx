@@ -57,13 +57,19 @@ const HeroCTA = () => {
           zIndex="-1"
           top="6.625rem"
           component="img"
-          src="https://designo-image-bucket.s3.amazonaws.com/assets/home/desktop/bg-pattern-hero-home.svg"
+          src={
+            process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
+            "assets/home/desktop/bg-pattern-hero-home.svg"
+          }
           alt=""
         />
         <Box
           margin="-7.5rem -10rem 0"
           component="img"
-          src="https://designo-image-bucket.s3.amazonaws.com/assets/home/desktop/image-hero-phone.png"
+          src={
+            process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
+            "assets/home/desktop/image-hero-phone.png"
+          }
           alt="designo phone"
         />
       </Box>

@@ -9,7 +9,7 @@ import { theme } from "./styles/theme";
 import CssBaseline from "@mui/material/CssBaseline";
 
 const client = new ApolloClient({
-  uri: "https://5g2yemqsivaell5fo3lihplbfe.appsync-api.us-east-1.amazonaws.com/graphql",
+  uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,
   cache: new InMemoryCache(),
   headers: {
     "x-api-key": `${process.env.REACT_APP_API_KEY}`,

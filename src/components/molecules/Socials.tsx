@@ -4,7 +4,6 @@ import { ISocial } from "../../interface/Social";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
-import SvgIcon from "@mui/material/SvgIcon";
 
 const Socials = () => {
   const { loading, error, data } = useQuery(GET_SOCIALS, {
@@ -35,7 +34,7 @@ const Socials = () => {
             >
               <Box
                 key={social.SocialID}
-                src={social.icon}
+                src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + social.icon}
                 component="img"
                 alt={social.name}
                 sx={{

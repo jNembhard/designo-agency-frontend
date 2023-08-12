@@ -20,6 +20,9 @@ export const GET_DESIGN_HEADER = gql`
   query getDesign($DesignID: String!) {
     design(DesignID: $DesignID) {
       DesignID
+      images {
+        bgPattern
+      }
       header
       name
     }

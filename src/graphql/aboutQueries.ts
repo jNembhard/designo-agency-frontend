@@ -8,6 +8,7 @@ export const GET_ABOUT = gql`
         desktop
         heroPatternDesktop
         heroPatternMobile
+        keypointBgPattern
         mobile
         tablet
       }
@@ -26,6 +27,7 @@ export const GET_ABOUTS = gql`
           desktop
           heroPatternDesktop
           heroPatternMobile
+          keypointBgPattern
           mobile
           tablet
         }

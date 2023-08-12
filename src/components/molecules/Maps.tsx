@@ -14,7 +14,6 @@ const Maps = () => {
   useEffect(() => {
     if (!loading && !error && window.location.hash) {
       const hash = window.location.hash.slice(1);
-      console.log(hash);
       const targetElement = document.getElementById(hash);
 
       if (targetElement) {
@@ -60,9 +59,18 @@ const Maps = () => {
                 >
                   <source
                     media="(min-width: 30em)"
-                    srcSet={location.images.tablet}
+                    srcSet={
+                      process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
+                      location.images.tablet
+                    }
                   />
-                  <img src={location.images.desktop} alt="" />
+                  <img
+                    src={
+                      process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
+                      location.images.desktop
+                    }
+                    alt=""
+                  />
                 </Box>
                 <Box position="relative">
                   <Box
@@ -74,7 +82,10 @@ const Maps = () => {
                     bgcolor="sand"
                   >
                     <img
-                      src="https://designo-image-bucket.s3.amazonaws.com/assets/shared/desktop/bg-pattern-three-circles.svg"
+                      src={
+                        process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
+                        "assets/shared/desktop/bg-pattern-three-circles.svg"
+                      }
                       alt=""
                     />
                   </Box>

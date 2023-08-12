@@ -54,12 +54,21 @@ const Keypoints = () => {
                   }}
                 >
                   <img
-                    src="https://designo-image-bucket.s3.amazonaws.com/assets/shared/desktop/bg-pattern-small-circle.svg"
+                    src={
+                      process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
+                      "assets/shared/desktop/bg-pattern-small-circle.svg"
+                    }
                     alt=""
                   />
                 </Box>
                 <Box>
-                  <img src={callout.image} alt={callout.title} />
+                  <img
+                    src={
+                      `${process.env.REACT_APP_CLOUDFRONT_ENDPOINT}` +
+                      callout.image
+                    }
+                    alt={callout.title}
+                  />
                 </Box>
               </Box>
               <Box>

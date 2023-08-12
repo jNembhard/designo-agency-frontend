@@ -16,7 +16,7 @@ const WebDesign = (design: { designID: string }) => {
   const { images, name, slug } = data.design;
 
   return (
-    <>
+    <div>
       {!loading && !error && (
         <Link href={`/designs${slug}`} sx={{ color: "white.main" }}>
           <Stack
@@ -38,15 +38,26 @@ const WebDesign = (design: { designID: string }) => {
             }}
           >
             <picture>
-              <source media="(min-width: 62em)" srcSet={images.desktopLarge} />
-              <source media="(min-width: 30em)" srcSet={images.tablet} />
+              <source
+                media="(min-width: 62em)"
+                srcSet={
+                  process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
+                  images.desktopLarge
+                }
+              />
+              <source
+                media="(min-width: 30em)"
+                srcSet={
+                  process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.tablet
+                }
+              />
               <Box
                 component="img"
                 sx={{
                   objectFit: "cover",
                   opacity: 0.5,
                 }}
-                src={images.mobile}
+                src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.mobile}
                 alt={name}
               />
             </picture>
@@ -84,7 +95,7 @@ const WebDesign = (design: { designID: string }) => {
           </Stack>
         </Link>
       )}
-    </>
+    </div>
   );
 };
 

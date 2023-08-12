@@ -16,62 +16,72 @@ const SubDesign = (design: { designID: string }) => {
   const { images, name, slug } = data.design;
 
   return (
-    <Link href={`/designs${slug}`} sx={{ color: "white.main" }}>
-      <Stack
-        position="relative"
-        direction="column"
-        textAlign="center"
-        alignItems="center"
-        justifyContent="center"
-        borderRadius="0.938rem"
-        overflow="hidden"
-        bgcolor="black.dark"
-        sx={{
-          margin: "0 1.5rem 2rem",
-          width: { mobile: "20.438rem" },
-          height: { mobile: "15.313rem" },
-          "&:hover": {
-            bgcolor: "peach.main",
-          },
-        }}
-      >
-        <picture>
-          <source media="(min-width: 62em)" srcSet={images.desktop} />
-          <source media="(min-width: 30em)" srcSet={images.tablet} />
-          <Box
-            component="img"
-            sx={{
-              objectFit: "cover",
-              opacity: 0.5,
-            }}
-            src={images.mobile}
-            alt={name}
-          />
-        </picture>
-        <Box position="absolute" alignItems="center" justifyContent="center">
-          <Typography
-            variant="h2"
-            sx={{
-              textTransform: "uppercase",
-              fontSize: { mobile: "1.75rem", tablet: "2.5rem" },
-            }}
-          >
-            {name}
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{
-              fontSize: "0.938rem",
-              fontWeight: 500,
-              letterSpacing: "0.313rem",
-              textTransform: "uppercase",
-            }}
-          >
-            view projects
-          </Typography>
-        </Box>
-      </Stack>
-    </Link>
+    <div>
+      <Link href={`/designs${slug}`} sx={{ color: "white.main" }}>
+        <Stack
+          position="relative"
+          direction="column"
+          textAlign="center"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="0.938rem"
+          overflow="hidden"
+          bgcolor="black.dark"
+          sx={{
+            margin: "0 1.5rem 2rem",
+            width: { mobile: "20.438rem" },
+            height: { mobile: "15.313rem" },
+            "&:hover": {
+              bgcolor: "peach.main",
+            },
+          }}
+        >
+          <picture>
+            <source
+              media="(min-width: 62em)"
+              srcSet={
+                process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.desktop
+              }
+            />
+            <source
+              media="(min-width: 30em)"
+              srcSet={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.tablet}
+            />
+            <Box
+              component="img"
+              sx={{
+                objectFit: "cover",
+                opacity: 0.5,
+              }}
+              src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.mobile}
+              alt={name}
+            />
+          </picture>
+          <Box position="absolute" alignItems="center" justifyContent="center">
+            <Typography
+              variant="h2"
+              sx={{
+                textTransform: "uppercase",
+                fontSize: { mobile: "1.75rem", tablet: "2.5rem" },
+              }}
+            >
+              {name}
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontSize: "0.938rem",
+                fontWeight: 500,
+                letterSpacing: "0.313rem",
+                textTransform: "uppercase",
+              }}
+            >
+              view projects
+            </Typography>
+          </Box>
+        </Stack>
+      </Link>
+    </div>
   );
 };
 

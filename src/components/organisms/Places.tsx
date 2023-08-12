@@ -49,12 +49,21 @@ const Places = () => {
                   }}
                 >
                   <img
-                    src="https://designo-image-bucket.s3.amazonaws.com/assets/shared/desktop/bg-pattern-small-circle.svg"
+                    src={
+                      process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
+                      "assets/shared/desktop/bg-pattern-small-circle.svg"
+                    }
                     alt=""
                   />
                 </Box>
                 <Box>
-                  <img src={place.images.icon} alt={place.name} />
+                  <img
+                    src={
+                      process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
+                      place.images.icon
+                    }
+                    alt={place.name}
+                  />
                 </Box>
               </Box>
               <Typography variant="h3" textTransform="uppercase" mb="2rem">

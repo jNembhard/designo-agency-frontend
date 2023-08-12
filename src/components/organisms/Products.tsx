@@ -52,7 +52,9 @@ const Products = ({ productType }: { productType: string }) => {
               <CardMedia
                 component="img"
                 alt={product.description}
-                image={product.image}
+                image={
+                  process.env.REACT_APP_CLOUDFRONT_ENDPOINT + product.image
+                }
               />
               <CardContent
                 sx={{

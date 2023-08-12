@@ -32,7 +32,10 @@ export const Navbar = () => {
           >
             <Box
               component="img"
-              src="https://designo-image-bucket.s3.amazonaws.com/assets/shared/desktop/logo-dark.png"
+              src={
+                process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
+                "assets/shared/desktop/logo-dark.png"
+              }
               width="12.625rem"
               height="1.688rem"
               alt=""

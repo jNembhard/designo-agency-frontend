@@ -5,6 +5,7 @@ import DesignsTemplate from "../components/templates/DesignsTemplate";
 
 const Designs = () => {
   const [isMatch, setIsMatch] = useState(false);
+  const [isRendered, setIsRendered] = useState(false);
   const { slug } = useParams();
 
   const acceptableRoutes = [
@@ -19,7 +20,12 @@ const Designs = () => {
     );
 
     setIsMatch(hasMatch);
+    setIsRendered(true);
   }, [slug]);
+
+  if (!isRendered) {
+    return null;
+  }
 
   if (!isMatch) {
     return (

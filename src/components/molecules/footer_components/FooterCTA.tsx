@@ -19,7 +19,10 @@ const FooterCTA = () => {
         right="-18.75rem"
         zIndex={-1}
         component="img"
-        src="https://designo-image-bucket.s3.amazonaws.com/assets/shared/desktop/bg-pattern-call-to-action.svg"
+        src={
+          process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
+          "assets/shared/desktop/bg-pattern-call-to-action.svg"
+        }
         alt=""
       />
 
