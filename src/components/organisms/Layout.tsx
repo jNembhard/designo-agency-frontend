@@ -1,13 +1,9 @@
 import { ReactNode } from "react";
+import Box from "@mui/material/Box";
 import { Navbar } from "../molecules/Navbar";
 import Footer from "./Footer";
-import Box from "@mui/material/Box";
 
-type Children = {
-  children: ReactNode;
-};
-
-const Layout = ({ children }: Children) => {
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <Box>
       <Navbar />

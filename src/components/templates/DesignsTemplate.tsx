@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { SEO } from "../atoms/SEO";
 import { IDesignTemplate } from "../../interface/DesignTemplate";
 import { capitalizeWords } from "../../utils/capitalizeWords";
 import DesignHeader from "../molecules/DesignHeader";
@@ -36,6 +37,12 @@ const DesignsTemplate = ({ slug }: { slug: string }) => {
     <>
       {design.hash && (
         <div>
+          <SEO
+            author="Jason Nembhard"
+            title={design.designType}
+            description={design.hash}
+            type="webapp"
+          />
           <DesignHeader designID={design.hash} />
           <Products productType={design.designType} />
           <Box sx={{ mb: { mobile: "6rem" } }}>

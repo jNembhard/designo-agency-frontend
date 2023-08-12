@@ -1,4 +1,5 @@
 import { useQuery } from "@apollo/client";
+import { useState } from "react";
 import { GET_SOCIALS } from "../../graphql/socialQueries";
 import { ISocial } from "../../interface/Social";
 import Stack from "@mui/material/Stack";
@@ -6,6 +7,7 @@ import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 
 const Socials = () => {
+  const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
   const { loading, error, data } = useQuery(GET_SOCIALS, {
     variables: { count: 5 },
   });
@@ -18,14 +20,16 @@ const Socials = () => {
     return <div>Error occured while fetching data</div>;
   }
 
-  const social = [...data.socials.social];
-  social.sort((a: ISocial, b: ISocial) => a.SocialID.localeCompare(b.SocialID));
+  const socials = [...data.socials.social];
+  socials.sort((a: ISocial, b: ISocial) =>
+    a.SocialID.localeCompare(b.SocialID)
+  );
 
   return (
-    <Stack>
+    <Stack sx={{ mt: { mobile: "20px", tablet: "unset" } }}>
       {!loading && !error && (
         <div>
-          {social.map((social: ISocial) => (
+          {socials.map((social: ISocial) => (
             <Link
               key={social.SocialID}
               href={social.socialUrl}
@@ -37,8 +41,16 @@ const Socials = () => {
                 src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + social.icon}
                 component="img"
                 alt={social.name}
+                onMouseEnter={() => setHoveredIcon(social.SocialID)}
+                onMouseLeave={() => setHoveredIcon(null)}
+                margin="0"
+                padding="0"
                 sx={{
                   mx: 1,
+                  filter:
+                    hoveredIcon === social.SocialID
+                      ? "brightness(0) saturate(100%) invert(91%) sepia(19%) saturate(6125%) hue-rotate(303deg) brightness(114%) contrast(101%)"
+                      : "none",
                 }}
               />
             </Link>

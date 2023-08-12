@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import { theme } from "./styles/theme";
 import CssBaseline from "@mui/material/CssBaseline";
+import { HelmetProvider } from "react-helmet-async";
 
 const client = new ApolloClient({
   uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,
@@ -24,9 +25,11 @@ root.render(
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <ApolloProvider client={client}>
-        <Router>
-          <App />
-        </Router>
+        <HelmetProvider>
+          <Router>
+            <App />
+          </Router>
+        </HelmetProvider>
       </ApolloProvider>
     </ThemeProvider>
   </React.StrictMode>
