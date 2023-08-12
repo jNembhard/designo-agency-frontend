@@ -72,7 +72,7 @@ const Places = () => {
               <DesignButton
                 link={`/locations${place.slug}`}
                 text="see location"
-                isLight={false}
+                islight={false}
               />
             </Stack>
           ))}

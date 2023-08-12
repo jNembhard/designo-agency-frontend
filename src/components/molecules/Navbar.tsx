@@ -9,7 +9,7 @@ import BurgerNav from "../atoms/BurgerNav";
 
 export const Navbar = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box component="header" sx={{ flexGrow: 1 }}>
       <AppBar
         position="static"
         sx={{

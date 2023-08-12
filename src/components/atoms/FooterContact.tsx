@@ -14,26 +14,20 @@ const FooterContact = ({
     <Box
       sx={{
         margin: {
-          mobile: "2.5rem 0",
+          mobile: "1.25rem 0",
         },
       }}
     >
       <Typography
         variant="body1"
-        sx={{ color: "white.main", opacity: 0.4 }}
-        textTransform="capitalize"
+        color="white.main"
         fontWeight="700"
-        fontSize="1rem"
-        lineHeight="1.625rem"
+        textTransform="capitalize"
+        sx={{ opacity: 0.4 }}
       >
         {heading}
       </Typography>
-      <Typography
-        variant="body1"
-        sx={{ color: "white.main", opacity: 0.4 }}
-        fontSize="1rem"
-        lineHeight="1.625rem"
-      >
+      <Typography variant="body1" color="white.main" sx={{ opacity: 0.4 }}>
         {titleOne}
       </Typography>
       <Typography

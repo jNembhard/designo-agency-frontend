@@ -76,15 +76,9 @@ const AboutCard = ({
             </Box>
           )}
           <Typography
-            variant="h2"
+            variant={isdark ? "h1" : "h2"}
             sx={{
               color: isdark ? "white.main" : "peach.main",
-              fontSize: {
-                mobile: "2rem",
-              },
-              lineHeight: {
-                mobile: "2.25rem",
-              },
               mb: {
                 mobile: "1.5rem",
               },
@@ -97,8 +91,6 @@ const AboutCard = ({
               key={index}
               variant="body1"
               sx={{
-                fontSize: "0.938rem",
-                lineHeight: "1.563rem",
                 mb: "1.25rem",
                 color: isdark ? "white.main" : "black.main",
               }}

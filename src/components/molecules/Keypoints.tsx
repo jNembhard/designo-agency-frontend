@@ -82,12 +82,7 @@ const Keypoints = () => {
                 >
                   {callout.title}
                 </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ lineHeight: { mobile: "1.75rem" } }}
-                >
-                  {callout.description}
-                </Typography>
+                <Typography variant="body1">{callout.description}</Typography>
               </Box>
             </Stack>
           ))}

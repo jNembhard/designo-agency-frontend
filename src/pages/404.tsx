@@ -28,7 +28,7 @@ const NotFound = () => {
           You've ventured into a land of uncharted sorrows... the black hole of
           nothingness!
         </Typography>
-        <DesignButton link="/" isLight={false} text="take me home" />
+        <DesignButton link="/" islight={false} text="take me home" />
       </Box>
     </Container>
   );

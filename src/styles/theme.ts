@@ -1,5 +1,14 @@
 import createTheme from "@mui/material/styles/createTheme";
 
+const breakpoints = {
+  values: {
+    mobile: 0,
+    tablet: 640,
+    laptop: 1024,
+    desktop: 1200,
+  },
+};
+
 const themeOptions: ThemeOptions = {
   breakpoints: {
     values: {
@@ -40,26 +49,38 @@ const themeOptions: ThemeOptions = {
   typography: {
     fontFamily: ["Jost", "sans-serif"].join(","),
     h1: {
-      fontSize: "3rem",
+      fontSize: "2rem",
       fontWeight: 500,
-      lineHeight: "3rem",
+      lineHeight: "2.25rem",
+      [`@media screen and (max-width: ${breakpoints.values.tablet}px)`]: {
+        fontSize: "3rem",
+        lineHeight: "3rem",
+      },
     },
     h2: {
-      fontSize: "2.5rem",
+      fontSize: "2rem",
       fontWeight: 500,
-      lineHeight: "3rem",
+      lineHeight: "2.25rem",
       letterSpacing: "0.125rem",
+      [`@media screen and (max-width: ${breakpoints.values.tablet}px)`]: {
+        fontSize: "2.5rem",
+        lineHeight: "3rem",
+      },
     },
     h3: {
       fontSize: "1.25rem",
       fontWeight: 500,
-      lineHeight: "1rem",
+      lineHeight: "1.625rem",
       letterSpacing: "0.313rem",
     },
     body1: {
-      fontSize: "1rem",
+      fontSize: "0.938rem",
       fontWeight: 400,
-      lineHeight: "1.625rem",
+      lineHeight: "1.563rem",
+      [`@media screen and (max-width: ${breakpoints.values.tablet}px)`]: {
+        fontSize: "1rem",
+        lineHeight: "1.625rem",
+      },
     },
   },
 };

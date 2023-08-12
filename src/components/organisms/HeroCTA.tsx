@@ -20,13 +20,7 @@ const HeroCTA = () => {
           paddingTop: { mobile: "5rem" },
         }}
       >
-        <Typography
-          variant="h1"
-          sx={{
-            fontSize: { mobile: "2rem", tablet: "3rem" },
-            color: "white.main",
-          }}
-        >
+        <Typography variant="h1" color="white.main">
           Award-winning custom designs and digital branding solutions
         </Typography>
       </Box>
@@ -38,19 +32,13 @@ const HeroCTA = () => {
           },
         }}
       >
-        <Typography
-          variant="body1"
-          sx={{
-            color: "white.main",
-            fontSize: { mobile: "0.938rem", tablet: "1rem" },
-          }}
-        >
+        <Typography variant="body1" color="white.main">
           With over 10 years in the industry, we are experienced in creating
           fully responsive websites, app design, and engaging brand experiences.
           Find out more about our services.
         </Typography>
       </Box>
-      <DesignButton isLight={true} link="/about" text="learn more" />
+      <DesignButton islight={true} link="/about" text="learn more" />
       <Box>
         <Box
           position="absolute"

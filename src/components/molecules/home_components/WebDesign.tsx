@@ -73,7 +73,6 @@ const WebDesign = (design: { designID: string }) => {
                 sx={{
                   textTransform: "uppercase",
                   fontSize: { mobile: "1.75rem", tablet: "2.5rem" },
-                  fontWeight: 500,
                   letterSpacing: { mobile: "0.088rem", tablet: "0.125rem" },
                   color: "white",
                 }}

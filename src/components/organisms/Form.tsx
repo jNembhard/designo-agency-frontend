@@ -151,7 +151,7 @@ const Form = () => {
           aria-invalid={errors.message ? "true" : "false"}
         />
       </Stack>
-      <FormButton isLight={true} text="submit" />
+      <FormButton islight={true} text="submit" />
     </Box>
   );
 };

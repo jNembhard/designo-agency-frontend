@@ -67,7 +67,7 @@ const DesignHeader = ({ designID }: { designID: string }) => {
           />
           <Box textAlign="center">
             <Typography
-              variant="h2"
+              variant="h1"
               color="white.main"
               textTransform="capitalize"
               sx={{
@@ -78,12 +78,7 @@ const DesignHeader = ({ designID }: { designID: string }) => {
             >
               {name}
             </Typography>
-            <Typography
-              variant="body1"
-              color="white.main"
-              fontSize="0.938rem"
-              lineHeight="1.563rem"
-            >
+            <Typography variant="body1" color="white.main">
               {header}
             </Typography>
           </Box>
