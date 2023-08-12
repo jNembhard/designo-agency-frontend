@@ -1,30 +1,17 @@
-import React from "react";
 import { GET_ABOUT } from "../../graphql/aboutQueries";
 import { useQuery } from "@apollo/client";
 import Box from "@mui/material/Box";
+import styled from "@mui/material/styles/styled";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { styled } from "@mui/material";
 
-const StyledAboutCard = styled(Card)(({ isdark }: { isdark: boolean }) => ({
+const StyledCard = styled(Card)(({ isdark }: { isdark: boolean }) => ({
   boxShadow: "none",
   color: isdark ? "#ffffff" : "#e7816b",
   backgroundColor: isdark ? "#e7816b" : "#fdf3f0",
 }));
-
-const TypographyHeader = styled(Typography)(
-  ({ isdark }: { isdark: boolean }) => ({
-    color: isdark ? "#ffffff" : "#e7816b",
-  })
-);
-
-const TypographyText = styled(Typography)(
-  ({ isdark }: { isdark: boolean }) => ({
-    color: isdark ? "#ffffff" : "#333136",
-  })
-);
 
 const AboutCard = ({
   aboutID,
@@ -43,7 +30,7 @@ const AboutCard = ({
   const { description, images, title } = data.about;
   return (
     <Box>
-      <StyledAboutCard isdark={isdark}>
+      <StyledCard isdark={isdark}>
         <CardMedia
           sx={{ height: 320 }}
           image={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.mobile}
@@ -88,10 +75,10 @@ const AboutCard = ({
               />
             </Box>
           )}
-          <TypographyHeader
-            isdark={isdark}
+          <Typography
             variant="h2"
             sx={{
+              color: isdark ? "white.main" : "peach.main",
               fontSize: {
                 mobile: "2rem",
               },
@@ -104,23 +91,23 @@ const AboutCard = ({
             }}
           >
             {title}
-          </TypographyHeader>
+          </Typography>
           {description.split("\n").map((text: string, index: string) => (
-            <TypographyText
+            <Typography
               key={index}
-              isdark={isdark}
               variant="body1"
               sx={{
                 fontSize: "0.938rem",
                 lineHeight: "1.563rem",
                 mb: "1.25rem",
+                color: isdark ? "white.main" : "black.main",
               }}
             >
               {text}
-            </TypographyText>
+            </Typography>
           ))}
         </CardContent>
-      </StyledAboutCard>
+      </StyledCard>
     </Box>
   );
 };

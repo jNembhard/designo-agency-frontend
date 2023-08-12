@@ -86,7 +86,7 @@ const DesignHeader = ({ designID }: { designID: string }) => {
             >
               {header}
             </Typography>
-          </Box>{" "}
+          </Box>
         </Box>
       )}
     </>
