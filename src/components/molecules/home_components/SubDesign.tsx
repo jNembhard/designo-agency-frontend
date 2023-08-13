@@ -28,9 +28,13 @@ const SubDesign = (design: { designID: string }) => {
           overflow="hidden"
           bgcolor="black.dark"
           sx={{
-            margin: "0 1.5rem 2rem",
-            width: { mobile: "20.438rem" },
-            height: { mobile: "15.313rem" },
+            mb: { mobile: "1.5rem", laptop: "0" },
+            height: {
+              mobile: "15.313rem",
+              tablet: "12.5rem",
+              laptop: "19.25rem",
+            },
+            maxWidth: { laptop: "33.813rem" },
             "&:hover": {
               bgcolor: "peach.main",
             },

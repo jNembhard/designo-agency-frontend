@@ -5,7 +5,7 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const WebDesign = (design: { designID: string }) => {
+const PrimeDesign = (design: { designID: string }) => {
   const { loading, error, data } = useQuery(GET_DESIGN, {
     variables: { DesignID: design.designID },
   });
@@ -98,4 +98,4 @@ const WebDesign = (design: { designID: string }) => {
   );
 };
 
-export default WebDesign;
+export default PrimeDesign;

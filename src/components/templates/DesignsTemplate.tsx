@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { SEO } from "../atoms/SEO";
 import { IDesignTemplate } from "../../interface/DesignTemplate";
-import { capitalizeWords } from "../../utils/capitalizeWords";
+import { IDirection } from "../../interface/Direction";
+import { createDesignFilter } from "../../utils/createDesignFilter";
 import DesignHeader from "../molecules/DesignHeader";
 import Box from "@mui/material/Box";
 import Products from "../organisms/Products";
@@ -12,24 +13,25 @@ const DesignsTemplate = ({ slug }: { slug: string }) => {
     hash: "",
     designType: "",
     productLinks: [],
+    title: "",
+  });
+  const [direction, setDirection] = useState<IDirection>({
+    row: "row",
+    column: "column",
   });
 
-  const ids: { [key: string]: string } = {
-    "design-1": "web-design",
-    "design-2": "app-design",
-    "design-3": "graphic-design",
-  };
-
   useEffect(() => {
-    if (
-      slug === "app-design" ||
-      slug === "graphic-design" ||
-      slug === "web-design"
-    ) {
-      let type = capitalizeWords(slug);
-      let hashID = Object.keys(ids).find((key) => ids[key] === slug);
-      let filteredIDs = Object.keys(ids).filter((key) => key !== hashID);
-      setDesign({ hash: hashID, designType: type, productLinks: filteredIDs });
+    const convertedDesign = createDesignFilter(slug);
+
+    setDesign({
+      hash: convertedDesign.hash,
+      designType: convertedDesign.designType,
+      productLinks: convertedDesign.productLinks,
+      title: convertedDesign.title,
+    });
+
+    if (slug === "graphic-design") {
+      setDirection({ row: "row-reverse", column: "column-reverse" });
     }
   }, [slug]);
 
@@ -39,13 +41,34 @@ const DesignsTemplate = ({ slug }: { slug: string }) => {
         <div>
           <SEO
             author="Jason Nembhard"
-            title={design.designType}
+            title={design.title}
             description={design.hash}
             type="webapp"
           />
           <DesignHeader designID={design.hash} />
           <Products productType={design.designType} />
-          <Box sx={{ mb: { mobile: "6rem" } }}>
+          <Box
+            sx={{
+              mb: {
+                mobile: "6rem",
+                tablet: "7.5rem",
+                laptop: "10rem",
+              },
+              mx: {
+                mobile: "1.5rem",
+                tablet: "2.5rem",
+                laptop: "auto",
+              },
+              display: { mobile: "flex" },
+              alignItems: { laptop: "center" },
+              flexDirection: {
+                mobile: `${direction.column}`,
+                laptop: `${direction.row}`,
+              },
+              justifyContent: { laptop: "space-between" },
+              maxWidth: "69.438rem",
+            }}
+          >
             {design.productLinks.map((productLink) => (
               <SubDesign key={productLink} designID={productLink} />
             ))}
