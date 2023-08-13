@@ -1,7 +1,6 @@
 import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import { DesignButton } from "../components/atoms/DesignoButton";
+import NotFoundTemplate from "../components/templates/NotFoundTemplate";
+import { SEO } from "../components/atoms/SEO";
 
 const NotFound = () => {
   return (
@@ -12,24 +11,16 @@ const NotFound = () => {
         my: "15vh",
       }}
     >
-      <Typography variant="h1" fontSize="9.375rem" color="peach.main">
-        404
-      </Typography>
-      <Box pt="3.438rem">
-        <Typography variant="h2" color="black.dark">
-          Page Not Found
-        </Typography>
-        <Typography
-          variant="body1"
-          color="black.dark"
-          my="0.625rem"
-          mb="1.7rem"
-        >
-          You've ventured into a land of uncharted sorrows... the black hole of
-          nothingness!
-        </Typography>
-        <DesignButton link="/" islight={false} text="take me home" />
-      </Box>
+      <SEO
+        author="Jason Nembhard"
+        title="404 Page Not Found"
+        description="Return to Designo's homepage by clicking the Take Me Home button"
+        type="webapp"
+      />
+      <NotFoundTemplate
+        title="Page Not Found"
+        description="You've ventured into a land of uncharted sorrows...the black hole of NOTHINGNESS!"
+      />
     </Container>
   );
 };

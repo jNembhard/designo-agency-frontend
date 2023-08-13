@@ -1,11 +1,9 @@
 import { GET_PLACES } from "../../graphql/locationQueries";
 import { useQuery } from "@apollo/client";
-import { IPlace } from "../../interface/Place";
-import { DesignButton } from "../atoms/DesignoButton";
-import Box from "@mui/material/Box";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import { useMediaQuery } from "usehooks-ts";
+import Place from "../molecules/Place";
+import { IPlace } from "../../interface/Place";
 
 const Places = () => {
   const isBreakpoint1200 = useMediaQuery("(min-width: 1200px)");
@@ -37,63 +35,8 @@ const Places = () => {
           alignItems="center"
           justifyContent="space-between"
         >
-          {places.map((place) => (
-            <Stack
-              key={place.LocationID}
-              textAlign="center"
-              my="1.5rem"
-              alignItems="center"
-              justifyContent="center"
-              sx={{
-                my: { mobile: "1.5rem", laptop: "0" },
-                width: { laptop: "21.875rem" },
-              }}
-            >
-              <Box
-                borderRadius="100%"
-                maxWidth="12.625rem"
-                maxHeight="12.625rem"
-                sx={{ margin: { mobile: "0 auto 3rem" } }}
-              >
-                <Box
-                  position="absolute"
-                  zIndex="-1"
-                  sx={{
-                    transform:
-                      place.LocationID === "location-1"
-                        ? "rotate(90deg)"
-                        : place.LocationID === "location-2"
-                        ? ""
-                        : "rotate(270deg)",
-                  }}
-                >
-                  <img
-                    src={
-                      process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
-                      "assets/shared/desktop/bg-pattern-small-circle.svg"
-                    }
-                    alt=""
-                  />
-                </Box>
-                <Box>
-                  <img
-                    src={
-                      process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
-                      place.images.icon
-                    }
-                    alt={place.name}
-                  />
-                </Box>
-              </Box>
-              <Typography variant="h3" textTransform="uppercase" mb="2rem">
-                {place.name}
-              </Typography>
-              <DesignButton
-                link={`/locations${place.slug}`}
-                text="see location"
-                islight={false}
-              />
-            </Stack>
+          {places.map((place: IPlace) => (
+            <Place key={place.LocationID} {...place} />
           ))}
         </Stack>
       )}
