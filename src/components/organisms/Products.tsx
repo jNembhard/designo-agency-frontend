@@ -1,6 +1,6 @@
 import { GET_PRODUCT_GROUP } from "../../graphql/productQueries";
 import { useQuery } from "@apollo/client";
-import Stack from "@mui/material/Stack";
+import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
@@ -28,62 +28,83 @@ const Products = ({ productType }: { productType: string }) => {
         my: {
           mobile: "6rem",
         },
+        mx: {
+          tablet: "2.5rem",
+        },
       }}
     >
       {!loading && !error && (
-        <Stack
+        <Grid
+          container
+          spacing={2}
           sx={{
-            mx: {
+            px: {
               mobile: "1.5rem",
+              tablet: "unset",
             },
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           {products.map((product) => (
-            <Card
-              key={product.ProductID}
-              sx={{
-                my: {
-                  mobile: "1.25rem",
-                },
-                borderRadius: "0.938rem",
-                boxShadow: "none",
-              }}
-            >
-              <CardMedia
-                component="img"
-                alt={product.description}
-                image={
-                  process.env.REACT_APP_CLOUDFRONT_ENDPOINT + product.image
-                }
-              />
-              <CardContent
+            <Grid item key={product.ProductID} xs={12} md={4}>
+              <Card
                 sx={{
-                  bgcolor: "sand",
-                  margin: {
-                    padding: "2rem 1.875rem",
+                  my: {
+                    mobile: "1.25rem",
                   },
-                  textAlign: "center",
+                  borderRadius: "0.938rem",
+                  boxShadow: "none",
+                  height: { tablet: "19.375rem", laptop: "unset" },
+                  maxWidth: { laptop: "21.875rem" },
                 }}
               >
-                <Typography
-                  variant="h3"
-                  color="peach.main"
-                  textTransform="uppercase"
+                <Box
                   sx={{
-                    mb: {
-                      mobile: "1rem",
-                    },
+                    display: { tablet: "flex" },
+                    flexDirection: { tablet: "row", laptop: "column" },
+                    bgcolor: "sand",
                   }}
                 >
-                  {product.title}
-                </Typography>
-                <Typography variant="body1" color="black.main">
-                  {product.description}
-                </Typography>
-              </CardContent>
-            </Card>
+                  <CardMedia
+                    component="img"
+                    alt={product.description}
+                    sx={{ maxWidth: { tablet: "21.188rem", laptop: "unset" } }}
+                    image={
+                      process.env.REACT_APP_CLOUDFRONT_ENDPOINT + product.image
+                    }
+                  />
+
+                  <CardContent
+                    sx={{
+                      my: "auto",
+                      padding: {
+                        mobile: "2rem 1.875rem",
+                      },
+                      textAlign: "center",
+                    }}
+                  >
+                    <Typography
+                      variant="h3"
+                      color="peach.main"
+                      textTransform="uppercase"
+                      sx={{
+                        mb: {
+                          mobile: "1rem",
+                        },
+                      }}
+                    >
+                      {product.title}
+                    </Typography>
+                    <Typography variant="body1" color="black.main">
+                      {product.description}
+                    </Typography>
+                  </CardContent>
+                </Box>
+              </Card>
+            </Grid>
           ))}
-        </Stack>
+        </Grid>
       )}
     </Box>
   );

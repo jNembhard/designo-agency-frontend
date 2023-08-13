@@ -4,7 +4,7 @@ import FooterBottom from "../molecules/footer_components/FooterBottom";
 
 const Footer = () => {
   return (
-    <Box component="footer" position="relative" maxWidth="1540px" margin="auto">
+    <Box component="footer" position="relative" margin="auto">
       <FooterCTA />
       <FooterBottom />
     </Box>

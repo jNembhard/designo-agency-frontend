@@ -1,15 +1,15 @@
 import { ReactNode } from "react";
-import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 import { Navbar } from "../molecules/Navbar";
 import Footer from "./Footer";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <Box>
+    <Container maxWidth="lg" sx={{ margin: { xs: 0, sm: "auto" }, padding: 0 }}>
       <Navbar />
       {children}
       <Footer />
-    </Box>
+    </Container>
   );
 };
 

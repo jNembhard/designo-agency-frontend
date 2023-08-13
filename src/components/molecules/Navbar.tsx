@@ -12,7 +12,7 @@ export const Navbar = () => {
   const [hovered, setHovered] = useState<boolean>(false);
 
   return (
-    <Box component="header" sx={{ flexGrow: 1 }}>
+    <Box component="header" sx={{ flexGrow: 1 }} maxWidth="69.438rem" mx="auto">
       <AppBar
         position="static"
         sx={{

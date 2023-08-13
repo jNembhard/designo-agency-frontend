@@ -12,12 +12,12 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 const FooterBottom = () => {
   const [hovered, setHovered] = useState<boolean>(false);
-  const mediaQuery = useMediaQuery("(min-width: 767px)");
+  const isBreakpoint767 = useMediaQuery("(min-width: 767px)");
 
   return (
     <Grid
       container
-      direction={mediaQuery ? "row" : "column"}
+      direction={isBreakpoint767 ? "row" : "column"}
       zIndex="-1"
       bgcolor="black.dark"
       position="absolute"
@@ -69,7 +69,7 @@ const FooterBottom = () => {
         sx={{ width: "85%", marginTop: "2rem", display: { tablet: "none" } }}
       />
       <Stack
-        direction={mediaQuery ? "row" : "column"}
+        direction={isBreakpoint767 ? "row" : "column"}
         sx={{
           pt: {
             mobile: "1rem",

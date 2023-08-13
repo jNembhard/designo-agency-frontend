@@ -5,8 +5,10 @@ import { DesignButton } from "../atoms/DesignoButton";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { useMediaQuery } from "usehooks-ts";
 
 const Places = () => {
+  const isBreakpoint1200 = useMediaQuery("(min-width: 1200px)");
   const { loading, error, data } = useQuery(GET_PLACES, {
     variables: { count: 3 },
   });
@@ -27,9 +29,26 @@ const Places = () => {
   return (
     <>
       {!loading && !error && (
-        <Stack sx={{ m: { mobile: "7.5rem 0.75rem" } }}>
+        <Stack
+          direction={isBreakpoint1200 ? "row" : "column"}
+          sx={{
+            margin: { mobile: "7.5rem 0.75rem", desktop: "10.313rem 10rem" },
+          }}
+          alignItems="center"
+          justifyContent="space-between"
+        >
           {places.map((place) => (
-            <Stack key={place.LocationID} textAlign="center" my="1.5rem">
+            <Stack
+              key={place.LocationID}
+              textAlign="center"
+              my="1.5rem"
+              alignItems="center"
+              justifyContent="center"
+              sx={{
+                my: { mobile: "1.5rem", laptop: "0" },
+                width: { laptop: "21.875rem" },
+              }}
+            >
               <Box
                 borderRadius="100%"
                 maxWidth="12.625rem"

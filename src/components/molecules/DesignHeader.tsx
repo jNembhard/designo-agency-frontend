@@ -40,13 +40,23 @@ const DesignHeader = ({ designID }: { designID: string }) => {
           bgcolor="peach.main"
           position="relative"
           overflow="hidden"
+          maxWidth="69.438rem"
           zIndex="1"
           sx={{
             minHeight: {
               mobile: "20rem",
+              tablet: "15.75rem",
             },
             padding: {
               mobile: "6.563rem 1.5rem",
+              tablet: "4rem 1.5rem",
+            },
+            mx: {
+              tablet: "2.5rem",
+              laptop: "auto",
+            },
+            borderRadius: {
+              tablet: "0.938rem",
             },
           }}
         >
@@ -57,15 +67,17 @@ const DesignHeader = ({ designID }: { designID: string }) => {
             zIndex="-1"
             sx={{
               top: {
-                mobile: "30px",
+                mobile: "1.875rem",
+                tablet: "-10.625rem",
               },
               right: {
                 mobile: "0",
+                tablet: "-11.25rem",
               },
             }}
             alt=""
           />
-          <Box textAlign="center">
+          <Box textAlign="center" margin="auto">
             <Typography
               variant="h1"
               color="white.main"
@@ -74,11 +86,18 @@ const DesignHeader = ({ designID }: { designID: string }) => {
                 mb: {
                   mobile: "1.5rem",
                 },
+                fontSize: { tablet: "3rem" },
+                lineHeight: { tablet: "3rem" },
               }}
             >
               {name}
             </Typography>
-            <Typography variant="body1" color="white.main">
+            <Typography
+              variant="body1"
+              color="white.main"
+              maxWidth="40ch"
+              margin="auto"
+            >
               {header}
             </Typography>
           </Box>
