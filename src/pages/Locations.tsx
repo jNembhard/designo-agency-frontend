@@ -8,7 +8,7 @@ const Locations = () => {
       <SEO
         author="Jason Nembhard"
         title="Locations"
-        description="We are located here"
+        description="Award-winning designs & branding from Designo: global offices in Canada, Australia & UK. Experts in websites, apps & brand experiences."
         type="webapp"
       />
       <Maps />

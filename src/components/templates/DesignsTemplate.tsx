@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { SEO } from "../atoms/SEO";
 import { IDesignTemplate } from "../../interface/DesignTemplate";
 import { IDirection } from "../../interface/Direction";
 import { createDesignFilter } from "../../utils/createDesignFilter";
@@ -39,12 +38,6 @@ const DesignsTemplate = ({ slug }: { slug: string }) => {
     <>
       {design.hash && (
         <div>
-          <SEO
-            author="Jason Nembhard"
-            title={design.title}
-            description={design.hash}
-            type="webapp"
-          />
           <DesignHeader designID={design.hash} />
           <Products productType={design.designType} />
           <Box

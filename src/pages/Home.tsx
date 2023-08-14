@@ -10,7 +10,7 @@ const Home = () => {
       <SEO
         author="Jason Nembhard"
         title="Home"
-        description="This is the home page"
+        description="Experience award-winning custom designs and digital branding solutions. Transform your brand with responsive websites, app design, and engaging experiences. Learn more."
         type="webapp"
       />
       <HeroCTA />

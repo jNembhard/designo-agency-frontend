@@ -5,8 +5,13 @@ import { ILocation } from "../../interface/Location";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import LocationContact from "../atoms/LocationContact";
+import { useMediaQuery } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 const Maps = () => {
+  const isBreakpoint767 = useMediaQuery("(min-width: 767px)");
+  const isBreakpoint1200 = useMediaQuery("(min-width: 1200px)");
+
   const { loading, error, data } = useQuery(GET_LOCATIONS, {
     variables: { count: 3 },
   });
@@ -38,14 +43,40 @@ const Maps = () => {
   return (
     <>
       {!loading && !error && (
-        <div>
+        <Box
+          sx={{
+            maxWidth: {
+              laptop: "69.4375rem",
+            },
+            margin: { laptop: "auto" },
+          }}
+        >
           {location.map((location: ILocation) => {
             let hashID = location.slug.replace("#", "");
 
             return (
-              <Stack key={hashID} mb="5rem">
+              <Stack
+                key={hashID}
+                direction={
+                  isBreakpoint1200 && hashID === "australia"
+                    ? "row"
+                    : isBreakpoint1200
+                    ? "row-reverse"
+                    : isBreakpoint767
+                    ? "column"
+                    : undefined
+                }
+                spacing={isBreakpoint1200 ? 3 : 0}
+                sx={{
+                  margin: {
+                    mobile: "0 0 5rem 0",
+                    tablet: "0 2.5rem 7.5rem",
+                    laptop: "0 0 2rem",
+                  },
+                }}
+              >
                 <Box
-                  id={location.slug.replace("#", "")}
+                  id={hashID}
                   component="picture"
                   margin="0"
                   padding="0"
@@ -55,31 +86,60 @@ const Maps = () => {
                       tablet: "20.375rem",
                       laptop: "20rem",
                     },
+                    mb: {
+                      tablet: "1.5rem",
+                      laptop: "unset",
+                    },
+                    borderRadius: {
+                      tablet: "0.9375rem",
+                    },
+                    overflow: { tablet: "hidden" },
                   }}
                 >
-                  <source
-                    media="(min-width: 30em)"
+                  <Box
+                    component="source"
+                    media="(min-width: 767px) and (max-width: 1200px)"
                     srcSet={
                       process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
                       location.images.tablet
                     }
                   />
-                  <img
+                  <Box
+                    component="img"
                     src={
                       process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
                       location.images.desktop
                     }
-                    alt=""
+                    alt={location.name}
                   />
                 </Box>
-                <Box position="relative">
+                <Box
+                  position="relative"
+                  bgcolor="sand"
+                  zIndex="-1"
+                  sx={{
+                    borderRadius: {
+                      tablet: "0.9375rem",
+                    },
+                    overflow: { tablet: "hidden" },
+                    width: {
+                      laptop: "45.625rem",
+                    },
+                    height: {
+                      laptop: "20.375rem",
+                    },
+                  }}
+                >
                   <Box
                     position="absolute"
                     zIndex="-1"
-                    maxHeight="24.625rem"
                     width="100vw"
                     overflow="hidden"
-                    bgcolor="sand"
+                    sx={{
+                      top: { tablet: "-16.25rem" },
+                      left: { tablet: "0.313rem" },
+                      height: { mobile: "24rem", tablet: "unset" },
+                    }}
                   >
                     <img
                       src={
@@ -89,24 +149,48 @@ const Maps = () => {
                       alt=""
                     />
                   </Box>
-                  <Box padding="2.5rem 1.5rem">
-                    <LocationContact
-                      heading={location.name}
-                      subHeading={location.office}
-                      titleOne={location.address.street}
-                      titleTwo={location.address.country}
-                    />
-                    <LocationContact
-                      subHeading="Contact"
-                      titleOne={location.contact.phone}
-                      titleTwo={location.contact.email}
-                    />
+                  <Box
+                    display="flex"
+                    justifyContent="space-between"
+                    flexDirection="column"
+                    sx={{
+                      padding: {
+                        mobile: "2.5rem 1.5rem",
+                        tablet: "5.5rem 4.69rem",
+                      },
+                      textAlign: { mobile: "center", tablet: "left" },
+                    }}
+                  >
+                    <Typography
+                      variant="h2"
+                      color="peach.main"
+                      textTransform="capitalize"
+                      zIndex="2"
+                    >
+                      {location.name}
+                    </Typography>
+                    <Stack
+                      direction={isBreakpoint767 ? "row" : "column"}
+                      spacing={isBreakpoint767 ? 13 : 0}
+                      sx={{ pt: { tablet: "1.5rem" } }}
+                    >
+                      <LocationContact
+                        subHeading={location.office}
+                        titleOne={location.address.street}
+                        titleTwo={location.address.country}
+                      />
+                      <LocationContact
+                        subHeading="Contact"
+                        titleOne={location.contact.phone}
+                        titleTwo={location.contact.email}
+                      />
+                    </Stack>
                   </Box>
                 </Box>
               </Stack>
             );
           })}
-        </div>
+        </Box>
       )}
     </>
   );

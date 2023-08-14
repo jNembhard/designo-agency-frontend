@@ -9,7 +9,7 @@ const Contact = () => {
       <SEO
         author="Jason Nembhard"
         title="Contact Us"
-        description="reach out to us"
+        description="Elevate your business with tailored digital experiences. Let's discuss your project to fuel growth. Reach out for relatable solutions."
         type="webapp"
       />
       <ContactTemplate />

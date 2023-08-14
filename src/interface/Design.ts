@@ -12,3 +12,9 @@ interface IDesignImageUrls {
   tablet: string;
   mobile: string;
 }
+
+export interface IDesignMeta {
+  DesignID: string;
+  slug: string;
+  header: string;
+}

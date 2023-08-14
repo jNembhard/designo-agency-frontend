@@ -15,7 +15,7 @@ const About = () => {
       <SEO
         author="Jason Nembhard"
         title="Our Company"
-        description="learn about us"
+        description="Discover our creative agency crafting impactful designs since 2010. A team of strategists, problem-solvers, and storytellers driving real results."
         type="webapp"
       />
       <AboutCard aboutID={"about-1"} isdark={true} />

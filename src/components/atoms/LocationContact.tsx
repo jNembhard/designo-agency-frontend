@@ -2,43 +2,30 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 const LocationContact = ({
-  heading,
   subHeading,
   titleOne,
   titleTwo,
 }: {
   anchorID?: string;
-  heading?: string;
   subHeading: string;
   titleOne: string;
   titleTwo: string;
 }) => {
   return (
     <Box>
-      {heading && (
-        <Typography
-          variant="h2"
-          color="peach.main"
-          textAlign="center"
-          textTransform="capitalize"
-        >
-          {heading}
-        </Typography>
-      )}
       <Box
         sx={{
           my: {
             mobile: "1.5rem",
+            tablet: "unset",
           },
+          textAlign: { tablet: "left" },
         }}
       >
         <Typography
           variant="body1"
           sx={{
             color: "black.main",
-            textAlign: {
-              mobile: "center",
-            },
           }}
           textTransform="capitalize"
           fontWeight="700"
@@ -49,7 +36,7 @@ const LocationContact = ({
         </Typography>
         <Typography
           variant="body1"
-          sx={{ color: "black.main", textAlign: { mobile: "center" } }}
+          sx={{ color: "black.main" }}
           fontSize="1rem"
           lineHeight="1.625rem"
         >
@@ -57,7 +44,7 @@ const LocationContact = ({
         </Typography>
         <Typography
           variant="body1"
-          sx={{ color: "black.main", textAlign: { mobile: "center" } }}
+          sx={{ color: "black.main" }}
           fontSize="1rem"
           lineHeight="1.625rem"
         >

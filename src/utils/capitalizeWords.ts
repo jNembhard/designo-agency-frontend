@@ -6,3 +6,7 @@ export const capitalizeWords = (slug: string) => {
 
   return primaryKey;
 };
+
+export const capitalizeWordsWithASpace = (name: string) => {
+  return name.replace(/\b\w/g, (char) => char.toUpperCase());
+};

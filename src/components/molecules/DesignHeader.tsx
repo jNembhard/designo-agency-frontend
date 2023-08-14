@@ -1,5 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { GET_DESIGN_HEADER } from "../../graphql/designQueries";
+import { capitalizeWordsWithASpace } from "../../utils/capitalizeWords";
+import { SEO } from "../atoms/SEO";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
@@ -32,76 +34,85 @@ const DesignHeader = ({ designID }: { designID: string }) => {
   }
 
   const { header, images, name } = data.design;
+  const capitalName = capitalizeWordsWithASpace(name);
 
   return (
     <>
       {!loading && !error && (
-        <Box
-          bgcolor="peach.main"
-          position="relative"
-          overflow="hidden"
-          maxWidth="69.438rem"
-          zIndex="1"
-          sx={{
-            minHeight: {
-              mobile: "20rem",
-              tablet: "15.75rem",
-            },
-            padding: {
-              mobile: "6.563rem 1.5rem",
-              tablet: "4rem 1.5rem",
-            },
-            mx: {
-              tablet: "2.5rem",
-              laptop: "auto",
-            },
-            borderRadius: {
-              tablet: "0.938rem",
-            },
-          }}
-        >
+        <>
+          <SEO
+            author="Jason Nembhard"
+            title={capitalName}
+            description={header}
+            type="webapp"
+          />
           <Box
-            component="img"
-            position="absolute"
-            src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.bgPattern}
-            zIndex="-1"
+            bgcolor="peach.main"
+            position="relative"
+            overflow="hidden"
+            maxWidth="69.438rem"
+            zIndex="1"
             sx={{
-              top: {
-                mobile: "1.875rem",
-                tablet: "-10.625rem",
+              minHeight: {
+                mobile: "20rem",
+                tablet: "15.75rem",
               },
-              right: {
-                mobile: "0",
-                tablet: "-11.25rem",
+              padding: {
+                mobile: "6.563rem 1.5rem",
+                tablet: "4rem 1.5rem",
+              },
+              mx: {
+                tablet: "2.5rem",
+                laptop: "auto",
+              },
+              borderRadius: {
+                tablet: "0.938rem",
               },
             }}
-            alt=""
-          />
-          <Box textAlign="center" margin="auto">
-            <Typography
-              variant="h1"
-              color="white.main"
-              textTransform="capitalize"
+          >
+            <Box
+              component="img"
+              position="absolute"
+              src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.bgPattern}
+              zIndex="-1"
               sx={{
-                mb: {
-                  mobile: "1.5rem",
+                top: {
+                  mobile: "1.875rem",
+                  tablet: "-10.625rem",
                 },
-                fontSize: { tablet: "3rem" },
-                lineHeight: { tablet: "3rem" },
+                right: {
+                  mobile: "0",
+                  tablet: "-11.25rem",
+                },
               }}
-            >
-              {name}
-            </Typography>
-            <Typography
-              variant="body1"
-              color="white.main"
-              maxWidth="40ch"
-              margin="auto"
-            >
-              {header}
-            </Typography>
+              alt=""
+            />
+            <Box textAlign="center" margin="auto">
+              <Typography
+                variant="h1"
+                color="white.main"
+                textTransform="capitalize"
+                sx={{
+                  mb: {
+                    mobile: "1.5rem",
+                  },
+                  fontSize: { tablet: "3rem" },
+                  lineHeight: { tablet: "3rem" },
+                }}
+              >
+                {name}
+              </Typography>
+              <Typography
+                variant="body1"
+                color="white.main"
+                maxWidth="40ch"
+                margin="auto"
+              >
+                {header}
+              </Typography>
+            </Box>
           </Box>
-        </Box>
+        </>
       )}
     </>
   );
