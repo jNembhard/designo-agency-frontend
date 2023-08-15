@@ -1,16 +1,16 @@
 import { useEffect } from "react";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { useQuery } from "@apollo/client";
 import { GET_LOCATIONS } from "../../graphql/locationQueries";
 import { ILocation } from "../../interface/Location";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import LocationContact from "../atoms/LocationContact";
-import { useMediaQuery } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
 const Maps = () => {
   const isBreakpoint767 = useMediaQuery("(min-width: 767px)");
-  const isBreakpoint1200 = useMediaQuery("(min-width: 1200px)");
+  const isBreakpoint1024 = useMediaQuery("(min-width: 1024px)");
 
   const { loading, error, data } = useQuery(GET_LOCATIONS, {
     variables: { count: 3 },
@@ -58,15 +58,15 @@ const Maps = () => {
               <Stack
                 key={hashID}
                 direction={
-                  isBreakpoint1200 && hashID === "australia"
+                  isBreakpoint1024 && hashID === "australia"
                     ? "row"
-                    : isBreakpoint1200
+                    : isBreakpoint1024
                     ? "row-reverse"
                     : isBreakpoint767
                     ? "column"
                     : undefined
                 }
-                spacing={isBreakpoint1200 ? 3 : 0}
+                spacing={isBreakpoint1024 ? 3 : 0}
                 sx={{
                   margin: {
                     mobile: "0 0 5rem 0",

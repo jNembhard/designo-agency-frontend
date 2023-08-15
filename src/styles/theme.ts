@@ -1,21 +1,21 @@
 import createTheme from "@mui/material/styles/createTheme";
 
 const breakpoints = {
-  values: {
+  sizes: {
     mobile: 0,
-    tablet: 640,
+    tablet: 767,
     laptop: 1024,
-    desktop: 1200,
+    desktop: 1440,
   },
 };
 
 const themeOptions: ThemeOptions = {
   breakpoints: {
     values: {
-      mobile: 0,
-      tablet: 640,
-      laptop: 1024,
-      desktop: 1200,
+      mobile: breakpoints.sizes.mobile,
+      tablet: breakpoints.sizes.tablet,
+      laptop: breakpoints.sizes.laptop,
+      desktop: breakpoints.sizes.desktop,
     },
   },
   components: {
@@ -52,7 +52,7 @@ const themeOptions: ThemeOptions = {
       fontSize: "2rem",
       fontWeight: 500,
       lineHeight: "2.25rem",
-      [`@media screen and (max-width: ${breakpoints.values.tablet}px)`]: {
+      [`@media screen and (min-width: ${breakpoints.sizes.tablet}px)`]: {
         fontSize: "3rem",
         lineHeight: "3rem",
       },
@@ -62,7 +62,7 @@ const themeOptions: ThemeOptions = {
       fontWeight: 500,
       lineHeight: "2.25rem",
       letterSpacing: "0.125rem",
-      [`@media screen and (max-width: ${breakpoints.values.tablet}px)`]: {
+      [`@media screen and (min-width: ${breakpoints.sizes.tablet}px)`]: {
         fontSize: "2.5rem",
         lineHeight: "3rem",
       },
@@ -77,7 +77,7 @@ const themeOptions: ThemeOptions = {
       fontSize: "0.938rem",
       fontWeight: 400,
       lineHeight: "1.563rem",
-      [`@media screen and (max-width: ${breakpoints.values.tablet}px)`]: {
+      [`@media screen and (min-width: ${breakpoints.sizes.tablet}px)`]: {
         fontSize: "1rem",
         lineHeight: "1.625rem",
       },

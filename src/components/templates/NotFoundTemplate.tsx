@@ -11,7 +11,11 @@ const NotFoundTemplate = ({
 }) => {
   return (
     <div>
-      <Typography variant="h1" fontSize="9.375rem" color="peach.main">
+      <Typography
+        variant="h1"
+        color="peach.main"
+        sx={{ fontSize: { mobile: "4rem", tablet: "6rem" } }}
+      >
         404
       </Typography>
       <Box pt="3.438rem">
@@ -23,6 +27,8 @@ const NotFoundTemplate = ({
           color="black.dark"
           my="0.625rem"
           mb="1.7rem"
+          margin="0.625rem auto 1.7rem"
+          maxWidth="50ch"
         >
           {description}
         </Typography>

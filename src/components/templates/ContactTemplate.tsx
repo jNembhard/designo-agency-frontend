@@ -9,7 +9,25 @@ const ContactTemplate = () => {
       position="relative"
       overflow="hidden"
       zIndex="1"
-      sx={{ padding: { mobile: "4.5rem 1.5rem" } }}
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        margin: {
+          tablet: "2.44rem",
+          laptop: "auto",
+        },
+        borderRadius: { tablet: "0.938rem" },
+        padding: {
+          mobile: "4.5rem 1.5rem",
+          tablet: "4.44rem 3.63rem",
+          laptop: "3.44rem 4rem",
+          desktop: "3.44rem 6rem",
+        },
+        maxWidth: {
+          laptop: "69.4375rem",
+        },
+      }}
     >
       <Box
         position="absolute"
@@ -18,6 +36,8 @@ const ContactTemplate = () => {
         sx={{
           top: {
             mobile: "0.125rem",
+            tablet: "-5rem",
+            laptop: "-10.5rem",
           },
           left: {
             mobile: "-6.25rem",

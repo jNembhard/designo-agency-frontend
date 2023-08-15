@@ -5,7 +5,7 @@ import Stack from "@mui/material/Stack";
 import { DesignButton } from "../../atoms/DesignoButton";
 
 const FooterCTA = () => {
-  const mediaQuery = useMediaQuery("(min-width: 1200px)");
+  const isBreakpoint1024 = useMediaQuery("(min-width: 1024px)");
 
   return (
     <Box
@@ -45,7 +45,7 @@ const FooterCTA = () => {
         alt=""
       />
       <Stack
-        direction={mediaQuery ? "row" : "column"}
+        direction={isBreakpoint1024 ? "row" : "column"}
         sx={{
           margin: {
             tablet: "3.688rem 3.563rem",
@@ -81,7 +81,7 @@ const FooterCTA = () => {
                   laptop: "unset",
                 },
                 mb: {
-                  tablet: "20px",
+                  tablet: "1.25rem",
                 },
               }}
             >

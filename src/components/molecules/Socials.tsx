@@ -26,7 +26,7 @@ const Socials = () => {
   );
 
   return (
-    <Stack sx={{ mt: { mobile: "20px", tablet: "unset" } }}>
+    <Stack sx={{ mt: { mobile: "1.25rem", tablet: "unset" } }}>
       {!loading && !error && (
         <div>
           {socials.map((social: ISocial) => (

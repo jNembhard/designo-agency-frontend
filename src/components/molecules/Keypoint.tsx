@@ -12,12 +12,12 @@ const Keypoint: React.FC<ICallout> = ({
   description,
 }) => {
   const isBreakpoint767 = useMediaQuery("(min-width: 767px)");
-  const isBreakpoint1200 = useMediaQuery("(min-width: 1200px");
+  const isBreakpoint1024 = useMediaQuery("(min-width: 1024px");
   return (
     <Stack
       direction={
-        isBreakpoint1200
-          ? isBreakpoint1200
+        isBreakpoint1024
+          ? isBreakpoint1024
             ? "column"
             : "row"
           : isBreakpoint767

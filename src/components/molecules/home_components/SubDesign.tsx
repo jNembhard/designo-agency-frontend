@@ -42,13 +42,13 @@ const SubDesign = (design: { designID: string }) => {
         >
           <picture>
             <source
-              media="(min-width: 62em)"
+              media="(min-width: 64em)"
               srcSet={
                 process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.desktop
               }
             />
             <source
-              media="(min-width: 30em)"
+              media="(min-width: 47.938rem)"
               srcSet={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.tablet}
             />
             <Box

@@ -1,17 +1,11 @@
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FormButton } from "../atoms/DesignoButton";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import styled from "@mui/material/styles/styled";
 import Box from "@mui/material/Box";
-
-type InputProps = {
-  name: string;
-  emailAddress: string;
-  phoneNumber: string;
-  message: string;
-};
+import { IFormState } from "../../interface/Form";
 
 const WhiteTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -50,7 +44,7 @@ const Form = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<InputProps>({ mode: "onBlur" });
+  } = useForm<IFormState>({ mode: "onBlur" });
 
   const [isDisabled, setIsDisabled] = useState<Boolean>(false);
 
@@ -60,15 +54,20 @@ const Form = () => {
   //   if (isDisabled) return;
   // };
 
-  const onSubmit: SubmitHandler<InputProps> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<IFormState> = (data) => console.log(data);
   return (
     <Box
       component="form"
       textAlign="center"
       noValidate
       onSubmit={handleSubmit(onSubmit)}
+      sx={{ minWidth: { laptop: "23.75rem" }, width: { laptop: "23.75rem" } }}
     >
-      <Stack mb={{ mobile: "3rem" }}>
+      <Stack
+        sx={{
+          mb: { mobile: "3rem", tablet: "1.5rem" },
+        }}
+      >
         <WhiteTextField
           id="standard-basic"
           placeholder="Name"
@@ -151,7 +150,9 @@ const Form = () => {
           aria-invalid={errors.message ? "true" : "false"}
         />
       </Stack>
-      <FormButton islight={true} text="submit" />
+      <Box sx={{ textAlign: { tablet: "right" } }}>
+        <FormButton islight={true} text="submit" />
+      </Box>
     </Box>
   );
 };

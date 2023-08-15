@@ -53,7 +53,7 @@ const AboutCard = ({
           {images.heroPatternDesktop && images.heroPatternMobile && (
             <Box component="picture">
               <source
-                media="(min-width: 768px)"
+                media="(min-width: 47.9375em)"
                 srcSet={
                   process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
                   images.heroPatternDesktop

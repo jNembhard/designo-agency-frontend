@@ -3,7 +3,13 @@ import Box from "@mui/material/Box";
 
 const ContactDescription = () => {
   return (
-    <Box sx={{ textAlign: "center", mb: "3rem" }}>
+    <Box
+      sx={{
+        textAlign: { mobile: "center", tablet: "left" },
+        width: { tablet: "60ch", laptop: "45ch", desktop: "50ch" },
+        mb: "3rem",
+      }}
+    >
       <Typography variant="h1" color="white.main">
         Contact Us
       </Typography>

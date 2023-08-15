@@ -29,9 +29,17 @@ const PrimeDesign = (design: { designID: string }) => {
             overflow="hidden"
             bgcolor="black.dark"
             sx={{
-              margin: "0 1.5rem 2rem",
-              width: { mobile: "20.438rem" },
-              height: { mobile: "15.313rem" },
+              margin: {
+                mobile: "0 1.5rem 2rem",
+                tablet: "0 0 2rem 0",
+                laptop: "0",
+              },
+              height: {
+                mobile: "15.313rem",
+                tablet: "12.5rem",
+                laptop: "40rem",
+              },
+              maxHeight: { laptop: "40rem" },
               "&:hover": {
                 bgcolor: "peach.main",
               },
@@ -39,14 +47,14 @@ const PrimeDesign = (design: { designID: string }) => {
           >
             <picture>
               <source
-                media="(min-width: 62em)"
+                media="(min-width: 64em)"
                 srcSet={
                   process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
                   images.desktopLarge
                 }
               />
               <source
-                media="(min-width: 30em)"
+                media="(min-width: 47.938em)"
                 srcSet={
                   process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.tablet
                 }
