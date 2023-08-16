@@ -10,6 +10,8 @@ const About = () => {
         mb: {
           mobile: "7.5rem",
         },
+
+        margin: { laptop: "auto" },
       }}
     >
       <SEO

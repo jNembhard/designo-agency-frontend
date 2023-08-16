@@ -1,11 +1,15 @@
 import { useQuery } from "@apollo/client";
 import { GET_DESIGN } from "../../../graphql/designQueries";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Arrow from "../../atoms/Arrow";
 
 const PrimeDesign = (design: { designID: string }) => {
+  const isBreakpoint767 = useMediaQuery("(min-width: 767px");
+
   const { loading, error, data } = useQuery(GET_DESIGN, {
     variables: { DesignID: design.designID },
   });
@@ -29,19 +33,20 @@ const PrimeDesign = (design: { designID: string }) => {
             overflow="hidden"
             bgcolor="black.dark"
             sx={{
-              margin: {
-                mobile: "0 1.5rem 2rem",
-                tablet: "0 0 2rem 0",
+              mb: {
+                mobile: "2rem",
+                tablet: "2rem",
                 laptop: "0",
               },
-              height: {
+              maxHeight: {
                 mobile: "15.313rem",
-                tablet: "12.5rem",
-                laptop: "40rem",
+                tablet: "11.8rem",
+                laptop: "36.8rem",
               },
-              maxHeight: { laptop: "40rem" },
+              transition: "background-color 0.2s ease-in-out",
               "&:hover": {
                 bgcolor: "peach.main",
+                transition: "background-color 0.3s ease-in-out",
               },
             }}
           >
@@ -64,6 +69,8 @@ const PrimeDesign = (design: { designID: string }) => {
                 sx={{
                   objectFit: "cover",
                   opacity: 0.5,
+                  maxWidth: "100%",
+                  height: "auto",
                 }}
                 src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.mobile}
                 alt={name}
@@ -87,17 +94,28 @@ const PrimeDesign = (design: { designID: string }) => {
               >
                 {name}
               </Typography>
-              <Typography
-                variant="body1"
+              <Stack
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                spacing={isBreakpoint767 ? 2 : 0.5}
                 sx={{
-                  fontSize: "0.938rem",
-                  fontWeight: 500,
-                  letterSpacing: "0.313rem",
-                  textTransform: "uppercase",
+                  margin: { mobile: "0.75rem auto 0", tablet: "1.5rem auto 0" },
                 }}
               >
-                view projects
-              </Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    fontSize: "0.938rem",
+                    fontWeight: 500,
+                    letterSpacing: "0.313rem",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  view projects
+                </Typography>
+                <Arrow hexColor="#E7816B" />
+              </Stack>
             </Box>
           </Stack>
         </Link>

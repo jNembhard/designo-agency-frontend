@@ -15,12 +15,11 @@ const HeroCTA = () => {
         justifyContent: { laptop: "space-between" },
         maxHeight: { mobile: "52.688rem", laptop: "40rem" },
         maxWidth: { laptop: "69.4375rem" },
-        textAlign: { mobile: "center", tablet: "left" },
+        textAlign: { mobile: "center", laptop: "left" },
         zIndex: 5,
         bgcolor: "peach.main",
         px: { mobile: "1.5rem", laptop: "4rem" },
         mx: { tablet: "2.5rem" },
-        margin: { laptop: "auto" },
         borderRadius: { tablet: "0.938rem" },
       }}
     >
@@ -79,6 +78,7 @@ const HeroCTA = () => {
           sx={{
             margin: {
               mobile: "-7.5rem -10rem 0",
+              tablet: "-7.5rem auto 0",
               laptop: "-0.5rem -10rem 0",
             },
           }}

@@ -1,6 +1,6 @@
 import styled from "@mui/material/styles/styled";
-import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
+import Button from "@mui/material/Button";
 
 const DesignoButton = styled(Button)(({ islight }: { islight: boolean }) => ({
   boxShadow: "none",
@@ -13,8 +13,9 @@ const DesignoButton = styled(Button)(({ islight }: { islight: boolean }) => ({
   fontSize: "0.938rem",
   fontWeight: "medium",
   "&:hover": {
-    backgroundColor: "#ffad9b",
     color: "#ffffff",
+    backgroundColor: "#ffad9b",
+    transition: "color 0.2s ease-in-out, background-color 0.2s ease-in-out",
   },
 }));
 

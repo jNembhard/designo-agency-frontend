@@ -20,7 +20,13 @@ const FooterCTA = () => {
           tablet: "unset",
           laptop: "4.5rem 5.938rem",
         },
-        mx: { mobile: "1.5rem", tablet: "2.438rem", laptop: "10.25rem" },
+        mx: {
+          mobile: "1.5rem",
+          tablet: "2.438rem",
+          laptop: "4rem",
+          desktop: "10.25rem",
+        },
+        maxHeight: { laptop: "18.25rem" },
       }}
       borderRadius="0.938rem"
     >

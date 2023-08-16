@@ -1,5 +1,6 @@
 import { GET_ABOUT } from "../../graphql/aboutQueries";
 import { useQuery } from "@apollo/client";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 import styled from "@mui/material/styles/styled";
 import Card from "@mui/material/Card";
@@ -7,11 +8,19 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 
-const StyledCard = styled(Card)(({ isdark }: { isdark: boolean }) => ({
-  boxShadow: "none",
-  color: isdark ? "#ffffff" : "#e7816b",
-  backgroundColor: isdark ? "#e7816b" : "#fdf3f0",
-}));
+const StyledCard = styled(Card)(
+  ({ isdark, aboutid }: { isdark: boolean; aboutid: string }) => ({
+    boxShadow: "none",
+    color: isdark ? "#ffffff" : "#e7816b",
+    backgroundColor: isdark ? "#e7816b" : "#fdf3f0",
+    "@media (min-width: 1024px)": {
+      display: "flex",
+      flexDirection: aboutid === "about-2" ? "row" : "row-reverse",
+      maxWidth: "69.438rem",
+      alignItems: "center",
+    },
+  })
+);
 
 const AboutCard = ({
   aboutID,
@@ -20,6 +29,9 @@ const AboutCard = ({
   aboutID: string;
   isdark: boolean;
 }) => {
+  const isBreakpoint767 = useMediaQuery("(min-width: 767px)");
+  const isBreakpoint1024 = useMediaQuery("(min-width: 1024px)");
+
   const { loading, error, data } = useQuery(GET_ABOUT, {
     variables: { AboutID: aboutID },
   });
@@ -29,30 +41,53 @@ const AboutCard = ({
 
   const { description, images, title } = data.about;
   return (
-    <Box>
-      <StyledCard isdark={isdark}>
+    <Box
+      sx={{
+        margin: { tablet: "0 2.5rem 7.5rem", laptop: "0 auto 7.5rem" },
+        borderRadius: { tablet: "0.938rem" },
+        overflow: { tablet: "hidden" },
+        maxWidth: { laptop: "69.438rem" },
+      }}
+    >
+      <StyledCard isdark={isdark} aboutid={aboutID}>
         <CardMedia
-          sx={{ height: 320 }}
-          image={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.mobile}
+          sx={{
+            minWidth: { laptop: "29.75rem" },
+            height: {
+              mobile: "20rem",
+              laptop: aboutID === "about-1" ? "30rem" : "40rem",
+            },
+          }}
+          image={
+            isBreakpoint1024
+              ? process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.desktop
+              : isBreakpoint767
+              ? process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.tablet
+              : process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.mobile
+          }
           title={title}
         />
         <CardContent
           sx={{
             position: "relative",
-            textAlign: "center",
-            overflow: "hidden",
+            textAlign: { mobile: "center", tablet: "left" },
+            overflow: { mobile: "hidden", laptop: "unset" },
             zIndex: "1",
             padding: {
               mobile: "5rem 1.5rem 0",
+              tablet: "4rem 3.62rem",
+              laptop: "4rem 5.94rem",
             },
             mb: {
               mobile: "5rem",
+              tablet: "unset",
             },
           }}
         >
           {images.heroPatternDesktop && images.heroPatternMobile && (
             <Box component="picture">
-              <source
+              <Box
+                component="source"
                 media="(min-width: 47.9375em)"
                 srcSet={
                   process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
@@ -63,8 +98,12 @@ const AboutCard = ({
                 component="img"
                 sx={{
                   position: "absolute",
-                  top: "-8.438rem",
-                  right: "0",
+                  top: {
+                    mobile: "-8.438rem",
+                    tablet: "-28rem",
+                    laptop: "-15rem",
+                  },
+                  right: { mobile: "0", tablet: "8.4rem", laptop: "5rem" },
                   zIndex: "-1",
                 }}
                 src={

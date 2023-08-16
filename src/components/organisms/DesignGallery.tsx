@@ -10,17 +10,18 @@ const DesignGallery = () => {
     <Stack
       direction={isBreakpoint1024 ? "row" : "column"}
       sx={{
-        margin: { mobile: "7.5rem 1.5rem", laptop: "10rem 0" },
+        margin: {
+          mobile: "7.5rem 1.5rem",
+          laptop: "7rem 4rem",
+          desktop: "10rem 0",
+        },
         alignItems: "center",
         justifyContent: "center",
       }}
       spacing={isBreakpoint1024 ? 3 : 0}
     >
       <PrimeDesign designID="design-1" />
-      <Stack
-        spacing={isBreakpoint1024 ? 3 : 0}
-        sx={{ laptop: { width: "40rem" } }}
-      >
+      <Stack spacing={isBreakpoint1024 ? 3 : 0}>
         <SubDesign designID="design-2" />
         <SubDesign designID="design-3" />
       </Stack>

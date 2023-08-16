@@ -6,19 +6,27 @@ import TextField from "@mui/material/TextField";
 import styled from "@mui/material/styles/styled";
 import Box from "@mui/material/Box";
 import { IFormState } from "../../interface/Form";
+import ErrorHelper from "../atoms/ErrorHelper";
 
 const WhiteTextField = styled(TextField)({
   "& label.Mui-focused": {
-    color: "white",
+    color: "#ffffff",
   },
   "& .MuiInput-underline:before": {
-    borderColor: "white",
+    borderBottomColor: "white",
   },
   "& .MuiInput-underline:hover:before": {
-    borderColor: "black",
+    borderBottomColor: "white",
   },
   "& .MuiInput-underline:after": {
     borderBottomColor: "white",
+  },
+  "& .MuiFormHelperText-root": {
+    color: "white",
+    marginLeft: "80% !important",
+    marginTop: "-30px !important",
+    fontStyle: "italic",
+    width: "fit-content",
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
@@ -46,13 +54,9 @@ const Form = () => {
     formState: { errors },
   } = useForm<IFormState>({ mode: "onBlur" });
 
-  const [isDisabled, setIsDisabled] = useState<Boolean>(false);
-
-  // const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-
-  //   if (isDisabled) return;
-  // };
+  const handleTextFieldError = (text: string) => {
+    return <ErrorHelper errorMessage={text} />;
+  };
 
   const onSubmit: SubmitHandler<IFormState> = (data) => console.log(data);
   return (
@@ -69,7 +73,7 @@ const Form = () => {
         }}
       >
         <WhiteTextField
-          id="standard-basic"
+          id="name"
           placeholder="Name"
           variant="standard"
           inputProps={{
@@ -77,8 +81,10 @@ const Form = () => {
           }}
           sx={{
             height: "3.875rem",
+            color: "white.main",
           }}
           error={errors.name ? true : false}
+          helperText={errors.name ? handleTextFieldError("Invalid name") : ""}
           {...register("name", {
             required: "Field cannot be empty",
             pattern: {
@@ -88,8 +94,9 @@ const Form = () => {
           })}
           aria-invalid={errors.name ? "true" : "false"}
         />
+
         <WhiteTextField
-          id="standard-basic"
+          id="email"
           placeholder="Email Address"
           variant="standard"
           inputProps={{
@@ -97,8 +104,12 @@ const Form = () => {
           }}
           sx={{
             height: "3.875rem",
+            color: "white.main",
           }}
           error={errors.emailAddress ? true : false}
+          helperText={
+            errors.emailAddress ? handleTextFieldError("Invalid email") : ""
+          }
           {...register("emailAddress", {
             required: "Field cannot be empty",
             pattern: {
@@ -109,7 +120,7 @@ const Form = () => {
           aria-invalid={errors.emailAddress ? "true" : "false"}
         />
         <WhiteTextField
-          id="standard-basic"
+          id="phone"
           placeholder="Phone"
           variant="standard"
           inputProps={{
@@ -120,6 +131,11 @@ const Form = () => {
             color: "white.main",
           }}
           error={errors.phoneNumber ? true : false}
+          helperText={
+            errors.phoneNumber
+              ? handleTextFieldError("Invalid phone number")
+              : ""
+          }
           {...register("phoneNumber", {
             required: "Field cannot be empty",
             pattern: {
@@ -127,19 +143,22 @@ const Form = () => {
               message: "Wrong format",
             },
           })}
-          type="phone"
           aria-invalid={errors.phoneNumber ? "true" : "false"}
         />
         <WhiteTextField
-          id="standard-basic"
+          id="message"
           placeholder="Your Message"
           variant="standard"
           multiline
           rows={4}
           inputProps={{
             style: inputStyles,
+            color: "white.main",
           }}
           error={errors.message ? true : false}
+          helperText={
+            errors.message ? handleTextFieldError("Can't be empty") : ""
+          }
           {...register("message", {
             required: "Field cannot be empty",
             pattern: {
@@ -151,7 +170,7 @@ const Form = () => {
         />
       </Stack>
       <Box sx={{ textAlign: { tablet: "right" } }}>
-        <FormButton islight={true} text="submit" />
+        <FormButton islight text="submit" />
       </Box>
     </Box>
   );

@@ -4,6 +4,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Stack from "@mui/material/Stack";
 import Place from "../molecules/Place";
 import { IPlace } from "../../interface/Place";
+import { Box } from "@mui/material";
 
 const Places = () => {
   const isBreakpoint1024 = useMediaQuery("(min-width: 1024px)");
@@ -25,13 +26,18 @@ const Places = () => {
   );
 
   return (
-    <>
+    <Box margin="auto">
       {!loading && !error && (
         <Stack
           direction={isBreakpoint1024 ? "row" : "column"}
           sx={{
-            margin: { mobile: "7.5rem 0.75rem", laptop: "10.313rem 10rem" },
+            margin: {
+              mobile: "7.5rem 0.75rem",
+              laptop: "10.313rem 10rem",
+              desktop: "10.313rem auto",
+            },
           }}
+          maxWidth="1111px"
           alignItems="center"
           justifyContent="space-between"
         >
@@ -40,7 +46,7 @@ const Places = () => {
           ))}
         </Stack>
       )}
-    </>
+    </Box>
   );
 };
 

@@ -13,21 +13,16 @@ const Keypoint: React.FC<ICallout> = ({
 }) => {
   const isBreakpoint767 = useMediaQuery("(min-width: 767px)");
   const isBreakpoint1024 = useMediaQuery("(min-width: 1024px");
+
   return (
     <Stack
       direction={
-        isBreakpoint1024
-          ? isBreakpoint1024
-            ? "column"
-            : "row"
-          : isBreakpoint767
-          ? "row"
-          : "column"
+        isBreakpoint1024 ? "column" : isBreakpoint767 ? "row" : "column"
       }
       sx={{
         mb: { mobile: "5rem", tablet: "1.5rem" },
         alignItems: { tablet: "center", justifyContent: "center" },
-        maxWidth: { laptop: "6.25rem", desktop: "21.875rem" },
+        maxWidth: { laptop: "18rem", desktop: "21.875rem" },
         mx: { laptop: "0.625rem" },
       }}
     >

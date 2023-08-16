@@ -5,11 +5,15 @@ import Box from "@mui/material/Box";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import { useState } from "react";
 
 const Product: React.FC<IProduct> = ({ description, image, title }) => {
+  const [hovered, setHovered] = useState(false);
   return (
     <Grid xs={12} md={4} sx={{ mx: { laptop: "0.938rem" } }}>
       <Card
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
         sx={{
           my: {
             mobile: "1.25rem",
@@ -21,11 +25,13 @@ const Product: React.FC<IProduct> = ({ description, image, title }) => {
         }}
       >
         <Box
+          bgcolor={hovered ? "peach.main" : "sand"}
           sx={{
             display: { tablet: "flex" },
             flexDirection: { tablet: "row", laptop: "column" },
-            bgcolor: "sand",
             borderRadius: { laptop: "0.938rem" },
+            cursor: "pointer",
+            transition: "background-color 0.3s ease-in-out",
           }}
         >
           <CardMedia
@@ -48,20 +54,22 @@ const Product: React.FC<IProduct> = ({ description, image, title }) => {
           >
             <Typography
               variant="h3"
-              color="peach.main"
               textTransform="uppercase"
+              color={hovered ? "white.main" : "peach.main"}
               sx={{
-                mb: {
-                  mobile: "1rem",
-                },
+                transition: "color 0.3s ease-in-out",
+                mb: { mobile: "1rem" },
               }}
             >
               {title}
             </Typography>
             <Typography
               variant="body1"
-              color="black.main"
-              sx={{ width: { laptop: "15.625rem" } }}
+              color={hovered ? "white.main" : "black.main"}
+              sx={{
+                transition: "color 0.3s ease-in-out",
+                width: { laptop: "15.625rem" },
+              }}
             >
               {description}
             </Typography>

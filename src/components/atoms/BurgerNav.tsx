@@ -38,6 +38,7 @@ const BurgerNav = () => {
         sx={{
           color: "black",
           zIndex: "tooltip",
+          top: "142px",
         }}
         onClick={() => toggle()}
         open={modalOpen}
@@ -52,7 +53,7 @@ const BurgerNav = () => {
           justifyContent="start"
           position="absolute"
           zIndex="drawer"
-          top="8.875rem"
+          top="-0.05rem"
           sx={{
             transition: "opacity 0.3s ease-in-out, transform 0.3s ease-in-out",
             opacity: modalOpen ? 1 : 0,
@@ -61,13 +62,22 @@ const BurgerNav = () => {
         >
           {navlinks.map((navlink) => (
             <Link
+              key={navlink.id}
               href={navlink.slug}
               fontSize="1.5rem"
               lineHeight="1.563rem"
               letterSpacing="0.125rem"
               textTransform="uppercase"
               textAlign="left"
-              sx={{ textDecoration: "none", color: "inherit" }}
+              sx={{
+                textDecoration: "none",
+                color: "white.main",
+                transition: "color 0.3s ease-in-out",
+                "&:hover": {
+                  color: "peach.main",
+                  transition: "color 0.3s ease-in-out",
+                },
+              }}
             >
               {navlink.name}
             </Link>

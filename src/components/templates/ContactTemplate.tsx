@@ -10,18 +10,18 @@ const ContactTemplate = () => {
       overflow="hidden"
       zIndex="1"
       sx={{
-        display: "flex",
+        display: { laptop: "flex" },
         alignItems: "center",
         justifyContent: "space-between",
         margin: {
           tablet: "2.44rem",
           laptop: "auto",
+          desktop: "auto",
         },
         borderRadius: { tablet: "0.938rem" },
         padding: {
           mobile: "4.5rem 1.5rem",
           tablet: "4.44rem 3.63rem",
-          laptop: "3.44rem 4rem",
           desktop: "3.44rem 6rem",
         },
         maxWidth: {

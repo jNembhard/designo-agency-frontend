@@ -6,7 +6,13 @@ import { SEO } from "../components/atoms/SEO";
 
 const Home = () => {
   return (
-    <Box>
+    <Box
+      sx={{
+        display: { laptop: "flex" },
+        flexDirection: { laptop: "column" },
+        alignItems: { laptop: "center" },
+      }}
+    >
       <SEO
         author="Jason Nembhard"
         title="Home"
