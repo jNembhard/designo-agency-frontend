@@ -84,7 +84,7 @@ const Maps = () => {
                     height: {
                       mobile: "20rem",
                       tablet: "20.375rem",
-                      laptop: "20rem",
+                      laptop: "19.5rem",
                     },
                     mb: {
                       tablet: "1.5rem",
@@ -93,12 +93,12 @@ const Maps = () => {
                     borderRadius: {
                       tablet: "0.9375rem",
                     },
-                    overflow: { tablet: "hidden" },
+                    overflow: "hidden",
                   }}
                 >
                   <Box
                     component="source"
-                    media="(min-width: 767px) and (max-width: 1200px)"
+                    media="(min-width: 767px) and (max-width: 1023px)"
                     srcSet={
                       process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
                       location.images.tablet
@@ -111,6 +111,11 @@ const Maps = () => {
                       location.images.desktop
                     }
                     alt={location.title}
+                    width="100%"
+                    height="auto"
+                    sx={{
+                      objectFit: "fill",
+                    }}
                   />
                 </Box>
                 <Box
@@ -126,7 +131,7 @@ const Maps = () => {
                       laptop: "45.625rem",
                     },
                     height: {
-                      laptop: "20.375rem",
+                      laptop: "19.5rem",
                     },
                   }}
                 >

@@ -72,6 +72,10 @@ const DesignHeader = ({ designID }: DesignHeaderProp) => {
               borderRadius: {
                 tablet: "0.938rem",
               },
+              width: {
+                laptop: "95vw",
+                desktop: "unset",
+              },
             }}
           >
             <Box

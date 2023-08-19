@@ -3,9 +3,40 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { DesignButton } from "../atoms/DesignoButton";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useEffect, useState } from "react";
+import { Skeleton } from "@mui/material";
+
+const HeroCTASkeleton = () => {
+  return (
+    <Skeleton
+      variant="rounded"
+      animation="wave"
+      sx={{
+        // bgcolor: "peach.main",
+        height: { mobile: "52.6875rem", laptop: "40rem" },
+        mx: { tablet: "2.5rem", laptop: "auto" },
+        width: { laptop: "90vw" },
+        maxWidth: { laptop: "69.4375rem" },
+      }}
+    />
+  );
+};
 
 const HeroCTA = () => {
   const isBreakpoint1024 = useMediaQuery("(min-width: 1024px)");
+  const [isLoading, setIsLoading] = useState(true);
+
+  // useEffect(() => {
+  //   const loadingTimeout = setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 1000);
+  //   return () => {
+  //     clearTimeout(loadingTimeout);
+  //   };
+  // }, []);
+
+  // if (isLoading) return <HeroCTASkeleton />;
+
   return (
     <Stack
       overflow="hidden"

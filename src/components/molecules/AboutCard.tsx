@@ -39,13 +39,15 @@ const AboutCard = ({ aboutID, isdark }: AboutCardProp) => {
   if (error) return <p>Error:{error.message}</p>;
 
   const { description, images, title } = data.about;
+
   return (
     <Box
       sx={{
         margin: { tablet: "0 2.5rem 7.5rem", laptop: "0 auto 7.5rem" },
+        width: { laptop: "95vw", desktop: "unset" },
+        maxWidth: { laptop: "69.438rem" },
         borderRadius: { tablet: "0.938rem" },
         overflow: { tablet: "hidden" },
-        maxWidth: { laptop: "69.438rem" },
       }}
     >
       <StyledCard isdark={isdark} aboutid={aboutID}>

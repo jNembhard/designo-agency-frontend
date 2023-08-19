@@ -1,19 +1,37 @@
 import { useQuery } from "@apollo/client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GET_SOCIALS } from "../../graphql/socialQueries";
 import { ISocial } from "../../interface/Social";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
+import { Skeleton } from "@mui/material";
 
 const Socials = () => {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const { loading, error, data } = useQuery(GET_SOCIALS, {
     variables: { count: 5 },
   });
 
-  if (loading) {
-    return <div>Loading...</div>;
+  if (loading || isLoading) {
+    return (
+      <Stack
+        direction="row"
+        sx={{ mt: { mobile: "1.25rem", tablet: "unset" } }}
+        spacing={1}
+      >
+        {Array.from({ length: 5 }, (_, index) => (
+          <Skeleton
+            key={index}
+            variant="rectangular"
+            width={24}
+            height={24}
+            sx={{ mx: 1, borderRadius: "8px" }}
+          />
+        ))}
+      </Stack>
+    );
   }
 
   if (error) {

@@ -16,16 +16,17 @@ const ContactTemplate = () => {
         margin: {
           tablet: "2.44rem",
           laptop: "auto",
-          desktop: "auto",
         },
         borderRadius: { tablet: "0.938rem" },
         padding: {
           mobile: "4.5rem 1.5rem",
           tablet: "4.44rem 3.63rem",
-          desktop: "3.44rem 6rem",
+          laptop: "3.44rem 6rem",
         },
+        width: { laptop: "95vw", desktop: "unset" },
         maxWidth: {
-          laptop: "69.4375rem",
+          laptop: "69rem",
+          desktop: "69.4375rem",
         },
       }}
     >

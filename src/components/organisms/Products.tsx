@@ -41,6 +41,7 @@ const Products = ({ productType }: ProductType) => {
         <Grid
           container
           spacing={isBreakpoint1024 ? 2 : 0}
+          maxWidth="1440px"
           sx={{
             px: {
               mobile: "1.5rem",

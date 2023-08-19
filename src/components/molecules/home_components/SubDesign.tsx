@@ -6,6 +6,27 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import Arrow from "../../atoms/Arrow";
+import Skeleton from "@mui/material/Skeleton";
+import { useState } from "react";
+
+const SubDesignSkeleton = () => {
+  return (
+    <Stack
+      sx={{
+        width: { mobile: "85vw", tablet: "90vw", laptop: "85vw" },
+        height: {
+          mobile: "15.313rem",
+          tablet: "11.8rem",
+          laptop: "17.8rem",
+          desktop: "20.25rem",
+        },
+        maxWidth: { laptop: "33.813rem" },
+      }}
+    >
+      <Skeleton animation="wave" variant="rounded" height="90%" />
+    </Stack>
+  );
+};
 
 type SubDesignProp = {
   designID: string;
@@ -13,12 +34,13 @@ type SubDesignProp = {
 
 const SubDesign = (design: SubDesignProp) => {
   const isBreakpoint767 = useMediaQuery("(min-width: 767px");
+  const [isLoading, setIsLoading] = useState(true);
 
   const { loading, error, data } = useQuery(GET_DESIGN, {
     variables: { DesignID: design.designID },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <SubDesignSkeleton />;
   if (error) return <p>Error: {error.message}</p>;
 
   const { images, title, slug } = data.design;

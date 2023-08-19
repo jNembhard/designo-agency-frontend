@@ -21,7 +21,7 @@ const Product = ({ description, image, title }: IProduct) => {
           borderRadius: "0.938rem",
           boxShadow: "none",
           height: { tablet: "19.375rem", laptop: "29.875rem" },
-          maxWidth: { laptop: "21.875rem" },
+          maxWidth: { tablet: "800px", laptop: "21.875rem" },
         }}
       >
         <Box
