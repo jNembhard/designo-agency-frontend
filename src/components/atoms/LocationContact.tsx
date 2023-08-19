@@ -1,16 +1,18 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const LocationContact = ({
-  subHeading,
-  titleOne,
-  titleTwo,
-}: {
+export type LocationContactProp = {
   anchorID?: string;
   subHeading: string;
   titleOne: string;
   titleTwo: string;
-}) => {
+};
+
+const LocationContact = ({
+  subHeading,
+  titleOne,
+  titleTwo,
+}: LocationContactProp) => {
   return (
     <Box>
       <Box

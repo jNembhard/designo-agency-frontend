@@ -1,11 +1,10 @@
-import React from "react";
 import { IPlace } from "../../interface/Place";
 import { DesignButton } from "../atoms/DesignoButton";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-const Place: React.FC<IPlace> = ({ LocationID, images, name, slug }) => {
+const Place = ({ LocationID, images, title, slug }: IPlace) => {
   return (
     <Stack
       textAlign="center"
@@ -46,12 +45,12 @@ const Place: React.FC<IPlace> = ({ LocationID, images, name, slug }) => {
         <Box>
           <img
             src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.icon}
-            alt={name}
+            alt={title}
           />
         </Box>
       </Box>
       <Typography variant="h3" textTransform="uppercase" mb="2rem">
-        {name}
+        {title}
       </Typography>
       <DesignButton
         link={`/locations${slug}`}

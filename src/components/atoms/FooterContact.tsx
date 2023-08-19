@@ -1,15 +1,13 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const FooterContact = ({
-  heading,
-  titleOne,
-  titleTwo,
-}: {
+export type FooterContactProp = {
   heading: string;
   titleOne: string;
   titleTwo: string;
-}) => {
+};
+
+const FooterContact = ({ heading, titleOne, titleTwo }: FooterContactProp) => {
   return (
     <Box
       sx={{

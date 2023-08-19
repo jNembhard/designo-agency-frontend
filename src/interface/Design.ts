@@ -1,6 +1,6 @@
 export interface IDesign {
   DesignID: string;
-  name: string;
+  title: string;
   slug: string;
   images: IDesignImageUrls;
   header: string;

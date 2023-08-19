@@ -10,7 +10,7 @@ export const GET_DESIGN = gql`
         mobile
         tablet
       }
-      name
+      title
       slug
     }
   }
@@ -24,7 +24,7 @@ export const GET_DESIGN_HEADER = gql`
         bgPattern
       }
       header
-      name
+      title
     }
   }
 `;
@@ -41,7 +41,7 @@ export const GET_DESIGNS = gql`
           mobile
           tablet
         }
-        name
+        title
         slug
       }
     }

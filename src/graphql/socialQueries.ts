@@ -5,7 +5,7 @@ export const GET_SOCIAL = gql`
     social(SocialID: $SocialID) {
       SocialID
       icon
-      name
+      title
       socialUrl
     }
   }
@@ -17,7 +17,7 @@ export const GET_SOCIALS = gql`
       social {
         SocialID
         icon
-        name
+        title
         socialUrl
       }
     }

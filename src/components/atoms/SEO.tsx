@@ -1,16 +1,13 @@
 import { Helmet } from "react-helmet-async";
 
-export const SEO = ({
-  author,
-  title,
-  description,
-  type,
-}: {
+type Seo = {
   author: string;
   title: string;
   description: string;
   type: string;
-}) => {
+};
+
+export const SEO = ({ author, title, description, type }: Seo) => {
   return (
     <Helmet>
       <title>{title} | Designo</title>

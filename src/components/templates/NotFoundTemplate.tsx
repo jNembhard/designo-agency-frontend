@@ -2,13 +2,12 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { DesignButton } from "../atoms/DesignoButton";
 
-const NotFoundTemplate = ({
-  title,
-  description,
-}: {
+type NotFoundProp = {
   title: string;
   description: string;
-}) => {
+};
+
+const NotFoundTemplate = ({ title, description }: NotFoundProp) => {
   return (
     <div>
       <Typography

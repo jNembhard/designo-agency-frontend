@@ -7,7 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 
-const Product: React.FC<IProduct> = ({ description, image, title }) => {
+const Product = ({ description, image, title }: IProduct) => {
   const [hovered, setHovered] = useState(false);
   return (
     <Grid xs={12} md={4} sx={{ mx: { laptop: "0.938rem" } }}>

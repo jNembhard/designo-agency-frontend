@@ -1,6 +1,6 @@
 export interface IPlace {
   LocationID: string;
-  name: string;
+  title: string;
   images: IPlaceImages;
   slug: string;
 }

@@ -40,7 +40,7 @@ const Socials = () => {
                 key={social.SocialID}
                 src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + social.icon}
                 component="img"
-                alt={social.name}
+                alt={social.title}
                 onMouseEnter={() => setHoveredIcon(social.SocialID)}
                 onMouseLeave={() => setHoveredIcon(null)}
                 margin="0"

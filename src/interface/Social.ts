@@ -1,6 +1,6 @@
 export interface ISocial {
   SocialID: string;
-  name: string;
+  title: string;
   socialUrl: string;
   icon: string;
 }

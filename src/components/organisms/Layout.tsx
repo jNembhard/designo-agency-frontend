@@ -3,7 +3,11 @@ import Container from "@mui/material/Container";
 import { Navbar } from "../molecules/Navbar";
 import Footer from "./Footer";
 
-const Layout = ({ children }: { children: ReactNode }) => {
+type LayoutProp = {
+  children: ReactNode;
+};
+
+const Layout = ({ children }: LayoutProp) => {
   return (
     <Container
       maxWidth="lg"

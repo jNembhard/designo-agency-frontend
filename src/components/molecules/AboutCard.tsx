@@ -22,13 +22,12 @@ const StyledCard = styled(Card)(
   })
 );
 
-const AboutCard = ({
-  aboutID,
-  isdark,
-}: {
+type AboutCardProp = {
   aboutID: string;
   isdark: boolean;
-}) => {
+};
+
+const AboutCard = ({ aboutID, isdark }: AboutCardProp) => {
   const isBreakpoint767 = useMediaQuery("(min-width: 767px)");
   const isBreakpoint1024 = useMediaQuery("(min-width: 1024px)");
 

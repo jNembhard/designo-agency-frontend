@@ -1,7 +1,11 @@
-import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
-const ErrorHelper = ({ errorMessage }: { errorMessage: string }) => {
+type ErrorMessage = {
+  errorMessage: string;
+};
+
+const ErrorHelper = ({ errorMessage }: ErrorMessage) => {
   return (
     <Box
       display="flex"

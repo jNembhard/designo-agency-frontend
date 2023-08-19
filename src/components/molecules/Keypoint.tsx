@@ -5,12 +5,7 @@ import Box from "@mui/material/Box";
 import { ICallout } from "../../interface/Callout";
 import Typography from "@mui/material/Typography";
 
-const Keypoint: React.FC<ICallout> = ({
-  calloutID,
-  image,
-  title,
-  description,
-}) => {
+const Keypoint = ({ calloutID, image, title, description }: ICallout) => {
   const isBreakpoint767 = useMediaQuery("(min-width: 767px)");
   const isBreakpoint1024 = useMediaQuery("(min-width: 1024px");
 

@@ -1,6 +1,10 @@
 import Box from "@mui/material/Box";
 
-const Arrow = ({ hexColor }: { hexColor: string }) => {
+type HexColor = {
+  hexColor: string;
+};
+
+const Arrow = ({ hexColor }: HexColor) => {
   return (
     <Box
       sx={{

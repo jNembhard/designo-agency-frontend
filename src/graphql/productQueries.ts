@@ -41,7 +41,7 @@ export const GET_PRODUCTS = gql`
 export const GET_PRODUCTS_PAGE = gql`
   query getProductPage($DesignID: String!, $ProductType: String!) {
     design(DesignID: $DesignID) {
-      name
+      title
       header
       slug
     }

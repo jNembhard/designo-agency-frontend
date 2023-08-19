@@ -1,6 +1,6 @@
 export interface ILocation {
   LocationID: string;
-  name: string;
+  title: string;
   images: ILocationImages;
   address: ILocationAddress;
   contact: IContact;

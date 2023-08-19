@@ -7,7 +7,11 @@ import Box from "@mui/material/Box";
 import Products from "../organisms/Products";
 import SubDesign from "../molecules/home_components/SubDesign";
 
-const DesignsTemplate = ({ slug }: { slug: string }) => {
+type DesignsTemplateProp = {
+  slug: string;
+};
+
+const DesignsTemplate = ({ slug }: DesignsTemplateProp) => {
   const [design, setDesign] = useState<IDesignTemplate>({
     hash: "",
     designType: "",

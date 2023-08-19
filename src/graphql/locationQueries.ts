@@ -16,7 +16,7 @@ export const GET_LOCATION = gql`
         icon
         tablet
       }
-      name
+      title
       office
       slug
     }
@@ -40,7 +40,7 @@ export const GET_LOCATIONS = gql`
           desktop
           tablet
         }
-        name
+        title
         office
         slug
       }
@@ -56,7 +56,7 @@ export const GET_PLACES = gql`
         images {
           icon
         }
-        name
+        title
         slug
       }
     }

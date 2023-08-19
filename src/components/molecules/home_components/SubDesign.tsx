@@ -7,7 +7,11 @@ import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import Arrow from "../../atoms/Arrow";
 
-const SubDesign = (design: { designID: string }) => {
+type SubDesignProp = {
+  designID: string;
+};
+
+const SubDesign = (design: SubDesignProp) => {
   const isBreakpoint767 = useMediaQuery("(min-width: 767px");
 
   const { loading, error, data } = useQuery(GET_DESIGN, {
@@ -17,7 +21,7 @@ const SubDesign = (design: { designID: string }) => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const { images, name, slug } = data.design;
+  const { images, title, slug } = data.design;
 
   return (
     <div>
@@ -69,7 +73,7 @@ const SubDesign = (design: { designID: string }) => {
                   height: "auto",
                 }}
                 src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.mobile}
-                alt={name}
+                alt={title}
               />
             </picture>
             <Box
@@ -84,7 +88,7 @@ const SubDesign = (design: { designID: string }) => {
                   fontSize: { mobile: "1.75rem", tablet: "2.5rem" },
                 }}
               >
-                {name}
+                {title}
               </Typography>
               <Stack
                 direction="row"

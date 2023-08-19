@@ -6,7 +6,11 @@ import Grid from "@mui/material/Grid";
 import { IProduct } from "../../interface/Product";
 import Product from "../molecules/Product";
 
-const Products = ({ productType }: { productType: string }) => {
+type ProductType = {
+  productType: string;
+};
+
+const Products = ({ productType }: ProductType) => {
   const isBreakpoint1024 = useMediaQuery("(min-width: 1024px)");
   const { loading, error, data } = useQuery(GET_PRODUCT_GROUP, {
     variables: { ProductType: productType },

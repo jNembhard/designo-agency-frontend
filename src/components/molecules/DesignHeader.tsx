@@ -5,7 +5,11 @@ import { SEO } from "../atoms/SEO";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const DesignHeader = ({ designID }: { designID: string }) => {
+type DesignHeaderProp = {
+  designID: string;
+};
+
+const DesignHeader = ({ designID }: DesignHeaderProp) => {
   const { loading, error, data } = useQuery(GET_DESIGN_HEADER, {
     variables: { DesignID: designID },
   });
@@ -33,8 +37,8 @@ const DesignHeader = ({ designID }: { designID: string }) => {
     return <div>Error occured while fetching data</div>;
   }
 
-  const { header, images, name } = data.design;
-  const capitalName = capitalizeWordsWithASpace(name);
+  const { header, images, title } = data.design;
+  const capitaltitle = capitalizeWordsWithASpace(title);
 
   return (
     <>
@@ -42,7 +46,7 @@ const DesignHeader = ({ designID }: { designID: string }) => {
         <>
           <SEO
             author="Jason Nembhard"
-            title={capitalName}
+            title={capitaltitle}
             description={header}
             type="webapp"
           />
@@ -100,7 +104,7 @@ const DesignHeader = ({ designID }: { designID: string }) => {
                   lineHeight: { tablet: "3rem" },
                 }}
               >
-                {name}
+                {title}
               </Typography>
               <Typography
                 variant="body1"

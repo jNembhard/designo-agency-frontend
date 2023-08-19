@@ -110,7 +110,7 @@ const Maps = () => {
                       process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
                       location.images.desktop
                     }
-                    alt={location.name}
+                    alt={location.title}
                   />
                 </Box>
                 <Box
@@ -167,7 +167,7 @@ const Maps = () => {
                       textTransform="capitalize"
                       zIndex="2"
                     >
-                      {location.name}
+                      {location.title}
                     </Typography>
                     <Stack
                       direction={isBreakpoint767 ? "row" : "column"}
