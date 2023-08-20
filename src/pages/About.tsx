@@ -3,6 +3,11 @@ import Places from "../components/organisms/Places";
 import AboutCard from "../components/molecules/AboutCard";
 import { SEO } from "../components/atoms/SEO";
 
+const aboutWrapper = {
+  mb: { mobile: "7.5rem" },
+  margin: { laptop: "auto" },
+};
+
 const About = () => {
   return (
     <>
@@ -12,15 +17,7 @@ const About = () => {
         description="Discover our creative agency crafting impactful designs since 2010. A team of strategists, problem-solvers, and storytellers driving real results."
         type="webapp"
       />
-      <Box
-        sx={{
-          mb: {
-            mobile: "7.5rem",
-          },
-
-          margin: { laptop: "auto" },
-        }}
-      >
+      <Box sx={{ ...aboutWrapper }}>
         <AboutCard aboutID={"about-1"} isdark={true} />
         <AboutCard aboutID={"about-2"} isdark={false} />
         <Places />

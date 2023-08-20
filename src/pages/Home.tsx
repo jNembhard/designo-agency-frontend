@@ -4,6 +4,12 @@ import DesignGallery from "../components/organisms/DesignGallery";
 import Keypoints from "../components/organisms/Keypoints";
 import { SEO } from "../components/atoms/SEO";
 
+const homeWrapper = {
+  display: { laptop: "flex" },
+  flexDirection: { laptop: "column" },
+  alignItems: { laptop: "center" },
+};
+
 const Home = () => {
   return (
     <>
@@ -13,13 +19,7 @@ const Home = () => {
         description="Experience award-winning custom designs and digital branding solutions. Transform your brand with responsive websites, app design, and engaging experiences. Learn more."
         type="webapp"
       />
-      <Box
-        sx={{
-          display: { laptop: "flex" },
-          flexDirection: { laptop: "column" },
-          alignItems: { laptop: "center" },
-        }}
-      >
+      <Box sx={{ ...homeWrapper }}>
         <HeroCTA />
         <DesignGallery />
         <Keypoints />

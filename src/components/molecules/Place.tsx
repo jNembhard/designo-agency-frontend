@@ -4,28 +4,50 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
+const placeWrapper = {
+  textAlign: "center",
+  alignItems: "center",
+  justifyContent: "center",
+  my: {
+    mobile: "1.5rem",
+    laptop: "0",
+  },
+  width: {
+    laptop: "21.875rem",
+  },
+};
+
+const placeContainer = {
+  borderRadius: "100%",
+  maxWidth: "12.625rem",
+  maxHeight: "12.625rem",
+  margin: { mobile: "0 auto 3rem" },
+};
+
+const placeImageWrapper = {
+  position: "absolute",
+  zIndex: "-1",
+};
+
+const placeHeading = {
+  mb: "2rem",
+  textTransform: "uppercase",
+};
+
+const placeStyles = {
+  wrapper: placeWrapper,
+  container: placeContainer,
+  imageWrapper: placeImageWrapper,
+  heading: placeHeading,
+};
+
 const Place = ({ LocationID, images, title, slug }: IPlace) => {
   return (
-    <Stack
-      textAlign="center"
-      my="1.5rem"
-      alignItems="center"
-      justifyContent="center"
-      sx={{
-        my: { mobile: "1.5rem", laptop: "0" },
-        width: { laptop: "21.875rem" },
-      }}
-    >
-      <Box
-        borderRadius="100%"
-        maxWidth="12.625rem"
-        maxHeight="12.625rem"
-        sx={{ margin: { mobile: "0 auto 3rem" } }}
-      >
+    <Stack sx={{ ...placeStyles.wrapper }}>
+      <Box sx={{ ...placeStyles.container }}>
         <Box
-          position="absolute"
-          zIndex="-1"
           sx={{
+            ...placeStyles.imageWrapper,
             transform:
               LocationID === "location-1"
                 ? "rotate(90deg)"
@@ -49,7 +71,7 @@ const Place = ({ LocationID, images, title, slug }: IPlace) => {
           />
         </Box>
       </Box>
-      <Typography variant="h3" textTransform="uppercase" mb="2rem">
+      <Typography variant="h3" sx={{ ...placeStyles.heading }}>
         {title}
       </Typography>
       <DesignButton

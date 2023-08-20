@@ -5,7 +5,14 @@ import { ISocial } from "../../interface/Social";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
-import { Skeleton } from "@mui/material";
+import { SocialsSkeleton } from "./skeletons/SocialSkeleton";
+
+const socialsWrapper = {
+  mt: {
+    mobile: "1.25rem",
+    tablet: "unset",
+  },
+};
 
 const Socials = () => {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
@@ -15,23 +22,7 @@ const Socials = () => {
   });
 
   if (loading || isLoading) {
-    return (
-      <Stack
-        direction="row"
-        sx={{ mt: { mobile: "1.25rem", tablet: "unset" } }}
-        spacing={1}
-      >
-        {Array.from({ length: 5 }, (_, index) => (
-          <Skeleton
-            key={index}
-            variant="rectangular"
-            width={24}
-            height={24}
-            sx={{ mx: 1, borderRadius: "8px" }}
-          />
-        ))}
-      </Stack>
-    );
+    return <SocialsSkeleton />;
   }
 
   if (error) {
@@ -44,35 +35,39 @@ const Socials = () => {
   );
 
   return (
-    <Stack sx={{ mt: { mobile: "1.25rem", tablet: "unset" } }}>
+    <Stack sx={{ socialsWrapper }}>
       {!loading && !error && (
         <div>
-          {socials.map((social: ISocial) => (
-            <Link
-              key={social.SocialID}
-              href={social.socialUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Box
-                key={social.SocialID}
-                src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + social.icon}
-                component="img"
-                alt={social.title}
-                onMouseEnter={() => setHoveredIcon(social.SocialID)}
-                onMouseLeave={() => setHoveredIcon(null)}
-                margin="0"
-                padding="0"
-                sx={{
-                  mx: 1,
-                  filter:
-                    hoveredIcon === social.SocialID
-                      ? "brightness(0) saturate(100%) invert(91%) sepia(19%) saturate(6125%) hue-rotate(303deg) brightness(114%) contrast(101%)"
-                      : "none",
-                }}
-              />
-            </Link>
-          ))}
+          {socials.map((social: ISocial) => {
+            const { SocialID, socialUrl, title, icon } = social;
+
+            return (
+              <Link
+                key={SocialID}
+                href={socialUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Box
+                  key={SocialID}
+                  src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + icon}
+                  component="img"
+                  alt={title}
+                  onMouseEnter={() => setHoveredIcon(SocialID)}
+                  onMouseLeave={() => setHoveredIcon(null)}
+                  margin="0"
+                  padding="0"
+                  sx={{
+                    mx: 1,
+                    filter:
+                      hoveredIcon === SocialID
+                        ? "brightness(0) saturate(100%) invert(91%) sepia(19%) saturate(6125%) hue-rotate(303deg) brightness(114%) contrast(101%)"
+                        : "none",
+                  }}
+                />
+              </Link>
+            );
+          })}
         </div>
       )}
     </Stack>
