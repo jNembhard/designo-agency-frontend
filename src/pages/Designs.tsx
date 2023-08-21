@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import NotFound from "./404";
-import DesignsTemplate from "../components/templates/DesignsTemplate";
+import DesignsTemplate from "../components/templates/DesignsTemplate/DesignsTemplate";
 
 const Designs = () => {
   const [isMatch, setIsMatch] = useState(false);

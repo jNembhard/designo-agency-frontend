@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import Container from "@mui/material/Container";
-import { Navbar } from "../molecules/Navbar";
+import { Navbar } from "../molecules/Navbar/Navbar";
 import Footer from "./Footer";
 
 const layoutContainer = {

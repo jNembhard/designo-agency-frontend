@@ -1,5 +1,5 @@
 import Container from "@mui/material/Container";
-import NotFoundTemplate from "../components/templates/NotFoundTemplate";
+import NotFoundTemplate from "../components/templates/NotFoundTemplate/NotFoundTemplate";
 import { SEO } from "../components/atoms/SEO";
 
 const NotFound = () => {
