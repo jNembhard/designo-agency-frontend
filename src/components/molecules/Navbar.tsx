@@ -44,7 +44,7 @@ export const Navbar = () => {
               alt=""
             />
           </Link>
-          <div>
+          <Box>
             {navlinks.map((navlink) => (
               <Typography
                 component={Link}
@@ -111,7 +111,7 @@ export const Navbar = () => {
             >
               <BurgerNav />
             </IconButton>
-          </div>
+          </Box>
         </Toolbar>
       </AppBar>
     </Box>

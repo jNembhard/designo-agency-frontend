@@ -7,6 +7,53 @@ import Stack from "@mui/material/Stack";
 import Link from "@mui/material/Link";
 import { useOnClickOutside } from "usehooks-ts";
 
+const burgerNavWrapper = {
+  position: "relative",
+  display: {
+    tablet: "none",
+  },
+};
+
+const burgerNavBackdrop = {
+  color: "black.main",
+  zIndex: "tooltip",
+  top: "8.875rem",
+};
+
+const burgerNavBackdropContainer = {
+  width: "100vw",
+  height: "14.688rem",
+  bgcolor: "black.main",
+  padding: "3rem 1.5rem",
+  alignItems: "left",
+  justifyContent: "start",
+  position: "absolute",
+  zIndex: "drawer",
+  top: "-0.05rem",
+};
+
+const burgerNavLinks = {
+  fontSize: "1.5rem",
+  lineHeight: "1.563rem",
+  letterSpacing: "0.125rem",
+  textTransform: "uppercase",
+  textAlign: "left",
+  textDecoration: "none",
+  color: "white.main",
+  transition: "color 0.3s ease-in-out",
+  "&:hover": {
+    color: "peach.main",
+    transition: "color 0.3s ease-in-out",
+  },
+};
+
+const burgerNavStyles = {
+  wrapper: burgerNavWrapper,
+  backdrop: burgerNavBackdrop,
+  backdropContainer: burgerNavBackdropContainer,
+  links: burgerNavLinks,
+};
+
 const BurgerNav = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const ref = useRef(null);
@@ -26,7 +73,7 @@ const BurgerNav = () => {
   });
 
   return (
-    <Box position="relative" sx={{ display: { tablet: "none" } }} ref={ref}>
+    <Box sx={{ ...burgerNavStyles.wrapper }} ref={ref}>
       <div>
         <Hamburger
           color="#1D1C1E"
@@ -35,26 +82,14 @@ const BurgerNav = () => {
         />
       </div>
       <Backdrop
-        sx={{
-          color: "black",
-          zIndex: "tooltip",
-          top: "142px",
-        }}
+        sx={{ ...burgerNavStyles.backdrop }}
         onClick={() => toggle()}
         open={modalOpen}
       >
         <Stack
-          width="100vw"
-          height="14.688rem"
-          bgcolor="black.main"
-          padding="3rem 1.5rem"
           spacing="2rem"
-          alignItems="left"
-          justifyContent="start"
-          position="absolute"
-          zIndex="drawer"
-          top="-0.05rem"
           sx={{
+            ...burgerNavStyles.backdropContainer,
             transition: "opacity 0.3s ease-in-out, transform 0.3s ease-in-out",
             opacity: modalOpen ? 1 : 0,
             transform: modalOpen ? "translateY(0)" : "translateY(-10px)",
@@ -64,20 +99,7 @@ const BurgerNav = () => {
             <Link
               key={navlink.id}
               href={navlink.slug}
-              fontSize="1.5rem"
-              lineHeight="1.563rem"
-              letterSpacing="0.125rem"
-              textTransform="uppercase"
-              textAlign="left"
-              sx={{
-                textDecoration: "none",
-                color: "white.main",
-                transition: "color 0.3s ease-in-out",
-                "&:hover": {
-                  color: "peach.main",
-                  transition: "color 0.3s ease-in-out",
-                },
-              }}
+              sx={{ ...burgerNavStyles.links }}
             >
               {navlink.name}
             </Link>

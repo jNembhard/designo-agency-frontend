@@ -1,6 +1,12 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
+const errorMessageText = {
+  fontSize: "0.75rem",
+  lineHeight: "1.625em",
+  pr: "0.56rem",
+};
+
 type ErrorMessage = {
   errorMessage: string;
 };
@@ -42,9 +48,7 @@ const ErrorHelper = ({ errorMessage }: ErrorMessage) => {
       }}
       color="white.main"
     >
-      <Typography fontSize="0.75rem" lineHeight="1.625em" pr="0.56rem">
-        {errorMessage}
-      </Typography>
+      <Typography sx={{}}>{errorMessage}</Typography>
 
       <img
         src={

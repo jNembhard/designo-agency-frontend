@@ -16,12 +16,15 @@ const placesSkeletonWrapper = {
     tablet: "4.188rem",
     laptop: "10rem",
   },
+  mt: {
+    mobile: "5rem",
+  },
 };
 
 const placeSkeletonContainer = {
   mb: {
     mobile: "5rem",
-    tablet: "1.5rem",
+    laptop: "1.5rem",
   },
   alignItems: {
     tablet: "center",
@@ -40,7 +43,7 @@ const placeSkeletonImage = {
   margin: {
     mobile: "0 auto 3rem",
     tablet: "0 1.875rem 3rem",
-    laptop: "0 auto 3rem",
+    laptop: "3rem auto 3rem",
   },
 };
 
@@ -58,7 +61,7 @@ const placeSkeletonTextContainer = {
   mb: { laptop: "5rem" },
 };
 
-const placeSkeletonHeading = {
+const placeSkeletonText = {
   width: {
     mobile: "50vw",
     tablet: "20vw",
@@ -68,10 +71,9 @@ const placeSkeletonHeading = {
   my: "2rem",
 };
 
-const placeSkeletonText = {
+const placeSkeletonButton = {
   width: "9.5rem",
   height: "3.5rem",
-  mb: { tablet: "5rem" },
 };
 
 const placeSkeletonStyles = {
@@ -79,8 +81,8 @@ const placeSkeletonStyles = {
   container: placeSkeletonContainer,
   image: placeSkeletonImage,
   textContainer: placeSkeletonTextContainer,
-  heading: placeSkeletonHeading,
   text: placeSkeletonText,
+  button: placeSkeletonButton,
 };
 
 export const PlacesSkeleton = () => {
@@ -100,12 +102,12 @@ export const PlacesSkeleton = () => {
               <Skeleton
                 animation="wave"
                 variant="rounded"
-                sx={{ ...placeSkeletonStyles.heading }}
+                sx={{ ...placeSkeletonStyles.text }}
               />
               <Skeleton
                 animation="wave"
                 variant="rounded"
-                sx={{ ...placeSkeletonStyles.text }}
+                sx={{ ...placeSkeletonStyles.button }}
               />
             </Stack>
           </Stack>

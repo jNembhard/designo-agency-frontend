@@ -84,7 +84,7 @@ const heroImage = {
   },
 };
 
-const hero = {
+const heroStyles = {
   wrapper: heroCTAWrapper,
   container: heroContainer,
   box: heroBox,
@@ -111,16 +111,16 @@ const HeroCTA = () => {
   return (
     <Stack
       direction={isBreakpoint1024 ? "row" : "column"}
-      sx={{ ...hero.wrapper }}
+      sx={{ ...heroStyles.wrapper }}
     >
-      <Box sx={{ ...hero.container }}>
+      <Box sx={{ ...heroStyles.container }}>
         <Box>
-          <Typography variant="h1" sx={{ ...hero.text }}>
+          <Typography variant="h1" sx={{ ...heroStyles.text }}>
             Award-winning custom designs and digital branding solutions
           </Typography>
         </Box>
-        <Box component="div" sx={{ ...hero.box }}>
-          <Typography variant="body1" sx={{ ...hero.text }}>
+        <Box component="div" sx={{ ...heroStyles.box }}>
+          <Typography variant="body1" sx={{ ...heroStyles.text }}>
             With over 10 years in the industry, we are experienced in creating
             fully responsive websites, app design, and engaging brand
             experiences. Find out more about our services.
@@ -130,7 +130,7 @@ const HeroCTA = () => {
       </Box>
       <Box>
         <Box
-          sx={{ ...hero.bgImage }}
+          sx={{ ...heroStyles.bgImage }}
           component="img"
           src={
             process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
@@ -139,7 +139,7 @@ const HeroCTA = () => {
           alt=""
         />
         <Box
-          sx={{ ...hero.image }}
+          sx={{ ...heroStyles.image }}
           component="img"
           src={
             process.env.REACT_APP_CLOUDFRONT_ENDPOINT +

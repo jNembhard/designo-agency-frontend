@@ -1,7 +1,39 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-export type FooterContactProp = {
+const footerContactWrapper = {
+  margin: {
+    mobile: "1.25rem 0",
+  },
+};
+
+const footerContactHeading = {
+  color: "white.main",
+  fontWeight: "700",
+  textTransform: "capitalize",
+  opacity: 0.4,
+};
+
+const footerContactTitleOne = {
+  color: "white.main",
+  opacity: 0.4,
+};
+
+const footerContactTitleTwo = {
+  fontSize: "1rem",
+  lineHeight: "1.625rem",
+  color: "white.main",
+  opacity: 0.4,
+};
+
+const footerContactStyles = {
+  wrapper: footerContactWrapper,
+  heading: footerContactHeading,
+  titleOne: footerContactTitleOne,
+  titleTwo: footerContactTitleTwo,
+};
+
+type FooterContactProp = {
   heading: string;
   titleOne: string;
   titleTwo: string;
@@ -9,31 +41,14 @@ export type FooterContactProp = {
 
 const FooterContact = ({ heading, titleOne, titleTwo }: FooterContactProp) => {
   return (
-    <Box
-      sx={{
-        margin: {
-          mobile: "1.25rem 0",
-        },
-      }}
-    >
-      <Typography
-        variant="body1"
-        color="white.main"
-        fontWeight="700"
-        textTransform="capitalize"
-        sx={{ opacity: 0.4 }}
-      >
+    <Box sx={{ ...footerContactStyles.wrapper }}>
+      <Typography variant="body1" sx={{ ...footerContactStyles.heading }}>
         {heading}
       </Typography>
-      <Typography variant="body1" color="white.main" sx={{ opacity: 0.4 }}>
+      <Typography variant="body1" sx={{ ...footerContactStyles.titleOne }}>
         {titleOne}
       </Typography>
-      <Typography
-        variant="body1"
-        sx={{ color: "white.main", opacity: 0.4 }}
-        fontSize="1rem"
-        lineHeight="1.625rem"
-      >
+      <Typography variant="body1" sx={{ ...footerContactStyles.titleTwo }}>
         {titleTwo}
       </Typography>
     </Box>
