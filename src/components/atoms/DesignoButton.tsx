@@ -2,12 +2,12 @@ import styled from "@mui/material/styles/styled";
 import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
 
-const DesignoButton = styled(Button)(({ islight }: { islight: boolean }) => ({
+const DesignoButton = styled(Button)(({ islight }: { islight: string }) => ({
   boxShadow: "none",
   width: "9.5rem",
   height: "3.5rem",
-  backgroundColor: islight ? "#ffffff" : "#e7816b",
-  color: islight ? "#333136" : "#ffffff",
+  backgroundColor: islight === "true" ? "#ffffff" : "#e7816b",
+  color: islight === "true" ? "#333136" : "#ffffff",
   borderRadius: "0.5rem",
   letterSpacing: "0.063rem",
   fontSize: "0.938rem",
@@ -19,15 +19,18 @@ const DesignoButton = styled(Button)(({ islight }: { islight: boolean }) => ({
   },
 }));
 
-const DesignButton = ({
-  link,
-  islight,
-  text,
-}: {
+type DesignoButtonProp = {
   link: string;
-  islight: boolean;
+  islight: string;
   text: string;
-}) => {
+};
+
+type FormButtonProp = {
+  islight: string;
+  text: string;
+};
+
+const DesignButton = ({ link, islight, text }: DesignoButtonProp) => {
   return (
     <div>
       <Link href={link}>
@@ -37,7 +40,7 @@ const DesignButton = ({
   );
 };
 
-const FormButton = ({ islight, text }: { islight: boolean; text: string }) => {
+const FormButton = ({ islight, text }: FormButtonProp) => {
   return (
     <>
       <DesignoButton islight={islight} type="submit">

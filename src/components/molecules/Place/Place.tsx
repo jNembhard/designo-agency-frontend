@@ -41,7 +41,7 @@ const Place = ({ LocationID, images, title, slug }: IPlace) => {
       <DesignButton
         link={`/locations${slug}`}
         text="see location"
-        islight={false}
+        islight="false"
       />
     </Stack>
   );

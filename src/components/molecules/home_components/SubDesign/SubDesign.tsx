@@ -16,13 +16,12 @@ type SubDesignProp = {
 
 const SubDesign = (design: SubDesignProp) => {
   const isBreakpoint767 = useMediaQuery("(min-width: 767px");
-  const [isLoading, setIsLoading] = useState(true);
 
   const { loading, error, data } = useQuery(GET_DESIGN, {
     variables: { DesignID: design.designID },
   });
 
-  if (loading || isLoading) return <SubDesignSkeleton />;
+  if (loading) return <SubDesignSkeleton />;
   if (error) return <p>Error: {error.message}</p>;
 
   const { images, title, slug } = data.design;

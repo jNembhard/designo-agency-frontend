@@ -40,7 +40,7 @@ const HeroCTA = () => {
             experiences. Find out more about our services.
           </Typography>
         </Box>
-        <DesignButton islight={true} link="/about" text="learn more" />
+        <DesignButton islight="true" link="/about" text="learn more" />
       </Box>
       <Box>
         <Box

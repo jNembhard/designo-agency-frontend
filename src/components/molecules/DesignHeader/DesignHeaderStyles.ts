@@ -26,7 +26,7 @@ export const designHeaderStyles = {
     },
   },
   bgImage: {
-    positon: "absolute",
+    position: "absolute",
     zIndex: "-1",
     top: {
       mobile: "1.875rem",

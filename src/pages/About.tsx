@@ -4,8 +4,12 @@ import AboutCard from "../components/molecules/AboutCard/AboutCard";
 import { SEO } from "../components/atoms/SEO";
 
 const aboutWrapper = {
-  mb: { mobile: "7.5rem" },
-  margin: { laptop: "auto" },
+  mb: {
+    mobile: "7.5rem",
+  },
+  margin: {
+    laptop: "auto",
+  },
 };
 
 const About = () => {

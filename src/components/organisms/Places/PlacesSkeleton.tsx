@@ -10,7 +10,7 @@ export const PlacesSkeleton = () => {
     <Box sx={{ ...placeSkeletonStyles.wrapper }}>
       <Stack direction={isBreakpoint1024 ? "row" : "column"}>
         {Array.from({ length: 3 }, (_, index) => (
-          <Stack sx={{ ...placeSkeletonStyles.container }}>
+          <Stack key={index} sx={{ ...placeSkeletonStyles.container }}>
             <Skeleton
               key={index}
               animation="wave"

@@ -5,7 +5,6 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { IProduct } from "../../../interface/Product";
 import Product from "../../molecules/Product/Product";
-import { useState } from "react";
 import { ProductSkeleton } from "./ProductSkeleton";
 import { productsStyles } from "./ProductsStyles";
 
@@ -14,13 +13,12 @@ type ProductType = {
 };
 
 const Products = ({ productType }: ProductType) => {
-  const [isLoading, setIsLoading] = useState(true);
   const isBreakpoint1024 = useMediaQuery("(min-width: 1024px)");
   const { loading, error, data } = useQuery(GET_PRODUCT_GROUP, {
     variables: { ProductType: productType },
   });
 
-  if (loading || isLoading) {
+  if (loading) {
     return <ProductSkeleton group={productType} />;
   }
 

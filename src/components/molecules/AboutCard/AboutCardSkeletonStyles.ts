@@ -1,6 +1,8 @@
 export const aboutCardSkeletonStyles = {
   wrapper: {
-    display: { laptop: "flex" },
+    display: {
+      laptop: "flex",
+    },
     alignItems: "center",
     justifyContent: "center",
     margin: {
@@ -11,12 +13,20 @@ export const aboutCardSkeletonStyles = {
       laptop: "95vw",
       desktop: "unset",
     },
-    maxWidth: { laptop: "69.438rem" },
-    borderRadius: { tablet: "0.938rem" },
-    overflow: { tablet: "hidden" },
+    maxWidth: {
+      laptop: "69.438rem",
+    },
+    borderRadius: {
+      tablet: "0.938rem",
+    },
+    overflow: {
+      tablet: "hidden",
+    },
   },
   image: {
-    minWidth: { laptop: "29.75rem" },
+    minWidth: {
+      laptop: "29.75rem",
+    },
     height: {
       mobile: "20rem",
       laptop: "40rem",
@@ -27,10 +37,21 @@ export const aboutCardSkeletonStyles = {
       tablet: "4rem 3.62rem",
       laptop: "0",
     },
-    mb: { mobile: "5rem", tablet: "unset" },
-    width: { laptop: "50vw" },
-    mx: { laptop: "1.875rem", desktop: "3.125rem" },
-    alignItems: { mobile: "center", laptop: "unset" },
+    mb: {
+      mobile: "5rem",
+      tablet: "unset",
+    },
+    width: {
+      laptop: "50vw",
+    },
+    mx: {
+      laptop: "1.875rem",
+      desktop: "3.125rem",
+    },
+    alignItems: {
+      mobile: "center",
+      laptop: "unset",
+    },
   },
   title: {
     height: "2rem",

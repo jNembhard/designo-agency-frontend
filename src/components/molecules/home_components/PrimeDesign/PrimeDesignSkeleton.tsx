@@ -1,7 +1,6 @@
 import Stack from "@mui/material/Stack";
 import Skeleton from "@mui/material/Skeleton";
-
-import { primeSkeleton } from "./PrimeDesignSkeletonStylest";
+import { primeSkeleton } from "./PrimeDesignSkeletonStyles";
 
 export const PrimeDesignSkeleton = () => {
   return (

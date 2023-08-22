@@ -21,7 +21,7 @@ const NotFoundTemplate = ({ title, description }: NotFoundProp) => {
         <Typography variant="body1" sx={{ ...notFoundStyles.description }}>
           {description}
         </Typography>
-        <DesignButton link="/" islight={false} text="take me home" />
+        <DesignButton link="/" islight="false" text="take me home" />
       </Box>
     </div>
   );

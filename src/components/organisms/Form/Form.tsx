@@ -156,7 +156,7 @@ const Form = () => {
         />
       </Stack>
       <Box sx={{ ...formStyles.buttonWrapper }}>
-        <FormButton islight text="submit" />
+        <FormButton islight="false" text="submit" />
       </Box>
     </Box>
   );

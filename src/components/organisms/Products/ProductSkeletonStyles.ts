@@ -45,6 +45,7 @@ export const productSkeletonStyles = {
     width: {
       mobile: "50vw",
       tablet: "20vw",
+      laptop: "12.875rem",
     },
     height: "2rem",
   },

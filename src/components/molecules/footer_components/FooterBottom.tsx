@@ -50,7 +50,7 @@ const FooterBottom = () => {
         pb: { tablet: "1.25rem", laptop: "1.875rem" },
       }}
     >
-      <Grid md={4}>
+      <Grid>
         <Link href="/">
           <Box
             component="img"

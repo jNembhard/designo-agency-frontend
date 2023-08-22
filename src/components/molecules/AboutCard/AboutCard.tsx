@@ -7,7 +7,6 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { useState } from "react";
 import { AboutCardSkeleton } from "./AboutCardSkeleton";
 import { aboutCardStyles } from "./AboutCardStyles";
 
@@ -59,13 +58,12 @@ type AboutCardProp = {
 const AboutCard = ({ aboutID, isdark }: AboutCardProp) => {
   const isBreakpoint767 = useMediaQuery("(min-width: 767px)");
   const isBreakpoint1024 = useMediaQuery("(min-width: 1024px)");
-  const [isLoading, setIsLoading] = useState(true);
 
   const { loading, error, data } = useQuery(GET_ABOUT, {
     variables: { AboutID: aboutID },
   });
 
-  if (loading || isLoading) return <AboutCardSkeleton aboutid={aboutID} />;
+  if (loading) return <AboutCardSkeleton aboutid={aboutID} />;
   if (error) return <p>Error:{error.message}</p>;
 
   const { description, images, title } = data.about;

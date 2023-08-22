@@ -1,11 +1,10 @@
+import { designHeaderStyles } from "./DesignHeaderStyles";
 import { useQuery } from "@apollo/client";
 import { GET_DESIGN_HEADER } from "../../../graphql/designQueries";
 import { capitalizeWordsWithASpace } from "../../../utils/capitalizeWords";
 import { SEO } from "../../atoms/SEO";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { useState } from "react";
-import { designHeaderStyles } from "./DesignHeaderStyles";
 import { DesignsHeaderSkeleton } from "./DesignHeaderSkeleton";
 
 type DesignHeaderProp = {
@@ -13,12 +12,11 @@ type DesignHeaderProp = {
 };
 
 const DesignHeader = ({ designID }: DesignHeaderProp) => {
-  const [isLoading, setIsLoading] = useState(true);
   const { loading, error, data } = useQuery(GET_DESIGN_HEADER, {
     variables: { DesignID: designID },
   });
 
-  if (loading || isLoading) return <DesignsHeaderSkeleton />;
+  if (loading) return <DesignsHeaderSkeleton />;
 
   if (error) {
     return <div>Error occured while fetching data</div>;

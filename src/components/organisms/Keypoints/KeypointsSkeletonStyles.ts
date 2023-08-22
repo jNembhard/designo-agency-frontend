@@ -68,7 +68,7 @@ export const keySkeleton = {
     width: {
       mobile: "85vw",
       tablet: "55vw",
-      laptop: "20vw",
+      laptop: "21.875rem",
     },
   },
 };

@@ -5,19 +5,17 @@ import { ICallout } from "../../../interface/Callout";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Keypoint from "../../molecules/Keypoint/Keypoint";
-import { useState } from "react";
 import { KeypointsSkeleton } from "./KeypointsSkeleton";
 import { keypointsStyles } from "./KeypointsStyles";
 
 const Keypoints = () => {
   const isBreakpoint1024 = useMediaQuery("(min-width: 1024px");
-  const [isLoading, setIsLoading] = useState(true);
 
   const { loading, error, data } = useQuery(GET_CALLOUTS, {
     variables: { count: 3 },
   });
 
-  if (loading || isLoading) {
+  if (loading) {
     return <KeypointsSkeleton />;
   }
 

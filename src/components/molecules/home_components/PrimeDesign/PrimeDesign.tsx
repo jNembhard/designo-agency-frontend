@@ -6,7 +6,6 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Arrow from "../../../atoms/Arrow";
-import { useState } from "react";
 import { PrimeDesignSkeleton } from "./PrimeDesignSkeleton";
 import { primeStyles } from "./PrimeStyles";
 
@@ -16,13 +15,12 @@ type PrimeDesignProp = {
 
 const PrimeDesign = (design: PrimeDesignProp) => {
   const isBreakpoint767 = useMediaQuery("(min-width: 767px");
-  const [isLoading, setIsLoading] = useState(true);
 
   const { loading, error, data } = useQuery(GET_DESIGN, {
     variables: { DesignID: design.designID },
   });
 
-  if (loading || isLoading) return <PrimeDesignSkeleton />;
+  if (loading) return <PrimeDesignSkeleton />;
   if (error) return <p>Error:{error.message}</p>;
 
   const { images, title, slug } = data.design;

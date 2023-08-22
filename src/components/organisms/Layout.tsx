@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import Container from "@mui/material/Container";
 import { Navbar } from "../molecules/Navbar/Navbar";
-import Footer from "./Footer";
+import Footer from "./Footer/Footer";
 
 const layoutContainer = {
   maxWidth: "desktop",

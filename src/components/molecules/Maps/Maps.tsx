@@ -1,12 +1,14 @@
 import { useEffect } from "react";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { useQuery } from "@apollo/client";
-import { GET_LOCATIONS } from "../../graphql/locationQueries";
-import { ILocation } from "../../interface/Location";
+import { GET_LOCATIONS } from "../../../graphql/locationQueries";
+import { ILocation } from "../../../interface/Location";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import LocationContact from "../atoms/LocationContact";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import LocationContact from "../../atoms/LocationContact/LocationContact";
 import Typography from "@mui/material/Typography";
+import { MapsSkeleton } from "./MapsSkeleton";
+import { mapsStyles } from "./MapsStyles";
 
 const Maps = () => {
   const isBreakpoint767 = useMediaQuery("(min-width: 767px)");
@@ -28,7 +30,7 @@ const Maps = () => {
   }, [loading, error]);
 
   if (loading) {
-    return <div>Loading</div>;
+    return <MapsSkeleton />;
   }
 
   if (error) {
@@ -43,14 +45,7 @@ const Maps = () => {
   return (
     <>
       {!loading && !error && (
-        <Box
-          sx={{
-            maxWidth: {
-              laptop: "69.4375rem",
-            },
-            margin: { laptop: "auto" },
-          }}
-        >
+        <Box sx={{ ...mapsStyles.wrapper }}>
           {location.map((location: ILocation) => {
             let hashID = location.slug.replace("#", "");
 
@@ -67,34 +62,12 @@ const Maps = () => {
                     : undefined
                 }
                 spacing={isBreakpoint1024 ? 3 : 0}
-                sx={{
-                  margin: {
-                    mobile: "0 0 5rem 0",
-                    tablet: "0 2.5rem 7.5rem",
-                    laptop: "0 0 2rem",
-                  },
-                }}
+                sx={{ ...mapsStyles.container }}
               >
                 <Box
                   id={hashID}
                   component="picture"
-                  margin="0"
-                  padding="0"
-                  sx={{
-                    height: {
-                      mobile: "20rem",
-                      tablet: "20.375rem",
-                      laptop: "19.5rem",
-                    },
-                    mb: {
-                      tablet: "1.5rem",
-                      laptop: "unset",
-                    },
-                    borderRadius: {
-                      tablet: "0.9375rem",
-                    },
-                    overflow: "hidden",
-                  }}
+                  sx={{ ...mapsStyles.picture }}
                 >
                   <Box
                     component="source"
@@ -111,41 +84,11 @@ const Maps = () => {
                       location.images.desktop
                     }
                     alt={location.title}
-                    width="100%"
-                    height="auto"
-                    sx={{
-                      objectFit: "fill",
-                    }}
+                    sx={{ ...mapsStyles.mapImages }}
                   />
                 </Box>
-                <Box
-                  position="relative"
-                  bgcolor="sand"
-                  zIndex="-1"
-                  sx={{
-                    borderRadius: {
-                      tablet: "0.9375rem",
-                    },
-                    overflow: { tablet: "hidden" },
-                    width: {
-                      laptop: "45.625rem",
-                    },
-                    height: {
-                      laptop: "19.5rem",
-                    },
-                  }}
-                >
-                  <Box
-                    position="absolute"
-                    zIndex="-1"
-                    width="100vw"
-                    overflow="hidden"
-                    sx={{
-                      top: { tablet: "-16.25rem" },
-                      left: { tablet: "0.313rem" },
-                      height: { mobile: "24rem", tablet: "unset" },
-                    }}
-                  >
+                <Box sx={{ ...mapsStyles.textWrapper }}>
+                  <Box sx={{ ...mapsStyles.bgImageWrapper }}>
                     <img
                       src={
                         process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
@@ -154,30 +97,14 @@ const Maps = () => {
                       alt=""
                     />
                   </Box>
-                  <Box
-                    display="flex"
-                    justifyContent="space-between"
-                    flexDirection="column"
-                    sx={{
-                      padding: {
-                        mobile: "2.5rem 1.5rem",
-                        tablet: "5.5rem 4.69rem",
-                      },
-                      textAlign: { mobile: "center", tablet: "left" },
-                    }}
-                  >
-                    <Typography
-                      variant="h2"
-                      color="peach.main"
-                      textTransform="capitalize"
-                      zIndex="2"
-                    >
+                  <Box sx={{ ...mapsStyles.textContainer }}>
+                    <Typography variant="h2" sx={{ ...mapsStyles.title }}>
                       {location.title}
                     </Typography>
                     <Stack
                       direction={isBreakpoint767 ? "row" : "column"}
                       spacing={isBreakpoint767 ? 13 : 0}
-                      sx={{ pt: { tablet: "1.5rem" } }}
+                      sx={{ ...mapsStyles.contactsWrapper }}
                     >
                       <LocationContact
                         subHeading={location.office}
