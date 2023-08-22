@@ -12,6 +12,7 @@ export const KeypointsSkeleton = () => {
       <Stack direction={isBreakpoint1024 ? "row" : "column"}>
         {Array.from({ length: 3 }, (_, index) => (
           <Stack
+            key={index}
             direction={
               isBreakpoint1024 ? "column" : isBreakpoint767 ? "row" : "column"
             }

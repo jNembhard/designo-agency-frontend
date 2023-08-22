@@ -11,10 +11,10 @@ import { AboutCardSkeleton } from "./AboutCardSkeleton";
 import { aboutCardStyles } from "./AboutCardStyles";
 
 const StyledCard = styled(Card)(
-  ({ isdark, aboutid }: { isdark: boolean; aboutid: string }) => ({
+  ({ isdark, aboutid }: { isdark: string; aboutid: string }) => ({
     boxShadow: "none",
-    color: isdark ? "#ffffff" : "#e7816b",
-    backgroundColor: isdark ? "#e7816b" : "#fdf3f0",
+    color: isdark === "true" ? "#ffffff" : "#e7816b",
+    backgroundColor: isdark === "true" ? "#e7816b" : "#fdf3f0",
     "@media (min-width: 1024px)": {
       display: "flex",
       flexDirection: aboutid === "about-2" ? "row" : "row-reverse",
@@ -35,24 +35,22 @@ const StyledCardMedia = styled(CardMedia)(
 );
 
 const StyledCardTitle = styled(Typography)(
-  ({ isdark }: { isdark: boolean }) => ({
-    color: isdark ? "white.main" : "peach.main",
+  ({ isdark }: { isdark: string }) => ({
+    color: isdark === "true" ? "white.main" : "peach.main",
     mb: {
       mobile: "1.5rem",
     },
   })
 );
 
-const StyledCardText = styled(Typography)(
-  ({ isdark }: { isdark: boolean }) => ({
-    mb: "1.25rem",
-    color: isdark ? "white.main" : "black.main",
-  })
-);
+const StyledCardText = styled(Typography)(({ isdark }: { isdark: string }) => ({
+  mb: "1.25rem",
+  color: isdark === "true" ? "#ffffff" : "#333136",
+}));
 
 type AboutCardProp = {
   aboutID: string;
-  isdark: boolean;
+  isdark: string;
 };
 
 const AboutCard = ({ aboutID, isdark }: AboutCardProp) => {

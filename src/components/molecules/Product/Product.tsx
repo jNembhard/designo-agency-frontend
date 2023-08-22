@@ -11,7 +11,7 @@ import { useState } from "react";
 const Product = ({ description, image, title }: IProduct) => {
   const [hovered, setHovered] = useState(false);
   return (
-    <Grid xs={12} md={4} sx={{ ...productStyles.grid }}>
+    <Grid item xs={12} md={4} sx={{ ...productStyles.grid }}>
       <Card
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}

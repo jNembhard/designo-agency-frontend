@@ -22,10 +22,10 @@ const About = () => {
         type="webapp"
       />
       <Box sx={{ ...aboutWrapper }}>
-        <AboutCard aboutID={"about-1"} isdark={true} />
-        <AboutCard aboutID={"about-2"} isdark={false} />
+        <AboutCard aboutID={"about-1"} isdark="true" />
+        <AboutCard aboutID={"about-2"} isdark="false" />
         <Places />
-        <AboutCard aboutID={"about-3"} isdark={false} />
+        <AboutCard aboutID={"about-3"} isdark="false" />
       </Box>
     </>
   );
