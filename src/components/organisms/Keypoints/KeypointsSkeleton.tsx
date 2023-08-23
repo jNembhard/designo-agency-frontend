@@ -8,7 +8,7 @@ export const KeypointsSkeleton = () => {
   const isBreakpoint767 = useMediaQuery("(min-width: 767px)");
   const isBreakpoint1024 = useMediaQuery("(min-width: 1024px");
   return (
-    <Box sx={{ ...keySkeleton.wrapper }}>
+    <Box sx={{ ...keySkeleton.wrapper }} aria-label="loading a keypoint...">
       <Stack direction={isBreakpoint1024 ? "row" : "column"}>
         {Array.from({ length: 3 }, (_, index) => (
           <Stack

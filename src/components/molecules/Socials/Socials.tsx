@@ -10,18 +10,13 @@ import { socialStyles } from "./SocialStyles";
 
 const Socials = () => {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
   const { loading, error, data } = useQuery(GET_SOCIALS, {
     variables: { count: 5 },
   });
 
-  if (loading || isLoading) {
-    return <SocialsSkeleton />;
-  }
+  if (loading) return <SocialsSkeleton />;
 
-  if (error) {
-    return <div>Error occured while fetching data</div>;
-  }
+  if (error) return <div>Error occured while fetching data</div>;
 
   const socials = [...data.socials.social];
   socials.sort((a: ISocial, b: ISocial) =>
@@ -29,7 +24,7 @@ const Socials = () => {
   );
 
   return (
-    <Stack sx={{ ...socialStyles.wrapper }}>
+    <Stack sx={{ ...socialStyles.wrapper }} spacing={2}>
       {!loading && !error && (
         <div>
           {socials.map((social: ISocial) => {

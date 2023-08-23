@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import Arrow from "../../../atoms/Arrow";
 import { SubDesignSkeleton } from "./SubDesignSkeleton";
-import { useState } from "react";
 import { subStyles } from "./SubDesignStyles";
 
 type SubDesignProp = {

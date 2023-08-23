@@ -7,9 +7,14 @@ import { useEffect, useState } from "react";
 import { HeroCTASkeleton } from "./HeroCTASkeleton";
 import { heroStyles } from "./HeroStyles";
 
+type LoadedImageState = {
+  loaded: boolean;
+  error: boolean;
+};
+
 const HeroCTA = () => {
   const isBreakpoint1024 = useMediaQuery("(min-width: 1024px)");
-  const [loadedImage, setLoadedImage] = useState({
+  const [loadedImage, setLoadedImage] = useState<LoadedImageState>({
     loaded: false,
     error: false,
   });
@@ -29,8 +34,8 @@ const HeroCTA = () => {
     img.src = designoPhoneImg;
   });
 
-  if (!loadedImage.loaded) return <HeroCTASkeleton />;
   if (loadedImage.error) return <p>Error loading image</p>;
+  if (!loadedImage.loaded) return <HeroCTASkeleton />;
 
   return (
     <>

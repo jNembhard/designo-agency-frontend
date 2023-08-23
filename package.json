@@ -6,11 +6,12 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@apollo/client": "^3.7.17",
+    "@apollo/react-testing": "^4.0.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.2",
     "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
+    "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^13.2.1",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
@@ -55,8 +56,13 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.22.10",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/preset-env": "^7.22.10",
+    "@babel/preset-typescript": "^7.22.5",
     "@graphql-codegen/cli": "^5.0.0",
-    "@graphql-codegen/client-preset": "^4.1.0"
+    "@graphql-codegen/client-preset": "^4.1.0",
+    "babel-jest": "^29.6.3",
+    "ts-jest": "^29.1.1"
   }
 }

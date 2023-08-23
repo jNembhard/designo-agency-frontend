@@ -38,7 +38,7 @@ const Keypoint = ({ calloutID, image, title, description }: ICallout) => {
         </Box>
         <Box>
           <img
-            src={`${process.env.REACT_APP_CLOUDFRONT_ENDPOINT}` + image}
+            src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + image}
             alt={title}
           />
         </Box>

@@ -6,6 +6,7 @@ export const HeroCTASkeleton = () => {
     <Skeleton
       variant="rounded"
       animation="wave"
+      aria-label="loading homepage hero and images..."
       sx={{ ...heroSkeletonStyles.container }}
     />
   );

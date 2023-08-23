@@ -1,4 +1,4 @@
-import styled from "@mui/material/styles/styled";
+import { styled } from "@mui/system";
 import Link from "@mui/material/Link";
 import Button from "@mui/material/Button";
 

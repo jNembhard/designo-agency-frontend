@@ -6,7 +6,7 @@ export const socialStyles = {
     },
   },
   iconStyle: {
-    margin: 0,
+    margin: "0 0.4rem",
     padding: 0,
   },
 };
