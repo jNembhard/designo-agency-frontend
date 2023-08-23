@@ -1,5 +1,4 @@
-import React, { useState as useStateMock } from "react";
-import userEvent from "@testing-library/user-event";
+import { useState as useStateMock } from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import HeroCTA from "../../../components/organisms/HeroCTA/HeroCTA";
