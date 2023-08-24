@@ -34,7 +34,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --silent",
+    "test:coverage": "react-scripts test spec --silent --coverage",
+    "test:verbose": "react-scripts test",
+    "test:coverage:verbose": "react-scripts test spec --coverage",
     "eject": "react-scripts eject",
     "compile": "graphql-codegen",
     "watch": "graphql-codegen -w"

@@ -1,4 +1,3 @@
-import React from "react";
 import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Keypoints from "../../../components/organisms/Keypoints/Keypoints";
@@ -30,7 +29,7 @@ describe("Keypoints Component", () => {
     expect(keyPointSkeleton).toBeInTheDocument();
   });
 
-  it("should render a keypoint based on data passed to query", async () => {
+  it("should render a keypoint based on data passed in the query", async () => {
     apolloRender(<Keypoints />, calloutMock, schema);
 
     const images = await screen.findAllByAltText("Hello World");
@@ -40,5 +39,21 @@ describe("Keypoints Component", () => {
       "src",
       process.env.REACT_APP_CLOUDFRONT_ENDPOINT + "Hello World"
     );
+  });
+
+  it("should show an error message when the getCallouts query fails", async () => {
+    const calloutErrorMock = {
+      mocks: {
+        Query: {
+          callouts: () => {
+            throw Error("invalid callout query");
+          },
+        },
+      },
+    };
+
+    apolloRender(<Keypoints />, calloutErrorMock, schema);
+
+    await screen.findByText("Error occured while fetching data");
   });
 });

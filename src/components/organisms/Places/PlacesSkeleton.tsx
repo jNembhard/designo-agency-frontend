@@ -8,7 +8,10 @@ export const PlacesSkeleton = () => {
   const isBreakpoint1024 = useMediaQuery("(min-width: 1024px");
   return (
     <Box sx={{ ...placeSkeletonStyles.wrapper }}>
-      <Stack direction={isBreakpoint1024 ? "row" : "column"}>
+      <Stack
+        direction={isBreakpoint1024 ? "row" : "column"}
+        aria-label="loading locations..."
+      >
         {Array.from({ length: 3 }, (_, index) => (
           <Stack key={index} sx={{ ...placeSkeletonStyles.container }}>
             <Skeleton

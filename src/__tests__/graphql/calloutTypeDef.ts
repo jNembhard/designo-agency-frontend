@@ -14,5 +14,4 @@ type PaginatedCallouts {
 type Query {
   callout(calloutID: String!): Callout
   callouts(count: Int, nextToken: String): PaginatedCallouts!
-}
-`;
+}`;

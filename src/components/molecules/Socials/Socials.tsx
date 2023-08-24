@@ -33,6 +33,7 @@ const Socials = () => {
             return (
               <Link
                 key={SocialID}
+                role="link"
                 href={socialUrl}
                 target="_blank"
                 rel="noopener noreferrer"

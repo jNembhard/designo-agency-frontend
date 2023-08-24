@@ -4,10 +4,17 @@ import { socialSkeleton } from "./SocialSkeletonStyles";
 
 export const SocialsSkeleton = () => {
   return (
-    <Stack direction="row" sx={{ ...socialSkeleton.wrapper }} spacing={1}>
+    <Stack
+      direction="row"
+      aria-label="loading social links"
+      sx={{ ...socialSkeleton.wrapper }}
+      spacing={1}
+    >
       {Array.from({ length: 5 }, (_, index) => (
         <Skeleton
           key={index}
+          aria-label="loading social link..."
+          animation="wave"
           variant="rectangular"
           sx={{ ...socialSkeleton.icon }}
         />

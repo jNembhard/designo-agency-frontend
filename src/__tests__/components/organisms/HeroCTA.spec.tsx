@@ -23,6 +23,10 @@ describe("HeroCTA Component", () => {
     ]);
   });
 
+  afterAll(() => {
+    jest.clearAllMocks();
+  });
+
   it("displays the loading skeleton while the image is loading", () => {
     render(<HeroCTA />);
 

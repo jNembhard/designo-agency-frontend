@@ -19,8 +19,8 @@ export const KeypointsSkeleton = () => {
             sx={{ ...keySkeleton.container }}
           >
             <Skeleton
-              animation="wave"
               key={index}
+              animation="wave"
               variant="circular"
               sx={{ ...keySkeleton.image }}
             />
