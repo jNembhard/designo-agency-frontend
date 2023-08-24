@@ -10,6 +10,7 @@ type AboutCardSkeletonProp = {
 export const AboutCardSkeleton = ({ aboutid }: AboutCardSkeletonProp) => {
   return (
     <Box
+      aria-label="loading about info..."
       sx={{
         ...aboutCardSkeletonStyles.wrapper,
         flexDirection: {

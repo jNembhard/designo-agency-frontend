@@ -15,7 +15,7 @@ export const SocialsSkeleton = () => {
           key={index}
           aria-label="loading social link..."
           animation="wave"
-          variant="rectangular"
+          variant="rounded"
           sx={{ ...socialSkeleton.icon }}
         />
       ))}

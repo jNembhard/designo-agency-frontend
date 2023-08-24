@@ -2,7 +2,7 @@ import { GET_ABOUT } from "../../../graphql/aboutQueries";
 import { useQuery } from "@apollo/client";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
-import styled from "@mui/material/styles/styled";
+import { styled } from "@mui/system";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";

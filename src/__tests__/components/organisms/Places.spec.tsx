@@ -47,17 +47,17 @@ describe("Places Component", () => {
   });
 
   it("should show an error message when the getCallouts query fails", async () => {
-    const calloutErrorMock = {
+    const placesErrorMock = {
       mocks: {
         Query: {
           locations: () => {
-            throw Error("invalid callout query");
+            throw Error("invalid places query");
           },
         },
       },
     };
 
-    apolloRender(<Places />, calloutErrorMock, schema);
+    apolloRender(<Places />, placesErrorMock, schema);
 
     await screen.findByText("Error occured while fetching data");
   });

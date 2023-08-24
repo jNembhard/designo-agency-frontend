@@ -13,6 +13,7 @@ export const MapsSkeleton = () => {
       {Array.from({ length: 3 }, (_, index) => (
         <Stack
           key={index}
+          aria-label="Loading location..."
           direction={
             isBreakpoint1024 && index === 1
               ? "row-reverse"
