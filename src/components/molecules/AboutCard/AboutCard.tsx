@@ -62,7 +62,8 @@ const AboutCard = ({ aboutID, isdark }: AboutCardProp) => {
   });
 
   if (loading) return <AboutCardSkeleton aboutid={aboutID} />;
-  if (error) return <p>Error:{error.message}</p>;
+  if (aboutID === "" || error)
+    return <p>Error occured while fetching about query data</p>;
 
   const { description, images, title } = data.about;
 

@@ -16,7 +16,7 @@ const Socials = () => {
 
   if (loading) return <SocialsSkeleton />;
 
-  if (error) return <div>Error occured while fetching data</div>;
+  if (error) return <div>Error occured while fetching socials data</div>;
 
   const socials = [...data.socials.social];
   socials.sort((a: ISocial, b: ISocial) =>

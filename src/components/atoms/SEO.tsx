@@ -7,7 +7,7 @@ type Seo = {
   type: string;
 };
 
-export const SEO = ({ author, title, description, type }: Seo) => {
+const SEO = ({ author, title, description, type }: Seo) => {
   return (
     <Helmet>
       <title>{title} | Designo</title>
@@ -22,3 +22,4 @@ export const SEO = ({ author, title, description, type }: Seo) => {
     </Helmet>
   );
 };
+export default SEO;

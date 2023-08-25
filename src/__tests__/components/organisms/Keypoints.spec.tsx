@@ -54,6 +54,6 @@ describe("Keypoints Component", () => {
 
     apolloRender(<Keypoints />, calloutErrorMock, schema);
 
-    await screen.findByText("Error occured while fetching data");
+    await screen.findByText("Error occured while fetching callouts data");
   });
 });

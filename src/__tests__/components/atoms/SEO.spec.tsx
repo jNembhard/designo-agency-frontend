@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { render, waitFor } from "@testing-library/react";
-import { SEO } from "../../../components/atoms/SEO";
+import SEO from "../../../components/atoms/SEO";
 import { HelmetProvider } from "react-helmet-async";
 
 describe("SEO", () => {

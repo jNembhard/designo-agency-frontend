@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import styled from "@mui/material/styles/styled";
+import { styled } from "@mui/system";
 
 const StyledArrow = styled(Box)(({ hexcolor }: { hexcolor: string }) => ({
   display: "inline-block",

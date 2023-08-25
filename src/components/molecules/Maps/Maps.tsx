@@ -31,7 +31,7 @@ const Maps = () => {
 
   if (loading) return <MapsSkeleton />;
 
-  if (error) return <div>Error occured while fetching data</div>;
+  if (error) return <div>Error occured while fetching locations data</div>;
 
   const location = [...data.locations.location];
   location.sort((a: ILocation, b: ILocation) =>

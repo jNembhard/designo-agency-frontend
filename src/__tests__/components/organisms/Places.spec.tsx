@@ -46,7 +46,7 @@ describe("Places Component", () => {
     );
   });
 
-  it("should show an error message when the getCallouts query fails", async () => {
+  it("should show an error message when the getLocations query fails", async () => {
     const placesErrorMock = {
       mocks: {
         Query: {
@@ -59,7 +59,7 @@ describe("Places Component", () => {
 
     apolloRender(<Places />, placesErrorMock, schema);
 
-    await screen.findByText("Error occured while fetching data");
+    await screen.findByText("Error occured while fetching locations data");
   });
 
   it("should provide the option to navigate to a section of the /locations page on Designo's website.", async () => {

@@ -17,7 +17,7 @@ const Keypoints = () => {
 
   if (loading) return <KeypointsSkeleton />;
 
-  if (error) return <div>Error occured while fetching data</div>;
+  if (error) return <div>Error occured while fetching callouts data</div>;
 
   const callouts = [...data.callouts.callout];
   callouts.sort((a: ICallout, b: ICallout) =>

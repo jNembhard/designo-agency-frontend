@@ -16,7 +16,7 @@ const Places = () => {
 
   if (loading) return <PlacesSkeleton />;
 
-  if (error) return <div>Error occured while fetching data</div>;
+  if (error) return <div>Error occured while fetching locations data</div>;
 
   const places = [...data.locations.location];
   places.sort((a: IPlace, b: IPlace) =>

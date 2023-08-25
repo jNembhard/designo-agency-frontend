@@ -35,6 +35,7 @@ export const ProductSkeleton = ({ group }: { group: string }) => {
       {Array.from({ length: count }, (_, index) => (
         <Stack
           key={index}
+          aria-label="Loading project..."
           spacing={2}
           direction={
             isBreakpoint1024 ? "column" : isBreakpoint767 ? "row" : "column"

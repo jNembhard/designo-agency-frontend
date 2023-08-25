@@ -28,7 +28,7 @@ describe("AboutCard Component", () => {
 
   const aboutMock = {
     mocks: {
-      locations: () => mock,
+      getAbout: () => mock,
     },
   };
 
@@ -55,21 +55,21 @@ describe("AboutCard Component", () => {
     expect(aboutTitle).toBeInTheDocument();
   });
 
-  it.only("should show an error message when the getAbout query fails", async () => {
+  it("should show an error message when the getAbout query fails", async () => {
     const aboutErrorMock = {
       mocks: {
-        about: () => {
-          throw Error("invalid about query");
+        getAbout: () => {
+          throw Error("Invalid about query");
         },
       },
     };
 
     apolloRender(
-      <AboutCard aboutID="about-1" isdark="true" />,
+      <AboutCard aboutID="" isdark="true" />,
       aboutErrorMock,
       schema
     );
 
-    await screen.findByText("Error occured while fetching the data");
+    await screen.findByText("Error occured while fetching about query data");
   });
 });

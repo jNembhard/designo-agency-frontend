@@ -61,7 +61,7 @@ describe("Socials Component", () => {
     };
 
     apolloRender(<Socials />, socialsErrorMock, schema);
-    await screen.findByText("Error occured while fetching data");
+    await screen.findByText("Error occured while fetching socials data");
   });
 
   it("should take you to a social media page on link click", async () => {

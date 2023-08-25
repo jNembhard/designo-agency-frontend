@@ -18,13 +18,9 @@ const Products = ({ productType }: ProductType) => {
     variables: { ProductType: productType },
   });
 
-  if (loading) {
-    return <ProductSkeleton group={productType} />;
-  }
+  if (loading) return <ProductSkeleton group={productType} />;
 
-  if (error) {
-    return <div>Error occured while fetching data</div>;
-  }
+  if (error) return <div>Error occured while fetching products data</div>;
 
   const products = [...data.productGroup.product];
 

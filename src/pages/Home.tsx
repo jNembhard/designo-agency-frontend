@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import HeroCTA from "../components/organisms/HeroCTA/HeroCTA";
 import DesignGallery from "../components/organisms/DesignGallery/DesignGallery";
 import Keypoints from "../components/organisms/Keypoints/Keypoints";
-import { SEO } from "../components/atoms/SEO";
+import SEO from "../components/atoms/SEO";
 
 const homeWrapper = {
   display: { laptop: "flex" },

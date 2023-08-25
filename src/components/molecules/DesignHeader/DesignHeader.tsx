@@ -2,7 +2,7 @@ import { designHeaderStyles } from "./DesignHeaderStyles";
 import { useQuery } from "@apollo/client";
 import { GET_DESIGN_HEADER } from "../../../graphql/designQueries";
 import { capitalizeWordsWithASpace } from "../../../utils/capitalizeWords";
-import { SEO } from "../../atoms/SEO";
+import SEO from "../../atoms/SEO";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { DesignsHeaderSkeleton } from "./DesignHeaderSkeleton";

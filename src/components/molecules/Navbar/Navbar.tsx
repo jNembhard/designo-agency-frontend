@@ -25,7 +25,7 @@ export const Navbar = () => {
               }
               width="12.625rem"
               height="1.688rem"
-              alt=""
+              alt="designo-logo"
             />
           </Link>
           <Box>

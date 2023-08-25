@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Places from "../components/organisms/Places/Places";
 import AboutCard from "../components/molecules/AboutCard/AboutCard";
-import { SEO } from "../components/atoms/SEO";
+import SEO from "../components/atoms/SEO";
 
 const aboutWrapper = {
   mb: {

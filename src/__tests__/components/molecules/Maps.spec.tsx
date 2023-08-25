@@ -65,13 +65,13 @@ describe("Maps Component", () => {
       mocks: {
         Query: {
           locations: () => {
-            throw Error("invalid callout query");
+            throw Error("invalid locations query");
           },
         },
       },
     };
 
     apolloRender(<Maps />, mapsErrorMock, schema);
-    await screen.findByText("Error occured while fetching data");
+    await screen.findByText("Error occured while fetching locations data");
   });
 });
