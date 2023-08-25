@@ -23,14 +23,14 @@ describe("Keypoints Component", () => {
   };
 
   it("displays the loading skeleton while the image is loading", () => {
-    apolloRender(<Keypoints />, calloutMock, schema);
+    apolloRender(<Keypoints />, calloutMock, schema, false);
 
     const keyPointSkeleton = screen.getByLabelText("loading a keypoint...");
     expect(keyPointSkeleton).toBeInTheDocument();
   });
 
   it("should render a keypoint based on data passed in the query", async () => {
-    apolloRender(<Keypoints />, calloutMock, schema);
+    apolloRender(<Keypoints />, calloutMock, schema, true);
 
     const images = await screen.findAllByAltText("Hello World");
 
@@ -52,8 +52,11 @@ describe("Keypoints Component", () => {
       },
     };
 
-    apolloRender(<Keypoints />, calloutErrorMock, schema);
+    apolloRender(<Keypoints />, calloutErrorMock, schema, false);
 
-    await screen.findByText("Error occured while fetching callouts data");
+    const errorText = await screen.findByText(
+      "Error occured while fetching callouts data"
+    );
+    expect(errorText).toBeInTheDocument();
   });
 });

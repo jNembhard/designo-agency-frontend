@@ -11,11 +11,13 @@ import { render as rtlRender } from "@testing-library/react";
 export function apolloRender(
   component: JSX.Element,
   { mocks }: any = {},
-  schema: any
+  schema: any,
+  realResolvers: boolean
 ) {
   const mockSchema = addMocksToSchema({
     schema,
     mocks,
+    preserveResolvers: realResolvers,
   });
 
   const client = new ApolloClient({

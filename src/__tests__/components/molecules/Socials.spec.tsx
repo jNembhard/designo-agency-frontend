@@ -27,14 +27,14 @@ describe("Socials Component", () => {
   };
 
   it("display a loading skeleton while the social icon is loading", () => {
-    apolloRender(<Socials />, socialMock, schema);
+    apolloRender(<Socials />, socialMock, schema, false);
 
     const socialSkeleton = screen.getAllByLabelText("loading social link...");
     expect(socialSkeleton.length).toBe(5);
   });
 
   it("should display all social icon links based on the data passed in the query", async () => {
-    apolloRender(<Socials />, socialMock, schema);
+    apolloRender(<Socials />, socialMock, schema, true);
 
     const icons = await screen.findAllByAltText("Hello World");
 
@@ -60,12 +60,15 @@ describe("Socials Component", () => {
       },
     };
 
-    apolloRender(<Socials />, socialsErrorMock, schema);
-    await screen.findByText("Error occured while fetching socials data");
+    apolloRender(<Socials />, socialsErrorMock, schema, false);
+    const errorText = await screen.findByText(
+      "Error occured while fetching socials data"
+    );
+    expect(errorText).toBeInTheDocument();
   });
 
   it("should take you to a social media page on link click", async () => {
-    apolloRender(<Socials />, socialMock, schema);
+    apolloRender(<Socials />, socialMock, schema, false);
 
     const links = await screen.findAllByRole("link");
 
@@ -76,7 +79,7 @@ describe("Socials Component", () => {
   });
 
   it("should change the icon color on mouse enter and reset on mouse leave", async () => {
-    apolloRender(<Socials />, socialMock, schema);
+    apolloRender(<Socials />, socialMock, schema, false);
 
     const links = await screen.findAllByAltText("Hello World");
 

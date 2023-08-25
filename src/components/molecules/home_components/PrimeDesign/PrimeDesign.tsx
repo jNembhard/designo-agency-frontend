@@ -21,7 +21,7 @@ const PrimeDesign = (design: PrimeDesignProp) => {
   });
 
   if (loading) return <PrimeDesignSkeleton />;
-  if (error) return <p>Error:{error.message}</p>;
+  if (error) return <p>Error occured while fetching design query data</p>;
 
   const { images, title, slug } = data.design;
 
@@ -29,7 +29,10 @@ const PrimeDesign = (design: PrimeDesignProp) => {
     <div>
       {!loading && !error && (
         <Link href={`/designs${slug}`} sx={{ ...primeStyles.link }}>
-          <Stack sx={{ ...primeStyles.container }}>
+          <Stack
+            aria-label="click to navigate to a design page"
+            sx={{ ...primeStyles.container }}
+          >
             <picture>
               <source
                 media="(min-width: 64em)"

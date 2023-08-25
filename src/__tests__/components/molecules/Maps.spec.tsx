@@ -1,5 +1,4 @@
 import { screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
 import Maps from "../../../components/molecules/Maps/Maps";
 import { makeExecutableSchema } from "@graphql-tools/schema";
 import { apolloRender } from "../../mockWrappers/ApolloRenderWrapper";
@@ -38,14 +37,14 @@ describe("Maps Component", () => {
   };
 
   it("display a loading skeleton while the social icon is loading", () => {
-    apolloRender(<Maps />, locationMock, schema);
+    apolloRender(<Maps />, locationMock, schema, false);
 
     const mapsSkeleton = screen.getAllByLabelText("Loading location...");
     expect(mapsSkeleton.length).toBe(3);
   });
 
   it("should display all maps and locations based on the data passed in the query", async () => {
-    apolloRender(<Maps />, locationMock, schema);
+    apolloRender(<Maps />, locationMock, schema, true);
 
     const officeMaps = await screen.findAllByAltText("Hello World");
 
@@ -71,7 +70,10 @@ describe("Maps Component", () => {
       },
     };
 
-    apolloRender(<Maps />, mapsErrorMock, schema);
-    await screen.findByText("Error occured while fetching locations data");
+    apolloRender(<Maps />, mapsErrorMock, schema, false);
+    const errorText = await screen.findByText(
+      "Error occured while fetching locations data"
+    );
+    expect(errorText).toBeInTheDocument();
   });
 });

@@ -5,8 +5,6 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 import { apolloRender } from "../../mockWrappers/ApolloRenderWrapper";
 import { locationTypeDef } from "../../graphql/locationTypeDef";
 
-const schema = makeExecutableSchema({ typeDefs: locationTypeDef });
-
 const mock = {
   LocationID: "location-1",
   images: {
@@ -16,26 +14,31 @@ const mock = {
   slug: "/united-states",
 };
 
+const placeMock = {
+  Query: {
+    location: () => mock,
+  },
+};
+
+const schema = makeExecutableSchema({
+  typeDefs: locationTypeDef,
+  resolvers: placeMock,
+});
+
 describe("Places Component", () => {
-  beforeAll(() => {
+  afterAll(() => {
     jest.clearAllMocks();
   });
 
-  const placeMock = {
-    mocks: {
-      locations: () => mock,
-    },
-  };
-
   it("display a loading skeleton while the social icon is loading", () => {
-    apolloRender(<Places />, placeMock, schema);
+    apolloRender(<Places />, placeMock, schema, false);
 
     const placeSkeleton = screen.getByLabelText("loading locations...");
     expect(placeSkeleton).toBeInTheDocument();
   });
 
   it("should render selected places location data based on the infomation passed to the query", async () => {
-    apolloRender(<Places />, placeMock, schema);
+    apolloRender(<Places />, placeMock, schema, true);
 
     const images = await screen.findAllByAltText("Hello World");
 
@@ -57,13 +60,16 @@ describe("Places Component", () => {
       },
     };
 
-    apolloRender(<Places />, placesErrorMock, schema);
+    apolloRender(<Places />, placesErrorMock, schema, false);
 
-    await screen.findByText("Error occured while fetching locations data");
+    const errorText = await screen.findByText(
+      "Error occured while fetching locations data"
+    );
+    expect(errorText).toBeInTheDocument();
   });
 
   it("should provide the option to navigate to a section of the /locations page on Designo's website.", async () => {
-    apolloRender(<Places />, placeMock, schema);
+    apolloRender(<Places />, placeMock, schema, true);
 
     const buttons = await screen.findAllByRole("button");
 

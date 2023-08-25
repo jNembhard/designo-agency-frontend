@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Navbar } from "../../../components/molecules/Navbar/Navbar";
+import Navbar from "../../../components/molecules/Navbar/Navbar";
 import userEvent from "@testing-library/user-event";
 import { navlinks } from "../../../utils/navLinks";
 

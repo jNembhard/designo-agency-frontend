@@ -9,7 +9,7 @@ import { navlinks } from "../../../utils/navLinks";
 import Link from "@mui/material/Link";
 import BurgerNav from "../../atoms/BurgerNav/BurgerNav";
 
-export const Navbar = () => {
+const Navbar = () => {
   const [hovered, setHovered] = useState<boolean>(false);
 
   return (
@@ -57,3 +57,5 @@ export const Navbar = () => {
     </Box>
   );
 };
+
+export default Navbar;

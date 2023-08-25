@@ -5,8 +5,6 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 import { apolloRender } from "../../mockWrappers/ApolloRenderWrapper";
 import { productTypeDef } from "../../graphql/productTypeDef";
 
-const schema = makeExecutableSchema({ typeDefs: productTypeDef });
-
 const mock = {
   ProductType: "WebDesign",
   ProductID: "web-1",
@@ -15,22 +13,28 @@ const mock = {
   image: "product.jpg",
 };
 
+const productsMock = {
+  Query: {
+    productGroup: () => mock,
+  },
+};
+
+const schema = makeExecutableSchema({
+  typeDefs: productTypeDef,
+  resolvers: productsMock,
+});
+
 describe("Products Component", () => {
-  beforeAll(() => {
+  afterAll(() => {
     jest.clearAllMocks();
   });
 
-  const productsMock = {
-    mocks: {
-      productGroup: () => mock,
-    },
-  };
-
   it("display loading skeletons while product are loading", () => {
     apolloRender(
-      <Products productType={mock.ProductType} />,
+      <Products productType="WebDesign" />,
       productsMock,
-      schema
+      schema,
+      false
     );
 
     const productSkeleton = screen.getAllByLabelText("Loading project...");
@@ -39,9 +43,10 @@ describe("Products Component", () => {
 
   it("should render selected products data based on the infomation passed to the query", async () => {
     apolloRender(
-      <Products productType={mock.ProductType} />,
+      <Products productType="WebDesign" />,
       productsMock,
-      schema
+      schema,
+      false
     );
 
     const images = await screen.findAllByAltText("Hello World");
@@ -65,11 +70,15 @@ describe("Products Component", () => {
     };
 
     apolloRender(
-      <Products productType={mock.ProductType} />,
+      <Products productType="WebDesign" />,
       productsErrorMock,
-      schema
+      schema,
+      false
     );
 
-    await screen.findByText("Error occured while fetching products data");
+    const errorText = await screen.findByText(
+      "Error occured while fetching products data"
+    );
+    expect(errorText).toBeInTheDocument();
   });
 });

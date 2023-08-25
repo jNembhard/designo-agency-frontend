@@ -6,6 +6,7 @@ export const SubDesignSkeleton = () => {
   return (
     <Stack sx={{ ...subSkeletonSytles.container }}>
       <Skeleton
+        aria-label="Loading design option..."
         animation="wave"
         variant="rounded"
         sx={{ ...subSkeletonSytles.height }}

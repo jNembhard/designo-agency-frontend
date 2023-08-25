@@ -6,6 +6,7 @@ export const PrimeDesignSkeleton = () => {
   return (
     <Stack sx={{ ...primeSkeleton.container }}>
       <Skeleton
+        aria-label="Loading Web Design..."
         animation="wave"
         variant="rounded"
         sx={{ ...primeSkeleton.image }}

@@ -21,7 +21,7 @@ const SubDesign = (design: SubDesignProp) => {
   });
 
   if (loading) return <SubDesignSkeleton />;
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <p>Error occured while fetching design query data</p>;
 
   const { images, title, slug } = data.design;
 
@@ -29,7 +29,11 @@ const SubDesign = (design: SubDesignProp) => {
     <div>
       {!loading && !error && (
         <Link href={`/designs${slug}`} sx={{ ...subStyles.link }}>
-          <Stack direction="column" sx={{ ...subStyles.container }}>
+          <Stack
+            aria-label="click to navigate to a design page"
+            direction="column"
+            sx={{ ...subStyles.container }}
+          >
             <picture>
               <source
                 media="(min-width: 64em)"

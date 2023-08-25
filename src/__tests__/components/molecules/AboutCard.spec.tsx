@@ -22,7 +22,7 @@ const mock = {
 };
 
 describe("AboutCard Component", () => {
-  beforeAll(() => {
+  afterAll(() => {
     jest.clearAllMocks();
   });
 
@@ -32,11 +32,12 @@ describe("AboutCard Component", () => {
     },
   };
 
-  it("display a loading skeleton while the social icon is loading", () => {
+  it("displays a loading skeleton while the social icon is loading", () => {
     apolloRender(
       <AboutCard aboutID="about-1" isdark="true" />,
       aboutMock,
-      schema
+      schema,
+      false
     );
 
     const aboutSkeleton = screen.getByLabelText("loading about info...");
@@ -47,11 +48,11 @@ describe("AboutCard Component", () => {
     apolloRender(
       <AboutCard aboutID="about-1" isdark="true" />,
       aboutMock,
-      schema
+      schema,
+      true
     );
 
     const aboutTitle = await screen.findByTitle("Hello World");
-
     expect(aboutTitle).toBeInTheDocument();
   });
 
@@ -67,7 +68,8 @@ describe("AboutCard Component", () => {
     apolloRender(
       <AboutCard aboutID="" isdark="true" />,
       aboutErrorMock,
-      schema
+      schema,
+      false
     );
 
     await screen.findByText("Error occured while fetching about query data");

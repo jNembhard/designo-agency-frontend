@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { Navbar } from "../../../components/molecules/Navbar/Navbar";
+import Navbar from "../../../components/molecules/Navbar/Navbar";
 
 describe("Navbar", () => {
   describe("Navbar rendering", () => {
