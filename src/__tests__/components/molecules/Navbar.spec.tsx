@@ -1,5 +1,6 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Navbar from "../../../components/molecules/Navbar/Navbar";
+import userEvent from "@testing-library/user-event";
 
 describe("Navbar", () => {
   describe("Navbar rendering", () => {
@@ -25,13 +26,13 @@ describe("Navbar", () => {
       async (linkIndex: number) => {
         render(<Navbar />);
 
-        const firstNavLink = screen.getAllByRole("link")[linkIndex];
-        const hoverStyles = window.getComputedStyle(firstNavLink, ":hover");
+        const link = screen.getAllByRole("link")[linkIndex];
+        const hoverStyles = window.getComputedStyle(link, ":hover");
 
-        fireEvent.mouseEnter(firstNavLink);
+        userEvent.hover(link);
         expect(hoverStyles.textDecoration).toBe("none");
 
-        fireEvent.mouseLeave(firstNavLink);
+        userEvent.unhover(link);
         expect(hoverStyles.textDecoration).toBe("none");
       }
     );

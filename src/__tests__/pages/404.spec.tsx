@@ -22,9 +22,12 @@ describe("About Page", () => {
 
   it("renders the 404 Page", () => {
     render(<NotFound />);
+    const mockSeo = screen.getByTestId("mock-seo");
+    const mockContainer = screen.getByTestId("mock-container");
+    const mockNotFound = screen.getByTestId("mock-not-found");
 
-    expect(screen.getByTestId("mock-seo")).toBeInTheDocument();
-    expect(screen.getByTestId("mock-container")).toBeInTheDocument();
-    expect(screen.getByTestId("mock-not-found")).toBeInTheDocument();
+    expect(mockSeo).toBeInTheDocument();
+    expect(mockContainer).toBeInTheDocument();
+    expect(mockNotFound).toBeInTheDocument();
   });
 });

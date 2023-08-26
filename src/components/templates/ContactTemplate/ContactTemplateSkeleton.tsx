@@ -5,7 +5,10 @@ import { contactTemplateSkeletonStyles } from "./ContactTemplateSkeletonStyles";
 
 export const ContactTemplateSkeleton = () => {
   return (
-    <Stack sx={{ ...contactTemplateSkeletonStyles.wrapper }}>
+    <Stack
+      sx={{ ...contactTemplateSkeletonStyles.wrapper }}
+      aria-label="loading contact form..."
+    >
       <Box sx={{ ...contactTemplateSkeletonStyles.container }}>
         <Box>
           <Skeleton

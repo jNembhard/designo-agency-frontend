@@ -32,13 +32,11 @@ type FormButtonProp = {
 
 const DesignButton = ({ link, islight, text }: DesignoButtonProp) => {
   return (
-    <div>
-      <Link role="link" href={link}>
-        <DesignoButton role="button" islight={islight}>
-          {text}
-        </DesignoButton>
-      </Link>
-    </div>
+    <Link role="link" href={link}>
+      <DesignoButton role="button" islight={islight}>
+        {text}
+      </DesignoButton>
+    </Link>
   );
 };
 

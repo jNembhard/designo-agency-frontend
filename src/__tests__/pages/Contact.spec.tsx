@@ -27,9 +27,14 @@ describe("Contact Page", () => {
   it("renders the Contact Page", () => {
     render(<Contact />);
 
-    expect(screen.getByTestId("mock-seo")).toBeInTheDocument();
-    expect(screen.getByTestId("mock-box")).toBeInTheDocument();
-    expect(screen.getByTestId("mock-contact-template")).toBeInTheDocument();
-    expect(screen.getByTestId("mock-places")).toBeInTheDocument();
+    const mockSeo = screen.getByTestId("mock-seo");
+    const mockBox = screen.getByTestId("mock-box");
+    const mockContactTemplate = screen.getByTestId("mock-contact-template");
+    const mockPlaces = screen.getByTestId("mock-places");
+
+    expect(mockSeo).toBeInTheDocument();
+    expect(mockBox).toBeInTheDocument();
+    expect(mockContactTemplate).toBeInTheDocument();
+    expect(mockPlaces).toBeInTheDocument();
   });
 });

@@ -22,8 +22,12 @@ describe("Contact Page", () => {
   it("renders the Locations Page", () => {
     render(<Locations />);
 
-    expect(screen.getByTestId("mock-seo")).toBeInTheDocument();
-    expect(screen.getByTestId("mock-box")).toBeInTheDocument();
-    expect(screen.getByTestId("mock-location-maps")).toBeInTheDocument();
+    const mockSeo = screen.getByTestId("mock-seo");
+    const mockBox = screen.getByTestId("mock-box");
+    const mockLocationMaps = screen.getByTestId("mock-location-maps");
+
+    expect(mockSeo).toBeInTheDocument();
+    expect(mockBox).toBeInTheDocument();
+    expect(mockLocationMaps).toBeInTheDocument();
   });
 });

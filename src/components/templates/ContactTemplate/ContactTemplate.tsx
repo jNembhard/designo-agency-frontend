@@ -5,8 +5,13 @@ import { useEffect, useState } from "react";
 import { ContactTemplateSkeleton } from "./ContactTemplateSkeleton";
 import { contactTemplateStyles } from "./ContactTemplateStyles";
 
+type LoadedImageState = {
+  loaded: boolean;
+  error: boolean;
+};
+
 const ContactTemplate = () => {
-  const [loadedImage, setLoadedImage] = useState({
+  const [loadedImage, setLoadedImage] = useState<LoadedImageState>({
     loaded: false,
     error: false,
   });
@@ -29,9 +34,8 @@ const ContactTemplate = () => {
     img.src = bgContactMobile;
   });
 
-  if (!loadedImage.loaded) return <ContactTemplateSkeleton />;
-
   if (loadedImage.error) return <p>Error loading image</p>;
+  if (!loadedImage.loaded) return <ContactTemplateSkeleton />;
 
   return (
     <>

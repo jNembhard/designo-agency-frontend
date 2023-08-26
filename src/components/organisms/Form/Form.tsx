@@ -1,5 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import styled from "@mui/material/styles/styled";
+import { styled } from "@mui/system";
 import { IFormState } from "../../../interface/Form";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";

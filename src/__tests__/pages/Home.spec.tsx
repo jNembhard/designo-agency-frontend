@@ -31,10 +31,16 @@ describe("Home Page", () => {
   it("renders the Home Page", () => {
     render(<Home />);
 
-    expect(screen.getByTestId("mock-seo")).toBeInTheDocument();
-    expect(screen.getByTestId("mock-hero")).toBeInTheDocument();
-    expect(screen.getByTestId("mock-box")).toBeInTheDocument();
-    expect(screen.getByTestId("mock-gallery")).toBeInTheDocument();
-    expect(screen.getByTestId("mock-keypoints")).toBeInTheDocument();
+    const mockSeo = screen.getByTestId("mock-seo");
+    const mockHero = screen.getByTestId("mock-hero");
+    const mockBox = screen.getByTestId("mock-box");
+    const mockGallery = screen.getByTestId("mock-gallery");
+    const mockKeypoints = screen.getByTestId("mock-keypoints");
+
+    expect(mockSeo).toBeInTheDocument();
+    expect(mockHero).toBeInTheDocument();
+    expect(mockBox).toBeInTheDocument();
+    expect(mockGallery).toBeInTheDocument();
+    expect(mockKeypoints).toBeInTheDocument();
   });
 });

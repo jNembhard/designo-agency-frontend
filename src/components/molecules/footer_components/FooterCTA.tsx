@@ -1,123 +1,42 @@
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { footerCTAStyles } from "./FooterCTAStyles";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import { DesignButton } from "../../atoms/DesignoButton";
 
+jest.mock("@mui/material", () => ({
+  ...jest.requireActual("@mui/material/useMediaQuery"),
+  useMediaQuery: jest.fn(),
+}));
+
 const FooterCTA = () => {
   const isBreakpoint1024 = useMediaQuery("(min-width: 1024px)");
 
   return (
-    <Box
-      position="relative"
-      overflow="hidden"
-      zIndex={0}
-      bgcolor="peach.main"
-      textAlign="center"
-      sx={{
-        padding: {
-          mobile: "4rem 0.75rem",
-          tablet: "unset",
-          laptop: "4.5rem 5.938rem",
-        },
-        mx: {
-          mobile: "1.5rem",
-          tablet: "2.438rem",
-          laptop: "4rem",
-          desktop: "10.25rem",
-        },
-        maxHeight: { laptop: "18.25rem" },
-      }}
-      borderRadius="0.938rem"
-    >
+    <Box sx={{ ...footerCTAStyles.wrapper }}>
       <Box
-        position="absolute"
-        zIndex="-1"
         component="img"
         src={
           process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
           "assets/shared/desktop/bg-pattern-call-to-action.svg"
         }
-        sx={{
-          bottom: {
-            mobile: "-6.25rem",
-          },
-          right: {
-            mobile: "-18.75rem",
-            tablet: "-10rem",
-            laptop: "0",
-          },
-        }}
+        sx={{ ...footerCTAStyles.bgImage }}
         alt=""
       />
       <Stack
+        aria-label="change column direction"
         direction={isBreakpoint1024 ? "row" : "column"}
-        sx={{
-          margin: {
-            tablet: "3.688rem 3.563rem",
-            laptop: "0",
-          },
-          alignItems: {
-            laptop: "center",
-            justifyContent: "space-between",
-          },
-        }}
+        sx={{ ...footerCTAStyles.container }}
       >
-        <Box marginBottom="0.375rem" zIndex={2}>
-          <Box sx={{ maxWidth: { laptop: "28.688rem" } }}>
-            <Typography
-              variant="h2"
-              color="white.main"
-              mx="auto"
-              sx={{
-                fontSize: {
-                  mobile: "2rem",
-                  tablet: "2.5rem",
-                },
-                lineHeight: {
-                  mobile: "1.25rem",
-                  tablet: "2.5rem",
-                },
-                textAlign: {
-                  mobile: "center",
-                  laptop: "left",
-                },
-                maxWidth: {
-                  tablet: "20.938rem",
-                  laptop: "unset",
-                },
-                mb: {
-                  tablet: "1.25rem",
-                },
-              }}
-            >
+        <Box sx={{ ...footerCTAStyles.inner }}>
+          <Box sx={{ ...footerCTAStyles.titleWrapper }}>
+            <Typography variant="h2" sx={{ ...footerCTAStyles.title }}>
               Let's talk about your project
             </Typography>
           </Box>
-          <Box
-            marginBottom="2rem"
-            marginTop="1.25rem"
-            sx={{
-              textAlign: {
-                laptop: "left",
-              },
-            }}
-          >
-            <Typography
-              variant="body1"
-              color="white.main"
-              lineHeight="1.563rem"
-              sx={{
-                mx: {
-                  mobile: "auto",
-                  laptop: "unset",
-                },
-                maxWidth: {
-                  mobile: "29.688rem",
-                  laptop: "45ch",
-                },
-              }}
-            >
+          <Box sx={{ ...footerCTAStyles.descriptionWrapper }}>
+            <Typography variant="body1" sx={{ ...footerCTAStyles.description }}>
               Ready to take it to the next level? Contact us today and find out
               how our expertise can help your business grow.
             </Typography>
