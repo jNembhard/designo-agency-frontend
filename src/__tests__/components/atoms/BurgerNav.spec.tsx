@@ -22,7 +22,7 @@ describe("BurgerNav Menu Buttons", () => {
       userEvent.click(iconButton);
 
       const links = screen.getAllByRole("link");
-      expect(links.length).toEqual(4);
+      expect(links).toHaveLength(4);
 
       const navLink = links[linkIndex.id];
 

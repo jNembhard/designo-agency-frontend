@@ -30,15 +30,15 @@ describe("Socials Component", () => {
     apolloRender(<Socials />, socialMock, schema, false);
 
     const socialSkeleton = screen.getAllByLabelText("loading social link...");
-    expect(socialSkeleton.length).toBe(5);
+    expect(socialSkeleton).toHaveLength(5);
   });
 
-  it("should display all social icon links based on the data passed in the query", async () => {
+  it("should display all social icon links based on the data passed in the query", async (): Promise<void> => {
     apolloRender(<Socials />, socialMock, schema, true);
 
     const icons = await screen.findAllByAltText("Hello World");
 
-    expect(icons.length).toBe(2);
+    expect(icons).toHaveLength(2);
     expect(icons[0]).toHaveAttribute(
       "src",
       process.env.REACT_APP_CLOUDFRONT_ENDPOINT + "Hello World"
@@ -49,7 +49,7 @@ describe("Socials Component", () => {
     );
   });
 
-  it("should show an error message when the getSocials query fails", async () => {
+  it("should show an error message when the getSocials query fails", async (): Promise<void> => {
     const socialsErrorMock = {
       mocks: {
         Query: {
@@ -67,18 +67,18 @@ describe("Socials Component", () => {
     expect(errorText).toBeInTheDocument();
   });
 
-  it("should take you to a social media page on link click", async () => {
+  it("should take you to a social media page on link click", async (): Promise<void> => {
     apolloRender(<Socials />, socialMock, schema, false);
 
     const links = await screen.findAllByRole("link");
 
-    expect(links.length).toBe(2);
+    expect(links).toHaveLength(2);
 
     expect(links[0]).toHaveAttribute("href", "Hello World");
     expect(links[1]).toHaveAttribute("href", "Hello World");
   });
 
-  it("should change the icon color on mouse enter and reset on mouse leave", async () => {
+  it("should change the icon color on mouse enter and reset on mouse leave", async (): Promise<void> => {
     apolloRender(<Socials />, socialMock, schema, false);
 
     const links = await screen.findAllByAltText("Hello World");

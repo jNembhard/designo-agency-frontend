@@ -36,7 +36,7 @@ describe("Home Page", () => {
     expect(contactTemplateSkeleton).toBeInTheDocument();
   });
 
-  it("displays an error when loading the image", async () => {
+  it("displays an error when loading the image", async (): Promise<void> => {
     (useStateMock as jest.Mock).mockImplementationOnce(() => [
       { loaded: false, error: true },
       setState,

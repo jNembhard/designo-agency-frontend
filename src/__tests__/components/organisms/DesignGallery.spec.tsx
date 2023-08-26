@@ -23,6 +23,6 @@ describe("DesignGallery component", () => {
     const mockSubDesign = screen.getAllByTestId("mock-sub-design");
 
     expect(mockPrime).toBeInTheDocument();
-    expect(mockSubDesign.length).toBe(2);
+    expect(mockSubDesign).toHaveLength(2);
   });
 });

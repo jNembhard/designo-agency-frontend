@@ -41,14 +41,14 @@ describe("SubDesign component", () => {
     expect(subSkeleton).toBeInTheDocument();
   });
 
-  it("should render a PrimeDesign based on the data passed to the query", async () => {
+  it("should render a PrimeDesign based on the data passed to the query", async (): Promise<void> => {
     apolloRender(<SubDesign designID="design-2" />, subMock, schema, true);
 
     const subTitle = await screen.findByAltText("app design");
     expect(subTitle).toBeInTheDocument();
   });
 
-  it("should show an error message when the design query fails", async () => {
+  it("should show an error message when the design query fails", async (): Promise<void> => {
     const subDesignErrorMock = {
       mocks: {
         Query: {
@@ -72,7 +72,7 @@ describe("SubDesign component", () => {
     expect(errorText).toBeInTheDocument();
   });
 
-  it("should change the color of the component when a user hovers over the link", async () => {
+  it("should change the color of the component when a user hovers over the link", async (): Promise<void> => {
     apolloRender(<SubDesign designID="design-2" />, subMock, schema, true);
 
     const link = await screen.findByLabelText(

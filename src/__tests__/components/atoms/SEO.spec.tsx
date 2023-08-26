@@ -4,7 +4,7 @@ import SEO from "../../../components/atoms/SEO";
 import { HelmetProvider } from "react-helmet-async";
 
 describe("SEO", () => {
-  it("should render the Seo component", async () => {
+  it("should render the Seo component", async (): Promise<void> => {
     render(
       <HelmetProvider>
         <SEO

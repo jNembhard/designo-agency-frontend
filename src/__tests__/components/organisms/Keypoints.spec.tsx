@@ -29,7 +29,7 @@ describe("Keypoints Component", () => {
     expect(keyPointSkeleton).toBeInTheDocument();
   });
 
-  it("should render a keypoint based on data passed in the query", async () => {
+  it("should render a keypoint based on data passed in the query", async (): Promise<void> => {
     apolloRender(<Keypoints />, calloutMock, schema, true);
 
     const images = await screen.findAllByAltText("Hello World");
@@ -41,7 +41,7 @@ describe("Keypoints Component", () => {
     );
   });
 
-  it("should show an error message when the getCallouts query fails", async () => {
+  it("should show an error message when the getCallouts query fails", async (): Promise<void> => {
     const calloutErrorMock = {
       mocks: {
         Query: {

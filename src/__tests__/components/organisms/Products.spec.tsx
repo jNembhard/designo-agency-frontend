@@ -38,10 +38,10 @@ describe("Products Component", () => {
     );
 
     const productSkeleton = screen.getAllByLabelText("Loading project...");
-    expect(productSkeleton.length).toBe(6);
+    expect(productSkeleton).toHaveLength(6);
   });
 
-  it("should render selected products data based on the infomation passed to the query", async () => {
+  it("should render selected products data based on the infomation passed to the query", async (): Promise<void> => {
     apolloRender(
       <Products productType="WebDesign" />,
       productsMock,
@@ -51,14 +51,14 @@ describe("Products Component", () => {
 
     const images = await screen.findAllByAltText("Hello World");
 
-    expect(images.length).toBe(2);
+    expect(images).toHaveLength(2);
     expect(images[1]).toHaveAttribute(
       "src",
       process.env.REACT_APP_CLOUDFRONT_ENDPOINT + "Hello World"
     );
   });
 
-  it("should show an error message when the getProducts query fails", async () => {
+  it("should show an error message when the getProducts query fails", async (): Promise<void> => {
     const productsErrorMock = {
       mocks: {
         Query: {

@@ -41,14 +41,14 @@ describe("Prime Design component", () => {
     expect(primeSkeleton).toBeInTheDocument();
   });
 
-  it("should render a PrimeDesign based on the data passed to the query", async () => {
+  it("should render a PrimeDesign based on the data passed to the query", async (): Promise<void> => {
     apolloRender(<PrimeDesign designID="design-1" />, primeMock, schema, true);
 
     const aboutTitle = await screen.findByAltText("web design");
     expect(aboutTitle).toBeInTheDocument();
   });
 
-  it("should show an error message when the design query fails", async () => {
+  it("should show an error message when the design query fails", async (): Promise<void> => {
     const primeDesignErrorMock = {
       mocks: {
         Query: {
@@ -71,7 +71,7 @@ describe("Prime Design component", () => {
     expect(errorText).toBeInTheDocument();
   });
 
-  it("should change the color of the component when a user hovers over the link", async () => {
+  it("should change the color of the component when a user hovers over the link", async (): Promise<void> => {
     apolloRender(<PrimeDesign designID="design-1" />, primeMock, schema, true);
 
     const link = await screen.findByLabelText(

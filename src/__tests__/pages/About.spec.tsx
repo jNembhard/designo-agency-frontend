@@ -33,7 +33,7 @@ describe("About Page", () => {
 
     expect(mockSeo).toBeInTheDocument();
     expect(mockBox).toBeInTheDocument();
-    expect(mockAboutCard.length).toEqual(3);
+    expect(mockAboutCard).toHaveLength(3);
     expect(mockPlaces).toBeInTheDocument();
   });
 });

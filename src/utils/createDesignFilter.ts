@@ -1,7 +1,7 @@
 import { IDesignTemplate } from "../interface/DesignTemplate";
 import { capitalizeWords } from "./capitalizeWords";
 
-export const createDesignFilter = (slug: string) => {
+export const createDesignFilter = (slug: string): IDesignTemplate => {
   const ids: { [key: string]: string } = {
     "design-1": "web-design",
     "design-2": "app-design",

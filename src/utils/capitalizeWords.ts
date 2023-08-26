@@ -1,4 +1,4 @@
-export const capitalizeWords = (slug: string) => {
+export const capitalizeWords = (slug: string): string => {
   let primaryKey = slug
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -7,6 +7,6 @@ export const capitalizeWords = (slug: string) => {
   return primaryKey;
 };
 
-export const capitalizeWordsWithASpace = (name: string) => {
+export const capitalizeWordsWithASpace = (name: string): string => {
   return name.replace(/\b\w/g, (char) => char.toUpperCase());
 };

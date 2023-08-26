@@ -18,9 +18,7 @@ const DesignHeader = ({ designID }: DesignHeaderProp) => {
 
   if (loading) return <DesignsHeaderSkeleton />;
 
-  if (error) {
-    return <div>Error occured while fetching data</div>;
-  }
+  if (error) return <div>Error occured while fetching data</div>;
 
   const { header, images, title } = data.design;
   const capitaltitle = capitalizeWordsWithASpace(title);

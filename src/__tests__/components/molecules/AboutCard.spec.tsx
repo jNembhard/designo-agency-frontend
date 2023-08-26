@@ -44,7 +44,7 @@ describe("AboutCard Component", () => {
     expect(aboutSkeleton).toBeInTheDocument();
   });
 
-  it("should render and AboutCard based on the data passed to the query", async () => {
+  it("should render and AboutCard based on the data passed to the query", async (): Promise<void> => {
     apolloRender(
       <AboutCard aboutID="about-1" isdark="true" />,
       aboutMock,
@@ -56,7 +56,7 @@ describe("AboutCard Component", () => {
     expect(aboutTitle).toBeInTheDocument();
   });
 
-  it("should show an error message when the getAbout query fails", async () => {
+  it("should show an error message when the getAbout query fails", async (): Promise<void> => {
     const aboutErrorMock = {
       mocks: {
         getAbout: () => {

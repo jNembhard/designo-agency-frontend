@@ -33,6 +33,6 @@ describe("Home Page", () => {
 
     expect(mockDesignHeader).toBeInTheDocument();
     expect(mockProducts).toBeInTheDocument();
-    expect(mockSubDesigns.length).toBe(2);
+    expect(mockSubDesigns).toHaveLength(2);
   });
 });

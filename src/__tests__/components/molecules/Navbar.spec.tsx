@@ -15,7 +15,7 @@ describe("Navbar", () => {
       render(<Navbar />);
 
       const links = screen.getAllByRole("link");
-      expect(links.length).toEqual(4);
+      expect(links).toHaveLength(4);
     });
   });
 
@@ -23,7 +23,7 @@ describe("Navbar", () => {
     const navlinks = [1, 2, 3];
     test.each(navlinks)(
       "should underline a text link",
-      async (linkIndex: number) => {
+      async (linkIndex: number): Promise<void> => {
         render(<Navbar />);
 
         const link = screen.getAllByRole("link")[linkIndex];

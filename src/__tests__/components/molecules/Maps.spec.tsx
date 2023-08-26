@@ -40,15 +40,15 @@ describe("Maps Component", () => {
     apolloRender(<Maps />, locationMock, schema, false);
 
     const mapsSkeleton = screen.getAllByLabelText("Loading location...");
-    expect(mapsSkeleton.length).toBe(3);
+    expect(mapsSkeleton).toHaveLength(3);
   });
 
-  it("should display all maps and locations based on the data passed in the query", async () => {
+  it("should display all maps and locations based on the data passed in the query", async (): Promise<void> => {
     apolloRender(<Maps />, locationMock, schema, true);
 
     const officeMaps = await screen.findAllByAltText("Hello World");
 
-    expect(officeMaps.length).toBe(2);
+    expect(officeMaps).toHaveLength(2);
     expect(officeMaps[0]).toHaveAttribute(
       "src",
       process.env.REACT_APP_CLOUDFRONT_ENDPOINT + "Hello World"
@@ -59,7 +59,7 @@ describe("Maps Component", () => {
     );
   });
 
-  it("should show an error message when the getLocations query fails", async () => {
+  it("should show an error message when the getLocations query fails", async (): Promise<void> => {
     const mapsErrorMock = {
       mocks: {
         Query: {

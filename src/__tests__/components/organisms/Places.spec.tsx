@@ -37,19 +37,19 @@ describe("Places Component", () => {
     expect(placeSkeleton).toBeInTheDocument();
   });
 
-  it("should render selected places location data based on the infomation passed to the query", async () => {
+  it("should render selected places location data based on the infomation passed to the query", async (): Promise<void> => {
     apolloRender(<Places />, placeMock, schema, true);
 
     const images = await screen.findAllByAltText("Hello World");
 
-    expect(images.length).toBe(2);
+    expect(images).toHaveLength(2);
     expect(images[1]).toHaveAttribute(
       "src",
       process.env.REACT_APP_CLOUDFRONT_ENDPOINT + "Hello World"
     );
   });
 
-  it("should show an error message when the getLocations query fails", async () => {
+  it("should show an error message when the getLocations query fails", async (): Promise<void> => {
     const placesErrorMock = {
       mocks: {
         Query: {
@@ -68,12 +68,12 @@ describe("Places Component", () => {
     expect(errorText).toBeInTheDocument();
   });
 
-  it("should provide the option to navigate to a section of the /locations page on Designo's website.", async () => {
+  it("should provide the option to navigate to a section of the /locations page on Designo's website.", async (): Promise<void> => {
     apolloRender(<Places />, placeMock, schema, true);
 
     const buttons = await screen.findAllByRole("button");
 
-    expect(buttons.length).toBe(2);
+    expect(buttons).toHaveLength(2);
 
     expect(buttons[0]).toHaveAttribute("islight", "false");
     expect(buttons[1]).toHaveAttribute("islight", "false");
