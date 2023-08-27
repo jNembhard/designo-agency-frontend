@@ -30,7 +30,7 @@ describe("Places Component", () => {
     jest.clearAllMocks();
   });
 
-  it("display a loading skeleton while the social icon is loading", () => {
+  it("displays a loading skeleton while the social icon is loading", () => {
     apolloRender(<Places />, placeMock, schema, false);
 
     const placeSkeleton = screen.getByLabelText("loading locations...");

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import NotFound from "./404";
 import DesignsTemplate from "../components/templates/DesignsTemplate/DesignsTemplate";
+import SeoDesign from "../components/atoms/SeoDesign";
 
 const Designs = () => {
   const [isMatch, setIsMatch] = useState(false);
@@ -35,7 +36,16 @@ const Designs = () => {
     );
   }
 
-  return <>{slug && <DesignsTemplate slug={slug} />}</>;
+  return (
+    <>
+      {slug && (
+        <>
+          <SeoDesign author="Jason Nembhard" type="webapp" slug={slug} />
+          <DesignsTemplate slug={slug} />
+        </>
+      )}
+    </>
+  );
 };
 
 export default Designs;

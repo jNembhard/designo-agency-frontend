@@ -9,15 +9,25 @@ import Typography from "@mui/material/Typography";
 import { useState } from "react";
 
 const Product = ({ description, image, title }: IProduct) => {
-  const [hovered, setHovered] = useState(false);
+  const [hovered, setHovered] = useState<Boolean>(false);
+
+  const handleMouseEnter = () => {
+    setHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(false);
+  };
+
   return (
     <Grid item xs={12} md={4} sx={{ ...productStyles.grid }}>
       <Card
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         sx={{ ...productStyles.card }}
       >
         <Box
+          aria-label={hovered ? "peach background" : "sand background"}
           bgcolor={hovered ? "peach.main" : "sand"}
           sx={{ ...productStyles.container }}
         >
@@ -30,6 +40,7 @@ const Product = ({ description, image, title }: IProduct) => {
           <CardContent sx={{ ...productStyles.cardContent }}>
             <Typography
               variant="h3"
+              aria-label={hovered ? "white text" : "peach text"}
               color={hovered ? "white.main" : "peach.main"}
               sx={{ ...productStyles.title }}
             >
@@ -37,6 +48,7 @@ const Product = ({ description, image, title }: IProduct) => {
             </Typography>
             <Typography
               variant="body1"
+              aria-label={hovered ? "white text" : "black text"}
               color={hovered ? "white.main" : "black.main"}
               sx={{ ...productStyles.description }}
             >

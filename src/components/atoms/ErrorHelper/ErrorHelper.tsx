@@ -9,6 +9,7 @@ type ErrorMessage = {
 const ErrorHelper = ({ errorMessage }: ErrorMessage) => {
   return (
     <Box
+      aria-label={errorMessage === null ? "" : errorMessage}
       sx={{
         ...errorStyles.wrapper,
         width: {
@@ -46,7 +47,7 @@ const ErrorHelper = ({ errorMessage }: ErrorMessage) => {
           process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
           "assets/contact/desktop/icon-error.svg"
         }
-        alt=""
+        alt="error-icon"
       />
     </Box>
   );

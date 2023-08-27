@@ -29,6 +29,15 @@ export const GET_DESIGN_HEADER = gql`
   }
 `;
 
+export const GET_SEO_DESIGN = gql`
+  query getDesign($DesignID: String!) {
+    design(DesignID: $DesignID) {
+      header
+      title
+    }
+  }
+`;
+
 export const GET_DESIGNS = gql`
   query getDesigns($count: Int!) {
     designs(count: $count) {

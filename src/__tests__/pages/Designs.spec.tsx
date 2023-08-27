@@ -2,6 +2,10 @@ import { render, screen } from "@testing-library/react";
 import Designs from "../../pages/Designs";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 
+jest.mock("../../components/atoms/SeoDesign", () => () => (
+  <div data-testid="mock-design-seo" />
+));
+
 jest.mock("../../components/atoms/SEO", () => () => (
   <div data-testid="mock-seo" />
 ));

@@ -21,20 +21,17 @@ describe("Navbar", () => {
 
   describe("Link hovering", () => {
     const navlinks = [1, 2, 3];
-    test.each(navlinks)(
-      "should underline a text link",
-      async (linkIndex: number): Promise<void> => {
-        render(<Navbar />);
+    test.each(navlinks)("should underline a text link", (linkIndex: number) => {
+      render(<Navbar />);
 
-        const link = screen.getAllByRole("link")[linkIndex];
-        const hoverStyles = window.getComputedStyle(link, ":hover");
+      const link = screen.getAllByRole("link")[linkIndex];
+      const hoverStyles = window.getComputedStyle(link, ":hover");
 
-        userEvent.hover(link);
-        expect(hoverStyles.textDecoration).toBe("none");
+      userEvent.hover(link);
+      expect(hoverStyles.textDecoration).toBe("none");
 
-        userEvent.unhover(link);
-        expect(hoverStyles.textDecoration).toBe("none");
-      }
-    );
+      userEvent.unhover(link);
+      expect(hoverStyles.textDecoration).toBe("none");
+    });
   });
 });

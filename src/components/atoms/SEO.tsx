@@ -22,4 +22,5 @@ const SEO = ({ author, title, description, type }: Seo) => {
     </Helmet>
   );
 };
+
 export default SEO;

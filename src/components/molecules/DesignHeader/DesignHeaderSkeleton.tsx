@@ -5,7 +5,11 @@ import { designSkeletonStyles } from "./DesignHeaderSkeletonStyles";
 export const DesignsHeaderSkeleton = () => {
   return (
     <Stack sx={{ ...designSkeletonStyles.wrapper }}>
-      <Skeleton animation="wave" sx={{ ...designSkeletonStyles.skeleton }} />
+      <Skeleton
+        animation="wave"
+        sx={{ ...designSkeletonStyles.skeleton }}
+        aria-label="Loading design header..."
+      />
     </Stack>
   );
 };

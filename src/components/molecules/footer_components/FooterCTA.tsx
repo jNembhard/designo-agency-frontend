@@ -5,11 +5,6 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import { DesignButton } from "../../atoms/DesignoButton";
 
-jest.mock("@mui/material", () => ({
-  ...jest.requireActual("@mui/material/useMediaQuery"),
-  useMediaQuery: jest.fn(),
-}));
-
 const FooterCTA = () => {
   const isBreakpoint1024 = useMediaQuery("(min-width: 1024px)");
 
