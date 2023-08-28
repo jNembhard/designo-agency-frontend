@@ -13,6 +13,7 @@ export const KeypointsSkeleton = () => {
         {Array.from({ length: 3 }, (_, index) => (
           <Stack
             key={index}
+            aria-label="orientation change"
             direction={
               isBreakpoint1024 ? "column" : isBreakpoint767 ? "row" : "column"
             }

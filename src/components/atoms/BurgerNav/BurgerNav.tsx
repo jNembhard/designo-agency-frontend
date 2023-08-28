@@ -36,6 +36,7 @@ const BurgerNav = () => {
         />
       </div>
       <Backdrop
+        aria-label="backdrop"
         sx={{ ...burgerNavStyles.backdrop }}
         onClick={() => toggle()}
         open={modalOpen}

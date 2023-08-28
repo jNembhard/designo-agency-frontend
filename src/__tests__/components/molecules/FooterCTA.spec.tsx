@@ -1,6 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import FooterCTA from "../../../components/molecules/footer_components/FooterCTA";
+import { useMediaQuery as useMockMediaQuery } from "@mui/material";
+
+jest.mock("@mui/material/useMediaQuery");
 
 describe("FooterCTA component", () => {
   it("should render the component and locate the title and description text", () => {
@@ -22,10 +25,22 @@ describe("FooterCTA component", () => {
     expect(button).toHaveAttribute("islight", "true");
   });
 
-  it("renders with row direction when isBreakpoint1024 matches a media query of (min-width: '1024px').", () => {
-    render(<FooterCTA />);
+  const directions = [
+    { idx: 1, isBreakpoint1024: true, flex: "flex-direction: row" },
+    { idx: 2, isBreakpoint1024: false, flex: "flex-direction: column" },
+  ];
 
-    const stack = screen.getByLabelText("change column direction");
-    expect(stack).toHaveStyle("justify-content: space-between");
-  });
+  test.each(directions)(
+    "renders with row direction when isBreakpoint1024 matches a media query of (min-width: '1024px').",
+    (direction) => {
+      (useMockMediaQuery as jest.Mock).mockReturnValue(
+        direction.isBreakpoint1024
+      );
+
+      render(<FooterCTA />);
+
+      const stack = screen.getByLabelText("change column direction");
+      expect(stack).toHaveStyle(direction.flex);
+    }
+  );
 });

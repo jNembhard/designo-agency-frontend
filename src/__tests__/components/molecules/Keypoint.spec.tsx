@@ -1,5 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import Keypoint from "../../../components/molecules/Keypoint/Keypoint";
+import { useMediaQuery as useMockMediaQuery } from "@mui/material";
+
+jest.mock("@mui/material/useMediaQuery");
 
 const mock = {
   title: "title 1",
@@ -29,6 +32,34 @@ describe("Keypoint Component", () => {
       render(<Keypoint calloutID={callout.id} {...mock} />);
       const imageWrapper = screen.getByRole("figure");
       expect(imageWrapper).toHaveStyle(callout.transform);
+    }
+  );
+
+  const laptopDirections = [
+    {
+      idx: 1,
+      isBreakpoint1024: true,
+      flex: "flex-direction: column",
+    },
+    {
+      idx: 2,
+      isBreakpoint1024: false,
+      flex: "flex-direction: column",
+    },
+  ];
+
+  test.each(laptopDirections)(
+    "renders with row direction when isBreakpoint1024 matches a media query of (min-width: '1024px').",
+    (direction) => {
+      (useMockMediaQuery as jest.Mock).mockReturnValue(
+        direction.isBreakpoint1024
+      );
+
+      render(<Keypoint calloutID="callout-1" {...mock} />);
+
+      const stack = screen.getByLabelText("orientation change");
+
+      expect(stack).toHaveStyle(direction.flex);
     }
   );
 });

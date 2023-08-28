@@ -15,7 +15,7 @@ jest.mock(
   () => () => <div data-testid="mock-designs-template" />
 );
 
-describe("Contact Page", () => {
+describe("Designs Page", () => {
   afterAll(() => {
     jest.clearAllMocks();
   });

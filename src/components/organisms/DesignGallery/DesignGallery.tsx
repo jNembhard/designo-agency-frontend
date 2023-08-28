@@ -9,12 +9,16 @@ const DesignGallery = () => {
 
   return (
     <Stack
+      aria-label="change component orientation and spacing"
       direction={isBreakpoint1024 ? "row" : "column"}
       spacing={isBreakpoint1024 ? 3 : 0}
       sx={{ ...designGalleryStyles.wrapper }}
     >
       <PrimeDesign designID="design-1" />
-      <Stack spacing={isBreakpoint1024 ? 3 : 0}>
+      <Stack
+        aria-label="change substack spacing"
+        spacing={isBreakpoint1024 ? 3 : 0}
+      >
         <SubDesign designID="design-2" />
         <SubDesign designID="design-3" />
       </Stack>

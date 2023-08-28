@@ -11,6 +11,7 @@ const Keypoint = ({ calloutID, image, title, description }: ICallout) => {
 
   return (
     <Stack
+      aria-label="orientation change"
       direction={
         isBreakpoint1024 ? "column" : isBreakpoint767 ? "row" : "column"
       }

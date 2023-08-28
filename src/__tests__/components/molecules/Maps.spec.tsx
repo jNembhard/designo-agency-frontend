@@ -26,7 +26,7 @@ const mock = {
 };
 
 describe("Maps Component", () => {
-  beforeAll(() => {
+  afterAll(() => {
     jest.clearAllMocks();
   });
 
@@ -41,6 +41,15 @@ describe("Maps Component", () => {
 
     const mapsSkeleton = screen.getAllByLabelText("Loading location...");
     expect(mapsSkeleton).toHaveLength(3);
+  });
+
+  it("scrolls to the target element if the hash exists", () => {
+    const scrollIntoViewMock = jest.fn();
+    Element.prototype.scrollIntoView = scrollIntoViewMock();
+
+    apolloRender(<Maps />, locationMock, schema, true);
+
+    expect(scrollIntoViewMock).toHaveBeenCalled();
   });
 
   it("should display all maps and locations based on the data passed in the query", async (): Promise<void> => {

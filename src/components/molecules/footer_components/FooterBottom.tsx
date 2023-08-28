@@ -18,6 +18,7 @@ const FooterBottom = () => {
   return (
     <Grid
       container
+      aria-label="changes grid direction"
       direction={isBreakpoint767 ? "row" : "column"}
       sx={{ ...footerBottomStyles.container }}
     >
@@ -36,6 +37,7 @@ const FooterBottom = () => {
       </Grid>
       <Divider color="gray" sx={{ ...footerBottomStyles.divider }} />
       <Stack
+        aria-label="changes stack direction"
         direction={isBreakpoint767 ? "row" : "column"}
         sx={{ ...footerBottomStyles.navLinkWrapper }}
       >
