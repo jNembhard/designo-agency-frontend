@@ -31,11 +31,13 @@ export const ProductSkeleton = ({ group }: { group: string }) => {
       container
       spacing={isBreakpoint1024 ? 3 : 0}
       sx={{ ...productSkeletonStyles.grid }}
+      aria-label="loading products..."
     >
       {Array.from({ length: count }, (_, index) => (
         <Stack
           key={index}
-          aria-label="Loading project..."
+          role="listitem"
+          aria-label={`There are ${count} total products...`}
           spacing={2}
           direction={
             isBreakpoint1024 ? "column" : isBreakpoint767 ? "row" : "column"

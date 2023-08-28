@@ -1,5 +1,25 @@
 import { screen, render, waitFor } from "@testing-library/react";
 import ErrorHelper from "../../../components/atoms/ErrorHelper/ErrorHelper";
+import mediaQuery from "css-mediaquery";
+
+function createMatchMedia(width: number) {
+  return (query: string) => {
+    return {
+      matches: mediaQuery.match(query, { width }),
+      media: "",
+      addListener: () => {},
+      removeListener: () => {},
+      onchange: () => {},
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      dispatchEvent: () => true,
+    };
+  };
+}
+
+function resizeScreenSize(width: number) {
+  window.matchMedia = createMatchMedia(width);
+}
 
 const errorObjects = [
   {
@@ -56,8 +76,7 @@ describe("ErrorHelper", () => {
         const errorText = screen.getByLabelText(
           "when the icon is displayed, there is an input error that needs attention"
         );
-        const computedStyles = window.getComputedStyle(errorText);
-        expect(computedStyles.width).toBe(errorObject.width.mobile);
+        expect(errorText).toHaveStyle(`width: ${errorObject.width.mobile}`);
       }
     );
   });
@@ -66,9 +85,7 @@ describe("ErrorHelper", () => {
     test.each(errorObjects)(
       "renders the error message with the marginLeft styling expetations at a breakpoint",
       async (errorObject) => {
-        await waitFor(() => {
-          fireResize(375);
-        });
+        resizeScreenSize(375);
 
         render(<ErrorHelper errorMessage={errorObject.text} />);
 
@@ -76,9 +93,21 @@ describe("ErrorHelper", () => {
           "when the icon is displayed, there is an input error that needs attention"
         );
 
-        const computedStyles = window.getComputedStyle(errorText);
-        expect(computedStyles.marginLeft).toBe(errorObject.marginLeft.mobile);
+        expect(errorText).toHaveStyle(
+          `margin-left: ${errorObject.marginLeft.mobile}`
+        );
       }
+    );
+  });
+
+  it("displays the correct error icon", () => {
+    render(<ErrorHelper errorMessage="Invalid phone number" />);
+
+    const errorIcon = screen.getByAltText("error-icon");
+    expect(errorIcon).toHaveAttribute(
+      "src",
+      process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
+        "assets/contact/desktop/icon-error.svg"
     );
   });
 });

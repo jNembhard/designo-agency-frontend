@@ -18,11 +18,12 @@ const Keypoint = ({ calloutID, image, title, description }: ICallout) => {
     >
       <Box sx={{ ...keypointStyles.container }}>
         <Box
+          role="figure"
           sx={{
             ...keypointStyles.imageWrapper,
             transform:
               calloutID === "callout-1"
-                ? ""
+                ? "none"
                 : calloutID === "callout-2"
                 ? "rotate(270deg)"
                 : "rotate(90deg)",

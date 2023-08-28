@@ -1,6 +1,39 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { errorStyles } from "./ErrorHelperStyles";
+import { styled } from "@mui/system";
+
+const StyledErrorBox = styled(Box)(
+  ({ errorMessage }: { errorMessage: string }) => ({
+    width:
+      errorMessage === "Invalid phone number" ||
+      errorMessage === "Can't be empty"
+        ? "11.25rem"
+        : "7.5rem",
+    marginLeft:
+      errorMessage === "Invalid phone number"
+        ? "-5.5rem"
+        : errorMessage === "Can't be empty"
+        ? "-3.5rem"
+        : "-2.5rem",
+    "@media (min-width: 767px)": {
+      marginLeft:
+        errorMessage === "Invalid phone number"
+          ? "-3.938rem"
+          : errorMessage === "Can't be empty"
+          ? "-0.938rem"
+          : "",
+    },
+    "@media (min-width: 1024px)": {
+      marginLeft:
+        errorMessage === "Invalid phone number"
+          ? "-7rem"
+          : errorMessage === "Can't be empty"
+          ? "-4.2rem"
+          : "-3rem",
+    },
+  })
+);
 
 type ErrorMessage = {
   errorMessage: string;
@@ -8,37 +41,11 @@ type ErrorMessage = {
 
 const ErrorHelper = ({ errorMessage }: ErrorMessage) => {
   return (
-    <Box
-      aria-label={errorMessage === null ? "" : errorMessage}
+    <StyledErrorBox
+      errorMessage={errorMessage}
+      aria-label="when the icon is displayed, there is an input error that needs attention"
       sx={{
         ...errorStyles.wrapper,
-        width: {
-          mobile:
-            errorMessage === "Invalid phone number" ||
-            errorMessage === "Can't be empty"
-              ? "11.25rem"
-              : "7.5rem",
-        },
-        ml: {
-          mobile:
-            errorMessage === "Invalid phone number"
-              ? "-5.5rem"
-              : errorMessage === "Can't be empty"
-              ? "-3.5rem"
-              : "-2.5rem",
-          tablet:
-            errorMessage === "Invalid phone number"
-              ? "-3.938rem"
-              : errorMessage === "Can't be empty"
-              ? "-0.938rem"
-              : "",
-          laptop:
-            errorMessage === "Invalid phone number"
-              ? "-7rem"
-              : errorMessage === "Can't be empty"
-              ? "-4.2rem"
-              : "-3rem",
-        },
       }}
     >
       <Typography sx={{ ...errorStyles.text }}>{errorMessage}</Typography>
@@ -49,7 +56,7 @@ const ErrorHelper = ({ errorMessage }: ErrorMessage) => {
         }
         alt="error-icon"
       />
-    </Box>
+    </StyledErrorBox>
   );
 };
 

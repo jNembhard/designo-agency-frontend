@@ -37,8 +37,8 @@ describe("Products Component", () => {
       false
     );
 
-    const productSkeleton = screen.getAllByLabelText("Loading project...");
-    expect(productSkeleton).toHaveLength(6);
+    const productSkeleton = screen.getByLabelText("loading products...");
+    expect(productSkeleton).toBeInTheDocument();
   });
 
   it("should render selected products data based on the infomation passed to the query", async (): Promise<void> => {

@@ -10,13 +10,14 @@ const Place = ({ LocationID, images, title, slug }: IPlace) => {
     <Stack sx={{ ...placeStyles.wrapper }}>
       <Box sx={{ ...placeStyles.container }}>
         <Box
+          role="figure"
           sx={{
             ...placeStyles.imageWrapper,
             transform:
               LocationID === "location-1"
                 ? "rotate(90deg)"
                 : LocationID === "location-2"
-                ? ""
+                ? "none"
                 : "rotate(270deg)",
           }}
         >
