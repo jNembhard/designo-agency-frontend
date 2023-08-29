@@ -50,4 +50,14 @@ const FormButton = ({ islight, text }: FormButtonProp) => {
   );
 };
 
-export { DesignButton, FormButton };
+const CloseButton = ({ islight, text }: FormButtonProp) => {
+  return (
+    <>
+      <DesignoButton role="button" islight={islight}>
+        {text}
+      </DesignoButton>
+    </>
+  );
+};
+
+export { CloseButton, DesignButton, FormButton };

@@ -59,7 +59,7 @@ describe("ErrorHelper", () => {
   });
 
   it("renders the error messsage", () => {
-    render(<ErrorHelper errorMessage="Invalid phone number" />);
+    render(<ErrorHelper errormessage="Invalid phone number" />);
     expect(screen.getByText("Invalid phone number")).toBeInTheDocument();
   });
 
@@ -71,7 +71,7 @@ describe("ErrorHelper", () => {
           fireResize(375);
         });
 
-        render(<ErrorHelper errorMessage={errorObject.text} />);
+        render(<ErrorHelper errormessage={errorObject.text} />);
 
         const errorText = screen.getByLabelText(
           "when the icon is displayed, there is an input error that needs attention"
@@ -87,7 +87,7 @@ describe("ErrorHelper", () => {
       async (errorObject) => {
         resizeScreenSize(375);
 
-        render(<ErrorHelper errorMessage={errorObject.text} />);
+        render(<ErrorHelper errormessage={errorObject.text} />);
 
         const errorText = screen.getByLabelText(
           "when the icon is displayed, there is an input error that needs attention"
@@ -101,7 +101,7 @@ describe("ErrorHelper", () => {
   });
 
   it("displays the correct error icon", () => {
-    render(<ErrorHelper errorMessage="Invalid phone number" />);
+    render(<ErrorHelper errormessage="Invalid phone number" />);
 
     const errorIcon = screen.getByAltText("error-icon");
     expect(errorIcon).toHaveAttribute(

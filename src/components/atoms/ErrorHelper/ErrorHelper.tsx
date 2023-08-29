@@ -4,51 +4,51 @@ import { errorStyles } from "./ErrorHelperStyles";
 import { styled } from "@mui/system";
 
 const StyledErrorBox = styled(Box)(
-  ({ errorMessage }: { errorMessage: string }) => ({
+  ({ errormessage }: { errormessage: string }) => ({
     width:
-      errorMessage === "Invalid phone number" ||
-      errorMessage === "Can't be empty"
+      errormessage === "Invalid phone number" ||
+      errormessage === "Can't be empty"
         ? "11.25rem"
         : "7.5rem",
     marginLeft:
-      errorMessage === "Invalid phone number"
+      errormessage === "Invalid phone number"
         ? "-5.5rem"
-        : errorMessage === "Can't be empty"
+        : errormessage === "Can't be empty"
         ? "-3.5rem"
         : "-2.5rem",
     "@media (min-width: 767px)": {
       marginLeft:
-        errorMessage === "Invalid phone number"
+        errormessage === "Invalid phone number"
           ? "-3.938rem"
-          : errorMessage === "Can't be empty"
+          : errormessage === "Can't be empty"
           ? "-0.938rem"
           : "",
     },
     "@media (min-width: 1024px)": {
       marginLeft:
-        errorMessage === "Invalid phone number"
+        errormessage === "Invalid phone number"
           ? "-7rem"
-          : errorMessage === "Can't be empty"
+          : errormessage === "Can't be empty"
           ? "-4.2rem"
           : "-3rem",
     },
   })
 );
 
-type ErrorMessage = {
-  errorMessage: string;
+type errormessage = {
+  errormessage: string;
 };
 
-const ErrorHelper = ({ errorMessage }: ErrorMessage) => {
+const ErrorHelper = ({ errormessage }: errormessage) => {
   return (
     <StyledErrorBox
-      errorMessage={errorMessage}
+      errormessage={errormessage}
       aria-label="when the icon is displayed, there is an input error that needs attention"
       sx={{
         ...errorStyles.wrapper,
       }}
     >
-      <Typography sx={{ ...errorStyles.text }}>{errorMessage}</Typography>
+      <Typography sx={{ ...errorStyles.text }}>{errormessage}</Typography>
       <img
         src={
           process.env.REACT_APP_CLOUDFRONT_ENDPOINT +

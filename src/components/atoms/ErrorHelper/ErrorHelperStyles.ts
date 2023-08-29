@@ -1,6 +1,6 @@
 export const errorStyles = {
   wrapper: {
-    display: "flex-start",
+    display: "flex",
     alignItems: "center",
     justifyContent: "flex-start",
     color: "white.main",

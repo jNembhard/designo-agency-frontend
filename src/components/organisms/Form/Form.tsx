@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { styled } from "@mui/system";
 import { IFormState } from "../../../interface/Form";
@@ -7,6 +8,7 @@ import TextField from "@mui/material/TextField";
 import ErrorHelper from "../../atoms/ErrorHelper/ErrorHelper";
 import { FormButton } from "../../atoms/DesignoButton";
 import { formStyles, inputStyles } from "./FormStyles";
+import FormModal from "../../molecules/FormModal/FormModal";
 
 const WhiteTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -45,14 +47,28 @@ const Form = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState: { errors, isSubmitSuccessful },
   } = useForm<IFormState>({ mode: "onBlur" });
 
+  const [open, setOpen] = useState(false);
+
   const handleTextFieldError = (text: string) => {
-    return <ErrorHelper errorMessage={text} />;
+    return <ErrorHelper errormessage={text} />;
   };
 
-  const onSubmit: SubmitHandler<IFormState> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<IFormState> = (data) => {
+    setOpen(true);
+    console.log(data);
+  };
+
+  const handleClose = () => setOpen(false);
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({ name: "", emailAddress: "", phoneNumber: "", message: "" });
+    }
+  });
   return (
     <Box
       component="form"
@@ -158,6 +174,7 @@ const Form = () => {
       <Box sx={{ ...formStyles.buttonWrapper }}>
         <FormButton islight="true" text="submit" />
       </Box>
+      <FormModal openModal={open} closeModal={handleClose} />
     </Box>
   );
 };
