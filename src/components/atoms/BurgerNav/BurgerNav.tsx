@@ -42,11 +42,10 @@ const BurgerNav = () => {
         open={modalOpen}
       >
         <Stack
-          spacing="2rem"
+          spacing={4}
           sx={{
-            ...burgerNavStyles.backdropContainer,
-            transition: "opacity 0.3s ease-in-out, transform 0.3s ease-in-out",
             opacity: modalOpen ? 1 : 0,
+            ...burgerNavStyles.backdropContainer,
           }}
         >
           {navlinks.map((navlink) => (

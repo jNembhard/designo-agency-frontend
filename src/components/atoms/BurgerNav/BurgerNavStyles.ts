@@ -20,6 +20,7 @@ export const burgerNavStyles = {
     position: "absolute",
     zIndex: "drawer",
     top: "-0.05rem",
+    transition: "opacity 0.3s ease-in-out, transform 0.3s ease-in-out",
   },
   links: {
     fontSize: "1.5rem",
