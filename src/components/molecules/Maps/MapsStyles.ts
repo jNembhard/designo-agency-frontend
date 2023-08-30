@@ -41,7 +41,9 @@ export const mapsStyles = {
     borderRadius: {
       tablet: "0.9375rem",
     },
-    overflow: { tablet: "hidden" },
+    overflow: {
+      mobile: "hidden",
+    },
     width: {
       laptop: "45.625rem",
     },

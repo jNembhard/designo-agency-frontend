@@ -47,7 +47,6 @@ const BurgerNav = () => {
             ...burgerNavStyles.backdropContainer,
             transition: "opacity 0.3s ease-in-out, transform 0.3s ease-in-out",
             opacity: modalOpen ? 1 : 0,
-            transform: modalOpen ? "translateY(0)" : "translateY(-10px)",
           }}
         >
           {navlinks.map((navlink) => (

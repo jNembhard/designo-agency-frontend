@@ -12,13 +12,12 @@ type DesignSeo = {
 
 const SeoDesign = ({ author, type, slug }: DesignSeo) => {
   const path = seoPath(slug);
-  console.log(path);
 
   const { loading, error, data } = useQuery(GET_SEO_DESIGN, {
     variables: { DesignID: path },
   });
 
-  if (loading) return <div aria-hidden="true">loading designs Seo...</div>;
+  if (loading) return <div aria-hidden="true"></div>;
   if (error) {
     return (
       <div aria-hidden="true">Error occured while fetching seo design data</div>

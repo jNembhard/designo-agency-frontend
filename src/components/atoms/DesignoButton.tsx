@@ -12,6 +12,7 @@ const DesignoButton = styled(Button)(({ islight }: { islight: string }) => ({
   letterSpacing: "0.063rem",
   fontSize: "0.938rem",
   fontWeight: "medium",
+  textDecoration: "none",
   "&:hover": {
     color: "#ffffff",
     backgroundColor: "#ffad9b",
