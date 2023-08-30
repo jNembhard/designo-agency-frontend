@@ -18,7 +18,7 @@ const mock = {
 
 jest.mock("@mui/material/useMediaQuery");
 
-describe("FooteBottom Component", () => {
+describe("FooterBottom Component", () => {
   afterAll(() => {
     jest.clearAllMocks();
   });

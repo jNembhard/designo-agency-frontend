@@ -19,8 +19,11 @@ const SeoDesign = ({ author, type, slug }: DesignSeo) => {
   });
 
   if (loading) return <div aria-hidden="true">loading designs Seo...</div>;
-  if (error)
-    return <div aria-hidden="true">Error occured while fetching data</div>;
+  if (error) {
+    return (
+      <div aria-hidden="true">Error occured while fetching seo design data</div>
+    );
+  }
 
   const { header, title } = data.design;
   const capitalTitle = capitalizeWordsWithASpace(title);

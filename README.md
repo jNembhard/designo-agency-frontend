@@ -1,46 +1,99 @@
-# Getting Started with Create React App
+# Designo Agency Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Overview](#overview)
+  - [Requirements](#requirements)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Project insights](#project-insights)
+- [Author](#author)
 
-In the project directory, you can run:
+## Overview
 
-### `yarn start`
+### Requirements
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Users should be able to:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- View the optimal layout for each page depending on thier device's screen size
+- See hover state of all interactive elements throughout the site
+- Receive an error message when the contact form is submitted if:
+  - The `Name`, `Email Address`, or `Your Message` fields are empty.
+  - The `Name` field is not formatted correctly and should show "Invalid name"
+  - The `Phone` field is not formatted correctly and should show "Invalid email"
+  - The `Your Message` field is empty and should show "Can't be empty"
 
-### `yarn test`
+The application should be able to:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Render data based on information pulled from a GraphQL endpoint generated from an AWS Serverless architecture.
+- Store data in memory cache to enhance client side performance and promote return visits from users.
 
-### `yarn build`
+### Links
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Live Site URL: [update-here](https://update-link)
+- Check out the backend serverless architecture: [designo-serverless](https://github.com/jNembhard/designo-serverless)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Built with
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [React.js](https://reactjs.org)
+- [TypeScript](https://www.typescriptlang.org/)
+- [MaterialUI](https://mui.com/material-ui/)
+- [Apollo](https://www.apollographql.com/docs/react/)
+- [GraphQL](https://graphql.org/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) - Test Cases
+- [Jest](https://jestjs.io) - Test Cases
+- [React Hook Form](https://react-hook-form.com/)
 
-### `yarn eject`
+### Project insights
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Designo is meant to be a website which offers web, app, graphic design, and branding solutions. I wanted to take advantage of React's component-based architecture to break the UI into reusable components for sections such as headers, blocks, forms, and other reouccring elements. This modularity makes it easier to update specific parts of the site as it scales without effecting the entire codebase.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+React offers an undirectional data flow which can ensure that changes to the site are predictable and easier to manage. This is especially valuable for a marketing site where content may change frequently.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+For a marketing website such as this one, I felt that choosing React which has a large ecosystem and community may prove valuable to be able to enhance the development process. Whether you need to integrate third party solutions, implement complex animations, or ensure SEO optimization, there are well etablished solutions avaialable to save time and effort.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Material UI
 
-## Learn More
+To help speed things along, I decided to use Material UI's component library to set up the global theme and component level design. The setup for the theme allows you to pass pre-defined colors and css code by breakpoint that can be called at any time as long as the application is wrapped with the ThemeProvider. I made use of Material UI's sx prop which allows you to avoid writing unecessary styled-component code and instead define styles directly within the component itself like so:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```html
+<Typography sx={{ color: "peach.main", fontSize: "1rem" }}>
+ A material Box component
+</Typography>
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+As your application scales, it can be hard to maintain the code in a scalable way, so you can pass styles into the component like this:
+
+```typescript
+export const styles = {
+  text: {
+    color: "peach.main",
+    fontSize: {
+      mobile: "1rem",
+      tablet: "2rem",
+      laptop: "3rem",
+    },
+  },
+};
+```
+
+```html
+<Typography sx="{{" ...styles.text }}> A material Box component </Typography>
+```
+
+What happens in this case is that you can now have an object that can pass all of the data with the spread operator through the sx prop. This should keep the code clean and scalable to separate the design and business logic in a maintainable way. The code will update in a responsive way based on the breakpoint.
+
+Performance-wise, the sx prop uses a superset of CSS and auto-purges so only CSS that's used on the page is sent to the client. There is also fixed bundle size cost, so there's no need to worry about the file size growing as you add more css to the sx prop.
+
+### Apollo and GraphQL
+
+I setup the backend to use AWS AppSync which ultimately deploys a GraphQL endpoint from a serverless architecture, so Apollo Client was an obvious choice. Because of the way I need to access the data from the endpoint, I can ensure that I am only fetching exactly the data I need from the endpoint eliminating the possibility of over-fetching and under-fetching of data. This allows for faster load times and a more responsive application.
+
+I made use of the built-in caching mechanism that stores fetched dat in memory. This allows you to avoid redundant network requests and provides a consistent source of truth for your data. The client also manages local state, making it easier to manage UI state and interactions. From a marketing site perspective, the user will have a better experience because they can return to the site after their first visit and pick up where they left off and avoid longer load times. If you can keep a potential client's attention, it is more likely they will convert on your site.
+
+Apollo Client is also capable of normalization and deduplication, meaning that if there's data used in multiple places throughout your application, Apollo is smart enough to store that data only once in the cache. This helps to improve memory usage and reduce unnecessary data transfers.
+
+## Author
+
+- Website - [Jason Nembhard](https://www.jasonnembhard.com)

@@ -11,17 +11,18 @@ import { formStyles, inputStyles } from "./FormStyles";
 import FormModal from "../../molecules/FormModal/FormModal";
 
 const WhiteTextField = styled(TextField)({
-  "& label.Mui-focused": {
-    color: "#ffffff",
-  },
   "& .MuiInput-underline:before": {
-    borderBottomColor: "white",
+    borderColor: "white",
   },
   "& .MuiInput-underline:hover:before": {
-    borderBottomColor: "white",
+    borderColor: "white",
   },
   "& .MuiInput-underline:after": {
-    borderBottomColor: "white",
+    borderColor: "white",
+  },
+  "& label.Mui-focused": {
+    color: "white",
+    borderColor: "white",
   },
   "& .MuiFormHelperText-root": {
     color: "white",
@@ -29,17 +30,7 @@ const WhiteTextField = styled(TextField)({
     marginTop: "-30px !important",
     fontStyle: "italic",
     width: "fit-content",
-  },
-  "& .MuiOutlinedInput-root": {
-    "& fieldset": {
-      borderColor: "white",
-    },
-    "&:hover fieldset": {
-      borderColor: "white",
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "white",
-    },
+    borderColor: "white",
   },
 });
 
@@ -57,9 +48,9 @@ const Form = () => {
     return <ErrorHelper errormessage={text} />;
   };
 
-  const onSubmit: SubmitHandler<IFormState> = (data) => {
+  const onSubmit: SubmitHandler<IFormState> = (formData) => {
     setOpen(true);
-    console.log(data);
+    console.log(formData);
   };
 
   const handleClose = () => setOpen(false);
@@ -88,7 +79,6 @@ const Form = () => {
           sx={{
             ...formStyles.textField,
           }}
-          error={errors.name ? true : false}
           helperText={errors.name ? handleTextFieldError("Invalid name") : ""}
           {...register("name", {
             required: "Field cannot be empty",
@@ -99,7 +89,6 @@ const Form = () => {
           })}
           aria-invalid={errors.name ? "true" : "false"}
         />
-
         <WhiteTextField
           id="email"
           placeholder="Email Address"
@@ -110,7 +99,6 @@ const Form = () => {
           sx={{
             ...formStyles.textField,
           }}
-          error={errors.emailAddress ? true : false}
           helperText={
             errors.emailAddress ? handleTextFieldError("Invalid email") : ""
           }
@@ -133,7 +121,6 @@ const Form = () => {
           sx={{
             ...formStyles.textField,
           }}
-          error={errors.phoneNumber ? true : false}
           helperText={
             errors.phoneNumber
               ? handleTextFieldError("Invalid phone number")
@@ -156,9 +143,7 @@ const Form = () => {
           rows={4}
           inputProps={{
             style: inputStyles,
-            color: "white.main",
           }}
-          error={errors.message ? true : false}
           helperText={
             errors.message ? handleTextFieldError("Can't be empty") : ""
           }

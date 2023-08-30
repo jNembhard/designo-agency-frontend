@@ -42,13 +42,16 @@ type errormessage = {
 const ErrorHelper = ({ errormessage }: errormessage) => {
   return (
     <StyledErrorBox
+      component="span"
       errormessage={errormessage}
       aria-label="when the icon is displayed, there is an input error that needs attention"
       sx={{
         ...errorStyles.wrapper,
       }}
     >
-      <Typography sx={{ ...errorStyles.text }}>{errormessage}</Typography>
+      <Typography component="div" sx={{ ...errorStyles.text }}>
+        {errormessage}
+      </Typography>
       <img
         src={
           process.env.REACT_APP_CLOUDFRONT_ENDPOINT +

@@ -93,4 +93,30 @@ describe("SeoDesign Component", () => {
       });
     }
   );
+
+  it("should show an error message when the design query fails fetch seo data", async (): Promise<void> => {
+    const seoErrorMock = {
+      mocks: {
+        Query: {
+          design: () => {
+            throw Error("invalid seo query");
+          },
+        },
+      },
+    };
+
+    apolloRender(
+      <HelmetProvider>
+        <SeoDesign author="Jason Nembhard" type="webapp" slug="web-design" />
+      </HelmetProvider>,
+      seoErrorMock,
+      schema,
+      true
+    );
+
+    const errorText = await screen.findByText(
+      "Error occured while fetching seo design data"
+    );
+    expect(errorText).toBeInTheDocument();
+  });
 });
