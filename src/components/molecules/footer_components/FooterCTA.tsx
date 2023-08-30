@@ -37,7 +37,9 @@ const FooterCTA = () => {
             </Typography>
           </Box>
         </Box>
-        <DesignButton link="/contact" islight="true" text="get in touch" />
+        <Box>
+          <DesignButton link="/contact" islight="true" text="get in touch" />
+        </Box>
       </Stack>
     </Box>
   );

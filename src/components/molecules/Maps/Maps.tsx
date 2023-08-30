@@ -1,14 +1,14 @@
 import { useEffect } from "react";
+import { mapsStyles } from "./MapsStyles";
 import { useQuery } from "@apollo/client";
 import { GET_LOCATIONS } from "../../../graphql/locationQueries";
 import { ILocation } from "../../../interface/Location";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import LocationContact from "../../atoms/LocationContact/LocationContact";
 import Typography from "@mui/material/Typography";
+import LocationContact from "../../atoms/LocationContact/LocationContact";
 import { MapsSkeleton } from "./MapsSkeleton";
-import { mapsStyles } from "./MapsStyles";
 
 const Maps = () => {
   const isBreakpoint767 = useMediaQuery("(min-width: 767px)");
@@ -39,7 +39,7 @@ const Maps = () => {
   );
 
   return (
-    <>
+    <Box>
       {!loading && !error && (
         <Box sx={{ ...mapsStyles.wrapper }}>
           {location.map((location: ILocation) => {
@@ -120,7 +120,7 @@ const Maps = () => {
           })}
         </Box>
       )}
-    </>
+    </Box>
   );
 };
 

@@ -69,7 +69,6 @@ const HeroCTA = () => {
               }
               alt=""
             />
-
             <Box
               sx={{ ...heroStyles.image }}
               component="img"

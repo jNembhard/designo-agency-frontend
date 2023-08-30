@@ -20,7 +20,8 @@ export const subStyles = {
       laptop: "17.8rem",
     },
     maxWidth: {
-      laptop: "33.813rem",
+      laptop: "31rem",
+      desktop: "33.813rem",
     },
     transition: "background-color 0.2s ease-in-out",
     "&:hover": {
@@ -31,7 +32,7 @@ export const subStyles = {
   images: {
     objectFit: "cover",
     opacity: 0.5,
-    maxWidth: "100%",
+    width: "100%",
     height: "auto",
   },
   wrapper: {
