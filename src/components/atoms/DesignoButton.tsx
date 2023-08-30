@@ -33,7 +33,7 @@ type FormButtonProp = {
 
 const DesignButton = ({ link, islight, text }: DesignoButtonProp) => {
   return (
-    <Link role="link" href={link}>
+    <Link role="link" href={link} sx={{ textDecoration: "none" }}>
       <DesignoButton role="button" islight={islight}>
         {text}
       </DesignoButton>
