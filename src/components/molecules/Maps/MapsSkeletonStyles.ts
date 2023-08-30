@@ -10,11 +10,12 @@ export const mapsSkeletonStyles = {
       tablet: "2.5rem",
       laptop: "auto",
     },
-    maxWidth: "69.438rem",
+    maxWidth: {
+      laptop: "69.438rem",
+    },
   },
   container: {
     height: {
-      mobile: "38.4375rem",
       tablet: "39rem",
       laptop: "20.375rem",
     },
@@ -27,7 +28,7 @@ export const mapsSkeletonStyles = {
   },
   imageSkeleton: {
     height: {
-      mobile: "20rem",
+      mobile: "30rem",
     },
     width: {
       laptop: "20.375rem",
