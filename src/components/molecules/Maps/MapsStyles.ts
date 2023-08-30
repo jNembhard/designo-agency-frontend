@@ -1,9 +1,12 @@
 export const mapsStyles = {
   wrapper: {
     maxWidth: {
+      mobile: "100%",
       laptop: "69.4375rem",
     },
-    margin: { laptop: "auto" },
+    margin: {
+      laptop: "auto",
+    },
   },
   container: {
     margin: {
@@ -12,9 +15,10 @@ export const mapsStyles = {
       laptop: "0 0 2rem",
     },
   },
-  picture: {
+  imageWrapper: {
     margin: 0,
     padding: 0,
+    overflow: "hidden",
     height: {
       mobile: "20rem",
       tablet: "20.375rem",
@@ -27,12 +31,11 @@ export const mapsStyles = {
     borderRadius: {
       tablet: "0.9375rem",
     },
-    overflow: "hidden",
   },
   mapImages: {
     width: "100%",
     height: "auto",
-    objectFit: "fill",
+    objectFit: "cover",
   },
   textWrapper: {
     position: "relative",

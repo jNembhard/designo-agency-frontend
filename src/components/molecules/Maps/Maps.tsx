@@ -60,28 +60,25 @@ const Maps = () => {
                 spacing={isBreakpoint1024 ? 3 : 0}
                 sx={{ ...mapsStyles.container }}
               >
-                <Box
-                  id={hashID}
-                  component="picture"
-                  sx={{ ...mapsStyles.picture }}
-                >
-                  <Box
-                    component="source"
-                    media="(min-width: 767px) and (max-width: 1023px)"
-                    srcSet={
-                      process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
-                      location.images.tablet
-                    }
-                  />
-                  <Box
-                    component="img"
-                    src={
-                      process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
-                      location.images.desktop
-                    }
-                    alt={location.title}
-                    sx={{ ...mapsStyles.mapImages }}
-                  />
+                <Box id={hashID} sx={{ ...mapsStyles.imageWrapper }}>
+                  <picture>
+                    <source
+                      media="(min-width: 767px) and (max-width: 1023px)"
+                      srcSet={
+                        process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
+                        location.images.tablet
+                      }
+                    />
+                    <Box
+                      component="img"
+                      sx={{ ...mapsStyles.mapImages }}
+                      src={
+                        process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
+                        location.images.desktop
+                      }
+                      alt={location.title}
+                    />
+                  </picture>
                 </Box>
                 <Box sx={{ ...mapsStyles.textWrapper }}>
                   <Box sx={{ ...mapsStyles.bgImageWrapper }}>
