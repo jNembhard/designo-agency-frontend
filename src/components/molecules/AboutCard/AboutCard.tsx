@@ -37,14 +37,12 @@ const StyledCardMedia = styled(CardMedia)(
 const StyledCardTitle = styled(Typography)(
   ({ isdark }: { isdark: string }) => ({
     color: isdark === "true" ? "white.main" : "peach.main",
-    mb: {
-      mobile: "1.5rem",
-    },
+    marginBottom: "1.5rem",
   })
 );
 
 const StyledCardText = styled(Typography)(({ isdark }: { isdark: string }) => ({
-  mb: "1.25rem",
+  marginBottom: "1.25rem",
   color: isdark === "true" ? "#ffffff" : "#333136",
 }));
 

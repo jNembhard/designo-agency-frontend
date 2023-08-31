@@ -7,7 +7,7 @@ export const burgerNavStyles = {
   },
   backdrop: {
     color: "black.main",
-    zIndex: "drawer",
+    zIndex: 1200,
     top: "8.875rem",
   },
   backdropContainer: {
@@ -18,7 +18,7 @@ export const burgerNavStyles = {
     alignItems: "left",
     justifyContent: "start",
     position: "absolute",
-    zIndex: "modal",
+    zIndex: 1300,
     top: "-0.05rem",
     transition: "opacity 0.3s ease-in-out, transform 0.3s ease-in-out",
   },
