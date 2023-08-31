@@ -12,6 +12,7 @@ export const navbarStyles = {
       mobile: "2.188rem 0",
       tablet: "2rem 0",
     },
+    zIndex: "app bar",
   },
   toolbar: {
     justifyContent: "space-between",

@@ -40,7 +40,7 @@ export const mapsStyles = {
   textWrapper: {
     position: "relative",
     bgcolor: "sand",
-    zIndex: "-1",
+    zIndex: -1,
     borderRadius: {
       tablet: "0.9375rem",
     },
@@ -86,7 +86,7 @@ export const mapsStyles = {
   title: {
     color: "peach.main",
     textTransform: "capitalize",
-    zIndex: "2",
+    zIndex: 2,
   },
   contactsWrapper: {
     pt: {
