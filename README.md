@@ -17,7 +17,7 @@
 
 Users should be able to:
 
-- View the optimal layout for each page depending on thier device's screen size
+- View the optimal layout for each page depending on their device's screen size
 - See hover state of all interactive elements throughout the site
 - Receive an error message when the contact form is submitted if:
   - The `Name`, `Email Address`, or `Your Message` fields are empty.
@@ -32,8 +32,8 @@ The application should be able to:
 
 ### Links
 
-- Live Site URL: [Designo Website](https://designowebagency.vercel.app/)
-- Check out the backend serverless architecture: [designo-serverless](https://github.com/jNembhard/designo-serverless)
+- Live Site URL: [https://designowebagency.vercel.app](https://designowebagency.vercel.app/)
+- Check out the backend serverless architecture: [https://github.com/jNembhard/designo-serverless](https://github.com/jNembhard/designo-serverless)
 
 ### Screenshot
 
@@ -52,15 +52,15 @@ The application should be able to:
 
 ### Project insights
 
-Designo is meant to be a website which offers services for web, app, graphic design, and branding solutions. I wanted to take advantage of React's component-based architecture to break the UI into reusable components for sections such as headers, blocks, forms, and other reouccring elements. This modularity makes it easier to update specific parts of the site as it scales without effecting the entire codebase.
+Designo is meant to be a website which offers services for web, app, graphic design, and branding solutions. I wanted to take advantage of React's component-based architecture to break the UI into reusable components for sections such as headers, blocks, forms, and other reoccurring elements. This modularity makes it easier to update specific parts of the site as it scales without effecting the entire codebase.
 
-React offers an undirectional data flow which can ensure that changes to the site are predictable and easier to manage. This is especially valuable for a marketing site where content may change frequently.
+React offers an unidirectional data flow which can ensure that changes to the site are predictable and easier to manage. This is especially valuable for a marketing site where content may change frequently.
 
-For a marketing website such as this one, I felt that choosing React which has a large ecosystem and community may prove valuable to be able to enhance the development process. Whether you need to integrate third party solutions, implement complex animations, or ensure SEO optimization, there are well etablished solutions avaialable to save time and effort.
+For a marketing website such as this one, I felt that choosing React which has a large ecosystem and community may prove valuable to be able to enhance the development process. Whether you need to integrate third party solutions, implement complex animations, or ensure SEO optimization, there are well established solutions available to save time and effort.
 
 #### Material UI
 
-To help speed things along, I decided to use Material UI's component library to set up the global theme and component level design. The setup for the theme allows you to pass pre-defined colors and css code by breakpoint that can be called at any time as long as the application is wrapped with the ThemeProvider. I made use of Material UI's sx prop which allows you to avoid writing unecessary styled-component code and instead define styles directly within the component itself like so:
+To help speed things up, I decided to use Material UI's component library to set up the global theme and component level design. The setup for the theme allows you to pass pre-defined colors and css code by breakpoint that can be called at any time if the application is wrapped with the ThemeProvider. I made use of Material UI's sx prop which allows you to avoid writing unnecessary styled-component code and instead define styles directly within the component itself like so:
 
 ```html
 <Typography sx={{ color: "peach.main", fontSize: "1rem" }}>
@@ -87,11 +87,11 @@ export const styles = {
 <Typography sx="{{" ...styles.text }}> A material Box component </Typography>
 ```
 
-What happens in this case is that you can now have an object that can pass all of the data with the spread operator through the sx prop. This should keep the code clean keep the design and business logic separate in a maintainable way. The code will update in a responsive way based on the breakpoint.
+What happens in this case is that you can now have an object that can pass all the data with the spread operator through the sx prop. This should keep the code clean keep the design and business logic separate in a maintainable way. The code will update in a responsive way based on the breakpoint.
 
 Performance-wise, the sx prop uses a superset of CSS and auto-purges so the only CSS that's used on the page is sent to the client. There is also a fixed bundle size cost, so there's no need to worry about the file size growing as you add more css to the sx prop.
 
-I've even added some skeleton loaders into the mix. They are useful for displaying a preview of the data before the data is loaded in order to redcue loadtime frustration for potential users. Essentialy, they get a preview of what's to come and it helps keep them engaged in the displayed content. This is also useful for "buying time" in areas where there is low bandwidth.
+I've even added some skeleton loaders into the mix. They are useful for displaying a preview of the data before the data is loaded in order to reduce load time frustration for potential users. Essentially, they get a preview of what's to come and it helps keep them engaged in the displayed content. This is also useful for "buying time" in areas where there is low bandwidth.
 
 ### Apollo and GraphQL
 
