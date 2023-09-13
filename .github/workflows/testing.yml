@@ -18,5 +18,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: yarn add
         run: yarn test:ci
-      - name: __tests__
+      - name: tests
         run: yarn test
