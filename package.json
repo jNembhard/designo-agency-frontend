@@ -39,6 +39,7 @@
     "test:coverage": "react-scripts test spec --silent --coverage",
     "test:verbose": "react-scripts test",
     "test:coverage:verbose": "react-scripts test spec --coverage",
+    "test:ci": "react-scripts test spec",
     "eject": "react-scripts eject",
     "compile": "graphql-codegen",
     "watch": "graphql-codegen -w"
