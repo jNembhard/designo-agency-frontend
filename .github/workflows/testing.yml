@@ -4,19 +4,19 @@ on: [pull_request]
 
 jobs:
   tests:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
         node-version: [18.x]
 
     steps:
-      - uses: actions/chekcout@v2
+      - uses: actions/chekcout@v3
       - name: Use Node.js ${{ matrix.node-version}}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: yarn add
-        run: yarn test:ci
+      - name: yarn
+        run: yarn
       - name: tests
         run: yarn test
