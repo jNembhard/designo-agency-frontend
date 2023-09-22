@@ -1,5 +1,6 @@
 export const productsStyles = {
   wrapper: {
+    maxWidth: "82.5rem",
     my: {
       mobile: "6rem",
     },

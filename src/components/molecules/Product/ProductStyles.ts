@@ -17,6 +17,7 @@ export const productStyles = {
     maxWidth: {
       tablet: "50rem",
       laptop: "21.875rem",
+      desktop: "21.3rem",
     },
   },
   container: {
