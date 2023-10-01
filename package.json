@@ -35,7 +35,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --silent",
+    "test": "react-scripts test spec --silent",
     "test:coverage": "react-scripts test spec --silent --coverage",
     "test:verbose": "react-scripts test",
     "test:coverage:verbose": "react-scripts test spec --coverage",

@@ -11,7 +11,7 @@ const FormModal = ({
   closeModal,
 }: {
   openModal: boolean;
-  closeModal: any;
+  closeModal: () => void;
 }) => {
   return (
     <Modal

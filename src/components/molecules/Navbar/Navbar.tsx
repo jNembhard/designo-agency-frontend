@@ -34,8 +34,8 @@ const Navbar = () => {
                 component={Link}
                 key={navlink.id}
                 href={navlink.slug}
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
+                onMouseEnter={() => setHovered(hovered)}
+                onMouseLeave={() => setHovered(!hovered)}
                 sx={{ ...navbarStyles.linkContainers }}
               >
                 <Box component="span" sx={{ ...navbarStyles.linkText }}>
