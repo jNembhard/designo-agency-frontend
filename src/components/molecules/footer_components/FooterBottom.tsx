@@ -46,8 +46,8 @@ const FooterBottom = () => {
             key={navlink.id}
             href={navlink.slug}
             component={Link}
-            onMouseOver={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
+            onMouseOver={() => setHovered(hovered)}
+            onMouseLeave={() => setHovered(!hovered)}
             sx={{ ...footerBottomStyles.navLinkText }}
           >
             <Box
