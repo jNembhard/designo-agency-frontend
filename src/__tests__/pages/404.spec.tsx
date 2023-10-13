@@ -15,7 +15,7 @@ jest.mock(
   () => () => <div data-testid="mock-not-found" />
 );
 
-describe("About Page", () => {
+describe("404 Page", () => {
   afterAll(() => {
     jest.clearAllMocks();
   });
