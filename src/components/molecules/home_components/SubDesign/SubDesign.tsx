@@ -49,6 +49,7 @@ const SubDesign = (design: SubDesignProp) => {
               />
               <Box
                 component="img"
+                loading="lazy"
                 sx={{ ...subStyles.images }}
                 src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.mobile}
                 alt={title}

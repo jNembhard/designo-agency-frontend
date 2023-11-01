@@ -49,9 +49,10 @@ const StyledCardText = styled(Typography)(({ isdark }: { isdark: string }) => ({
 type AboutCardProp = {
   aboutID: string;
   isdark: string;
+  pictureloading: boolean;
 };
 
-const AboutCard = ({ aboutID, isdark }: AboutCardProp) => {
+const AboutCard = ({ aboutID, isdark, pictureloading }: AboutCardProp) => {
   const isBreakpoint767 = useMediaQuery("(min-width: 767px)");
   const isBreakpoint1024 = useMediaQuery("(min-width: 1024px)");
 
@@ -98,6 +99,7 @@ const AboutCard = ({ aboutID, isdark }: AboutCardProp) => {
                     process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
                     images.heroPatternMobile
                   }
+                  loading={pictureloading ? "eager" : "lazy"}
                   alt=""
                 />
               </Box>

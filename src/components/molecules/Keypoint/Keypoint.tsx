@@ -35,12 +35,14 @@ const Keypoint = ({ calloutID, image, title, description }: ICallout) => {
               process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
               "assets/shared/desktop/bg-pattern-small-circle.svg"
             }
+            loading="lazy"
             alt=""
           />
         </Box>
         <Box>
           <img
             src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + image}
+            loading="lazy"
             alt={title}
           />
         </Box>

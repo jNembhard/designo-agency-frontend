@@ -43,7 +43,7 @@ const ContactTemplate = () => {
         <Box sx={{ ...contactTemplateStyles.wrapper }}>
           <Box component="picture" sx={{ ...contactTemplateStyles.image }}>
             <source media="(min-width: 767px)" srcSet={bgContactDesktop} />
-            <img src={bgContactMobile} alt="" />
+            <img src={bgContactMobile} alt="" loading="eager" />
           </Box>
           <ContactDescription />
           <Form />

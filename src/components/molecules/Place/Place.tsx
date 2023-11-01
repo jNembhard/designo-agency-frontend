@@ -26,6 +26,7 @@ const Place = ({ LocationID, images, title, slug }: IPlace) => {
               process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
               "assets/shared/desktop/bg-pattern-small-circle.svg"
             }
+            loading="lazy"
             alt=""
           />
         </Box>
