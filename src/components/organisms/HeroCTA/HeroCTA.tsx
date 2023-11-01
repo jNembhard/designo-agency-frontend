@@ -62,6 +62,7 @@ const HeroCTA = () => {
           <Box>
             <Box
               sx={{ ...heroStyles.bgImage }}
+              loading="eager"
               component="img"
               src={
                 process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
@@ -71,6 +72,7 @@ const HeroCTA = () => {
             />
             <Box
               sx={{ ...heroStyles.image }}
+              loading="eager"
               component="img"
               src={designoPhoneImg}
               alt="designo phone"

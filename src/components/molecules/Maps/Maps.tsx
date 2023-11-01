@@ -76,6 +76,7 @@ const Maps = () => {
                         process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
                         location.images.desktop
                       }
+                      loading={hashID === "canada" ? "eager" : "lazy"}
                       alt={location.title}
                     />
                   </picture>
@@ -87,6 +88,7 @@ const Maps = () => {
                         process.env.REACT_APP_CLOUDFRONT_ENDPOINT +
                         "assets/shared/desktop/bg-pattern-three-circles.svg"
                       }
+                      loading={hashID === "canada" ? "eager" : "lazy"}
                       alt=""
                     />
                   </Box>

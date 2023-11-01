@@ -36,6 +36,7 @@ const Product = ({ description, image, title }: IProduct) => {
             alt={description}
             sx={{ ...productStyles.cardMedia }}
             image={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + image}
+            loading="lazy"
           />
           <CardContent sx={{ ...productStyles.cardContent }}>
             <Typography

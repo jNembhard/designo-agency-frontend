@@ -28,6 +28,7 @@ const DesignHeader = ({ designID }: DesignHeaderProp) => {
             component="img"
             src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.bgPattern}
             sx={{ ...designHeaderStyles.bgImage }}
+            loading="eager"
             alt=""
           />
           <Box sx={{ ...designHeaderStyles.textContainer }}>

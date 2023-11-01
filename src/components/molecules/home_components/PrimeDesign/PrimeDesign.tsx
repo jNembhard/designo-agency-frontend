@@ -49,6 +49,7 @@ const PrimeDesign = (design: PrimeDesignProp) => {
               />
               <Box
                 component="img"
+                loading="lazy"
                 sx={{ ...primeStyles.images }}
                 src={process.env.REACT_APP_CLOUDFRONT_ENDPOINT + images.mobile}
                 alt={title}
